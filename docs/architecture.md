@@ -24,7 +24,7 @@ graph TD
 
 ## 4. Project Structure
 
-- `app/` — Pages, layouts, and routes for the public website, member portal, and officer portal.
+- `src/app/` — Pages, layouts, and routes for the public website, member portal, and officer portal.
 - `src/components/` — Reusable UI components, including shadcn/ui components.
 - `src/features/` — Feature-specific logic, such as meetings, membership, roles, and resources.
 - `src/lib/` — Supabase setup, shared services, and utility functions.

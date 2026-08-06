@@ -1,26 +1,37 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Brand Palette */
+
+  /* Toastmasters Brand */
+
+  --tm-cool-gray: #a9b2b1;
+  --tm-happy-yellow: #f2df74;
+  --tm-loyal-blue: #004165;
+  --tm-true-maroon: #772432;
+
+  /* Application Neutrals */
+
+  --neutral-0: #ffffff;
+  --neutral-900: #18181b;
+
+  /* Semantic Tokens */
   --font-heading: var(--font-montserrat);
   --font-body: var(--font-source-sans-3);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-background: var(--neutral-0);
+  --color-foreground: var(--neutral-900);
+
+  --color-primary: var(--tm-loyal-blue);
+  --color-primary-foreground: var(--neutral-0);
+
+  --color-secondary: var(--tm-true-maroon);
+  --color-secondary-foreground: var(--neutral-0);
+
+  --color-muted: var(--tm-cool-gray);
+  --color-accent: var(--tm-happy-yellow);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: var(--font-body);
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Navigation from "./Navigation";
 import toastmastersLogo from "@/imports/toastmasters-logo_2x.png";
 
 export default function Header() {
@@ -16,6 +17,7 @@ export default function Header() {
           />
           Bits 'N Speeches
         </Link>
+        <Navigation />
       </div>
     </header>
   );

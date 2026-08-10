@@ -4,10 +4,10 @@ import toastmastersLogo from "@/imports/toastmasters-logo_2x.png";
 export default function Header() {
   return (
     <header className="bg-primary">
-      <div className="max-w-7xl mx-auto">
+      <div className="flex justify-between items-center max-w-7xl mx-auto p-8">
         <Link
           href="/"
-          className="flex items-center gap-4 p-8 text-primary-foreground font-bold text-2xl tracking-wide"
+          className="flex items-center gap-4 text-primary-foreground font-heading font-bold text-2xl tracking-wide"
         >
           <img
             src={toastmastersLogo.src}

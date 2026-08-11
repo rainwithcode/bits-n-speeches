@@ -30,10 +30,14 @@ export default function Navigation() {
 
   return (
     <div className="relative font-heading">
-      <nav className="flex gap-4 items-center">
+      <nav className="hidden md:flex gap-4 items-center">
         {/* Desktop Navigation */}
         {links.map((link) => (
-          <Link href={link.href} className={navLinkClassName(link.active)}>
+          <Link
+            href={link.href}
+            className={navLinkClassName(link.active)}
+            key={link.href}
+          >
             {link.label}
           </Link>
         ))}

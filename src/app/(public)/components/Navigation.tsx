@@ -22,8 +22,8 @@ export default function Navigation() {
         : "text-primary-foreground/90 font-bold text-sm border-b-2 border-transparent px-5 py-2 hover:text-primary-foreground transition-colors";
     } else if (variant === "mobile") {
       return isActive
-        ? "text-accent text-lg font-bold px-5 py-2"
-        : "text-primary-foreground/90 text-lg font-bold px-5 py-2 hover:text-primary-foreground transition-colors";
+        ? "text-accent text-sm font-bold px-5 py-2"
+        : "text-primary-foreground/90 text-sm font-bold px-5 py-2 hover:text-primary-foreground transition-colors";
     }
   }
 

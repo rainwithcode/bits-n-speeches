@@ -28,6 +28,7 @@
   --color-secondary: var(--tm-true-maroon);
   --color-secondary-foreground: var(--neutral-0);
 
+  --color-surface-dark: var(--neutral-900);
   --color-muted: var(--tm-cool-gray);
   --color-accent: var(--tm-happy-yellow);
 }

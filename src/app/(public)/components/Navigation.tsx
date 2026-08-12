@@ -1,5 +1,6 @@
 "use client";
 
+import { navLinks } from "./nav-links";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
@@ -27,30 +28,14 @@ export default function Navigation() {
     }
   }
 
-  const links = [
-    { href: "/", label: "Home", active: pathname === "/" },
-    { href: "about", label: "About", active: pathname === "/about" },
-    { href: "meetings", label: "Meetings", active: pathname === "/meetings" },
-    {
-      href: "membership",
-      label: "Membership",
-      active: pathname === "/membership",
-    },
-    {
-      href: "contact",
-      label: "Contact",
-      active: pathname === "/contact",
-    },
-  ];
-
   return (
     <div className="font-heading">
       <nav className="hidden lg:flex gap-4 items-center">
         {/* Desktop Navigation */}
-        {links.map((link) => (
+        {navLinks.map((link) => (
           <Link
             href={link.href}
-            className={navLinkClassName(link.active, "desktop")}
+            className={navLinkClassName(link.href === pathname, "desktop")}
             key={link.href}
           >
             {link.label}
@@ -67,10 +52,10 @@ export default function Navigation() {
       {isOpen && (
         <nav className="absolute top-full left-0 right-0 w-full flex flex-col lg:hidden gap-4 items-center py-8 bg-surface-dark">
           {/* Mobile Navigation */}
-          {links.map((link) => (
+          {navLinks.map((link) => (
             <Link
               href={link.href}
-              className={navLinkClassName(link.active, "mobile")}
+              className={navLinkClassName(link.href === pathname, "mobile")}
               key={link.href}
             >
               {link.label}

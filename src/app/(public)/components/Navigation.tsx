@@ -1,6 +1,6 @@
 "use client";
 
-import { navLinks } from "./nav-links";
+import { navLinks } from "../data/nav-links";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";

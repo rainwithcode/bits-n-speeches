@@ -30,7 +30,7 @@ export default function Navigation() {
 
   return (
     <div className="font-heading">
-      <nav className="hidden lg:block">
+      <nav className="hidden lg:block" aria-label="Primary">
         {/* Desktop Navigation */}
         <ul className="flex gap-4 items-center">
           {navLinks.map((link) => (
@@ -53,7 +53,10 @@ export default function Navigation() {
         )}
       </button>
       {isOpen && (
-        <nav className="absolute top-full left-0 right-0 w-full flex flex-col lg:hidden gap-4 items-center py-8 bg-surface-dark">
+        <nav
+          className="absolute top-full left-0 right-0 w-full flex flex-col lg:hidden gap-4 items-center py-8 bg-surface-dark"
+          aria-label="Primary"
+        >
           {/* Mobile Navigation */}
           {navLinks.map((link) => (
             <ul>

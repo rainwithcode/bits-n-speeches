@@ -17,7 +17,7 @@ export default function Footer() {
               alt="Toastmasters logo"
               className="w-14 h-auto"
             />
-            <h2 className="font-heading font-bold">{siteConfig.name}</h2>
+            <h2 className="font-heading font-bold text-lg">{siteConfig.name}</h2>
             <p className="text-primary-foreground/70">{siteConfig.tagline}</p>
           </div>
           <nav className="flex flex-col gap-3" aria-label="Footer">

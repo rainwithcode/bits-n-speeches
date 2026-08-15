@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Navigation from "./Navigation";
+import { siteConfig } from "@/app/data/site-config";
 import toastmastersLogo from "@/imports/toastmasters-logo_2x.png";
 
 export default function Header() {
@@ -16,7 +17,7 @@ export default function Header() {
             alt="Toastmasters logo"
             className="w-auto h-12"
           />
-          Bits 'N Speeches
+          {siteConfig.name}
         </Link>
         <Navigation />
       </div>

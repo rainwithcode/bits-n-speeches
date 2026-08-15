@@ -30,17 +30,20 @@ export default function Navigation() {
 
   return (
     <div className="font-heading">
-      <nav className="hidden lg:flex gap-4 items-center">
+      <nav className="hidden lg:block">
         {/* Desktop Navigation */}
-        {navLinks.map((link) => (
-          <Link
-            href={link.href}
-            className={navLinkClassName(link.href === pathname, "desktop")}
-            key={link.href}
-          >
-            {link.label}
-          </Link>
-        ))}
+        <ul className="flex gap-4 items-center">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className={navLinkClassName(link.href === pathname, "desktop")}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </nav>
       <button className="flex lg:hidden cursor-pointer" onClick={toggleMenu}>
         {isOpen ? (
@@ -53,13 +56,16 @@ export default function Navigation() {
         <nav className="absolute top-full left-0 right-0 w-full flex flex-col lg:hidden gap-4 items-center py-8 bg-surface-dark">
           {/* Mobile Navigation */}
           {navLinks.map((link) => (
-            <Link
-              href={link.href}
-              className={navLinkClassName(link.href === pathname, "mobile")}
-              key={link.href}
-            >
-              {link.label}
-            </Link>
+            <ul>
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={navLinkClassName(link.href === pathname, "mobile")}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            </ul>
           ))}
         </nav>
       )}

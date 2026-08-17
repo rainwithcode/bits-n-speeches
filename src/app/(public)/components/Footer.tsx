@@ -10,22 +10,21 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p8 ">
-        <div className="flex gap-8">
-          <div className="space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div>
             <Image
               src={toastmastersLogo}
               alt="Toastmasters logo"
-              className="w-14 h-auto"
+              className="w-14 h-auto mb-3"
             />
-            <h2 className="font-heading font-bold text-lg">
-              {siteConfig.name}
-            </h2>
-            <p className="text-primary-foreground/70">{siteConfig.tagline}</p>
+            <div className="space-y-2">
+              <h2 className="font-heading font-bold text-lg">
+                {siteConfig.name}
+              </h2>
+              <p className="text-primary-foreground/70">{siteConfig.tagline}</p>
+            </div>
           </div>
-          <nav
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8"
-            aria-label="Footer"
-          >
+          <nav className="contents" aria-label="Footer">
             <div>
               <h2 className="text-accent font-heading font-bold mb-3">
                 Quick Links

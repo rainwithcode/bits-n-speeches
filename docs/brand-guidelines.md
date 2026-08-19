@@ -4,6 +4,8 @@ Adapted from the Toastmasters International Brand Manual for use on the Bits 'N 
 
 ## 1. Colors
 
+### Primary Colors
+
 Three primary colors, one accent. Primary colors may be used for backgrounds and headers; the accent is for highlights only. Black and white are also allowed.
 
 | Color        | Role    | Hex       | RGB           | CMYK            | Pantone |
@@ -12,6 +14,15 @@ Three primary colors, one accent. Primary colors may be used for backgrounds and
 | True Maroon  | Primary | `#772432` | 119, 36, 50   | 12, 95, 59, 54  | 188     |
 | Cool Gray    | Primary | `#A9B2B1` | 169, 178, 177 | 23, 7, 12, 18   | 442     |
 | Happy Yellow | Accent  | `#F2DF74` | 242, 223, 116 | 0, 5, 57, 0     | 127     |
+
+### Gradient colors
+
+Linear Gradient, 0° (left to right):
+
+| Color        | Hex       |
+| ------------ | --------- |
+| Deep Maroon  | `#3B0104` |
+| Rich Maroon  | `#781327` |
 
 ## 2. Typography
 

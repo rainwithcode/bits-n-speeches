@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12 ">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pb-8 mb-6 border-b border-primary-foreground/70">
           <div>
             <Image
               src={toastmastersLogo}
@@ -103,6 +103,26 @@ export default function Footer() {
             </div>
           </nav>
         </div>
+        <div className="flex justify-between">
+          <small className="text-base">
+            © 2026 {siteConfig.name} Toastmasters Club. All rights reserved.
+          </small>
+          <p>
+            A chartered club of{" "}
+            <a
+              href="https://www.toastmasters.org/"
+              className="text-accent underline hover:text-primary-foreground transition-colors"
+            >
+              Toastmasters International
+            </a>
+          </p>
+        </div>
+        <p className="mt-4 text-primary-foreground/70">
+          The information on this website is for the sole use of Toastmasters’
+          members, for Toastmasters business only. It is not to be used for
+          solicitation and distribution of non-Toastmasters material or
+          information.
+        </p>
       </div>
     </footer>
   );

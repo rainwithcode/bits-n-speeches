@@ -103,7 +103,7 @@ export default function Footer() {
             </div>
           </nav>
         </div>
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row md:justify-between">
           <small className="text-base">
             © 2026 {siteConfig.name} Toastmasters Club. All rights reserved.
           </small>

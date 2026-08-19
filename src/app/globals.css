@@ -36,6 +36,9 @@
 
   --color-gradient-from: var(--tm-deep-maroon);
   --color-gradient-to: var(--tm-rich-maroon);
+  --color-gradient-foreground: var(--neutral-0);
+
+  --color-hover: var(--neutral-0);
 }
 
 body {

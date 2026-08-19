@@ -9,7 +9,7 @@ import Navigation from "./Navigation";
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-primary">
-      <div className="flex flex-wrap justify-between items-center max-w-7xl mx-auto p-4 md:p-6 lg:p8">
+      <div className="flex flex-wrap justify-between items-center max-w-7xl mx-auto p-4 md:p-6 lg:p-8">
         <Link
           href="/"
           className="flex items-center gap-4 text-primary-foreground font-heading font-bold text-lg md:text-2xl tracking-wide"

@@ -1,3 +1,10 @@
+import PageHero from "../components/PageHero";
+
 export default function Membership() {
-  return <h1>Membership</h1>;
+  return (
+    <PageHero
+      title="Become a Member"
+      description="Take the first step toward becoming a confident communicator."
+    />
+  );
 }

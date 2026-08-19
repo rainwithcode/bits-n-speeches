@@ -1,3 +1,10 @@
+import PageHero from "../components/PageHero";
+
 export default function Meetings() {
-  return <h1>Meetings</h1>;
+  return (
+    <PageHero
+      title="Meetings"
+      description="Join us in person or online — everyone is welcome."
+    />
+  );
 }

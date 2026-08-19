@@ -1,3 +1,10 @@
+import PageHero from "../components/PageHero";
+
 export default function Contact() {
-  return <h1>Contact</h1>;
+  return (
+    <PageHero
+      title="Contact Us"
+      description="Have a question? We'd love to hear from you."
+    />
+  );
 }

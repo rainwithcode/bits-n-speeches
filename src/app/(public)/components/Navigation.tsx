@@ -24,8 +24,8 @@ export default function Navigation() {
         : "text-primary-foreground/90 font-bold text-sm border-b-2 border-transparent px-5 py-2 hover:text-hover transition-colors";
     } else if (variant === "mobile") {
       return isActive
-        ? "text-accent text-sm font-bold px-5 py-2"
-        : "text-primary-foreground/90 text-sm font-bold px-5 py-2 hover:text-hover transition-colors";
+        ? "text-accent text-base font-bold"
+        : "text-primary-foreground/90 text-base font-bold hover:text-hover transition-colors";
     }
   }
 
@@ -61,7 +61,7 @@ export default function Navigation() {
           {/* Mobile Navigation */}
           <ul>
             {navLinks.map((link) => (
-              <li key={link.href}>
+              <li key={link.href} className="py-4">
                 <Link
                   href={link.href}
                   className={navLinkClassName(link.href === pathname, "mobile")}

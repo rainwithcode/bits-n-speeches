@@ -58,8 +58,8 @@ export default function Navigation() {
           aria-label="Primary"
         >
           {/* Mobile Navigation */}
-          {navLinks.map((link) => (
-            <ul>
+          <ul>
+            {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -68,8 +68,8 @@ export default function Navigation() {
                   {link.label}
                 </Link>
               </li>
-            </ul>
-          ))}
+            ))}
+          </ul>
         </nav>
       )}
     </div>

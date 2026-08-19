@@ -36,7 +36,7 @@ export default function Footer() {
                   <li key={link.href} className="mb-2">
                     <Link
                       href={link.href}
-                      className="text-lg font-semi-bold text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                      className="text-lg font-semi-bold text-primary-foreground/70 hover:text-hover transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -53,7 +53,7 @@ export default function Footer() {
                   <li className="mb-2" key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-lg font-semi-bold text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                      className="text-lg font-semi-bold text-primary-foreground/70 hover:text-hover transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -93,7 +93,7 @@ export default function Footer() {
                   </div>
                   <a
                     href="mailto:bitsspeeches@gmail.com?subject=Meeting%20Link%20Request&body=Hi%2C%20could%20you%20send%20me%20the%20link%20to%20join%20the%20next%20meeting%3F"
-                    className="text-accent underline hover:text-primary-foreground transition-colors"
+                    className="text-accent underline hover:text-hover transition-colors"
                   >
                     Email us for link
                   </a>
@@ -110,7 +110,7 @@ export default function Footer() {
             A chartered club of{" "}
             <a
               href="https://www.toastmasters.org/"
-              className="text-accent underline hover:text-primary-foreground transition-colors"
+              className="text-accent underline hover:text-hover transition-colors"
             >
               Toastmasters International
             </a>

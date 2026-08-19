@@ -29,14 +29,14 @@ export default function Footer() {
           <nav className="contents" aria-label="Footer">
             <div>
               <ul>
-                <h2 className="text-accent font-heading font-bold mb-3">
+                <h2 className="text-sm md:text-base font-heading font-bold text-accent mb-3">
                   Quick Links
                 </h2>
                 {navLinks.map((link) => (
                   <li key={link.href} className="mb-2">
                     <Link
                       href={link.href}
-                      className="text-lg font-semi-bold text-primary-foreground/70 hover:text-hover transition-colors"
+                      className="text-base md:text-lg font-semi-bold text-primary-foreground/70 hover:text-hover transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -46,14 +46,14 @@ export default function Footer() {
             </div>
             <div>
               <ul>
-                <h2 className="text-accent font-heading font-bold mb-3">
+                <h2 className="text-sm md:text-base font-heading font-bold text-accent mb-3">
                   Join Us
                 </h2>
                 {membershipLinks.map((link) => (
                   <li className="mb-2" key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-lg font-semi-bold text-primary-foreground/70 hover:text-hover transition-colors"
+                      className="text-base md:text-lg font-semi-bold text-primary-foreground/70 hover:text-hover transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -63,10 +63,10 @@ export default function Footer() {
             </div>
             <div>
               <ul className="font-semi-bold text-primary-foreground/70">
-                <h2 className="text-accent font-heading font-bold mb-3">
+                <h2 className="text-sm md:text-base font-heading font-bold text-accent mb-3">
                   Visit Us
                 </h2>
-                <li className="text-lg mb-2" key="schedule">
+                <li className="text-base md:text-lg mb-2" key="schedule">
                   <div className="flex gap-2">
                     <Clock className="w-5 text-accent" />
                     <span className="text-primary-foreground">
@@ -75,7 +75,7 @@ export default function Footer() {
                   </div>
                   Every {meetings.day} at {meetings.time}
                 </li>
-                <li className="text-lg mb-2" key="in-person">
+                <li className="text-base md:text-lg mb-2" key="in-person">
                   <div className="flex gap-2">
                     <MapPin className="w-5 text-accent" />
                     <span className="text-primary-foreground">
@@ -84,7 +84,7 @@ export default function Footer() {
                   </div>
                   {meetings.location.inPerson}
                 </li>
-                <li className="text-lg mb-2" key="online">
+                <li className="text-base md:text-lg mb-2" key="online">
                   <div className="flex gap-2">
                     <Video className="w-5 text-accent" />
                     <span className="text-primary-foreground">
@@ -104,7 +104,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-col md:flex-row md:justify-between">
           <small className="text-base">
-            © 2026 {siteConfig.name} Toastmasters Club. All rights reserved.
+            © 2026 {siteConfig.name} Toastmasters Club
           </small>
           <p>
             A chartered club of{" "}

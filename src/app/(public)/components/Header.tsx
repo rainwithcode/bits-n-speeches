@@ -1,8 +1,10 @@
-import Link from "next/link";
 import Image from "next/image";
-import Navigation from "./Navigation";
+import Link from "next/link";
+
 import { siteConfig } from "@/app/data/site-config";
 import toastmastersLogo from "@/imports/toastmasters-logo_2x.png";
+
+import Navigation from "./Navigation";
 
 export default function Header() {
   return (

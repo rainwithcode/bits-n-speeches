@@ -1,10 +1,9 @@
+import { Clock, MapPin, Video } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Clock, MapPin, Video } from "lucide-react";
-
-import { siteConfig } from "@/app/data/site-config";
 import { meetings } from "@/app/data/meetings";
+import { siteConfig } from "@/app/data/site-config";
 import toastmastersLogo from "@/imports/toastmasters-logo_2x.png";
 
 import { navLinks, membershipLinks } from "../data/nav-links";

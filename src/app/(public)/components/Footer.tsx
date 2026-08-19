@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Clock, Map, MapPin, Pin, Video } from "lucide-react";
+import { Clock, MapPin, Video } from "lucide-react";
 
 import { siteConfig } from "@/app/data/site-config";
 import { meetings } from "@/app/data/meetings";

@@ -1,21 +1,20 @@
 import Link from "next/link";
 
+import { siteConfig } from "@/data/site-config";
+
 export default function Hero() {
   return (
     <div className="from-gradient-from to-gradient-to bg-gradient-to-r text-gradient-foreground">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-18 md:py-32">
         <div className="w-fit bg-accent text-sm text-primary font-bold px-2 mb-4 rounded-md">
-          Toastmasters International
+          {siteConfig.organization}
         </div>
         <div className="max-w-3xl space-y-8">
           <h1 className="text-4xl md:text-6xl font-heading font-bold br-50">
-            Find Your Voice.{" "}
-            <div className="text-accent">Lead With Confidence.</div>
+            {siteConfig.heroTagline[0]}{" "}
+            <div className="text-accent">{siteConfig.heroTagline[1]}</div>
           </h1>
-          <p className="text-base md:text-xl">
-            Bits 'N Speeches is a welcoming community where you develop public
-            speaking and leadership skills in a supportive, fun environment.
-          </p>
+          <p className="text-base md:text-xl">{siteConfig.heroDescription}</p>
           <div className="flex gap-4 md:gap-6">
             <Link
               href="/membership#guest"

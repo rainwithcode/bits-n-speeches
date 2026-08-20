@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/site-config";
 
 export default function Hero() {
   return (
-    <div className="from-gradient-from to-gradient-to bg-gradient-to-r text-gradient-foreground">
+    <section className="from-gradient-from to-gradient-to bg-gradient-to-r text-gradient-foreground">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-18 md:py-32">
         <div className="w-fit bg-accent text-sm text-primary font-bold px-2 mb-4 rounded-md">
           {siteConfig.organization}
@@ -32,6 +32,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

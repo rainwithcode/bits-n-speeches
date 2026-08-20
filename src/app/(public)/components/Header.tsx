@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { siteConfig } from "@/app/data/site-config";
+import { siteConfig } from "@/data/site-config";
 import toastmastersLogo from "@/imports/toastmasters-logo_2x.png";
 
 import Navigation from "./Navigation";

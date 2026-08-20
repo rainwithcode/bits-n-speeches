@@ -5,11 +5,6 @@ export const siteConfig = {
   tagline:
     "A Toastmasters club dedicated to developing confident communicators and leaders.",
 
-  // hero copy
-  heroTagline: ["Find Your Voice", "Lead With Confidence."],
-  heroDescription:
-    "Bits 'N Speeches is a welcoming community where you develop public speaking and leadership skills in a supportive, fun environment.",
-
   // contact
   email: "bitsspeeches@gmail.com",
   site: "https://www.toastmasters.org/",

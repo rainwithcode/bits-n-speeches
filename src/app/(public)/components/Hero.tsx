@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { heroContent } from "../data/hero-content";
 import { siteConfig } from "@/data/site-config";
 
 export default function Hero() {
@@ -11,10 +12,10 @@ export default function Hero() {
         </div>
         <div className="max-w-3xl space-y-8">
           <h1 className="text-4xl md:text-6xl font-heading font-bold br-50">
-            {siteConfig.heroTagline[0]}{" "}
-            <div className="text-accent">{siteConfig.heroTagline[1]}</div>
+            {heroContent.heroTagline[0]}{" "}
+            <div className="text-accent">{heroContent.heroTagline[1]}</div>
           </h1>
-          <p className="text-base md:text-xl">{siteConfig.heroDescription}</p>
+          <p className="text-base md:text-xl">{heroContent.heroDescription}</p>
           <div className="flex gap-4 md:gap-6">
             <Link
               href="/membership#guest"

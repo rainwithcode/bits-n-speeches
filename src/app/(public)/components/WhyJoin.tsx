@@ -7,7 +7,7 @@ export default function WhyJoin() {
   return (
     <section className="bg-muted/5">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
-        <h2 className="font-heading font-bold text-primary text-xl md:text-3xl mb-4">
+        <h2 className="font-heading font-bold text-primary text-xl md:text-4xl mb-4">
           Why Join Bits 'N Speeches?
         </h2>
         <p>

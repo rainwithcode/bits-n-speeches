@@ -4,8 +4,11 @@ export default function Hero() {
   return (
     <div className="from-gradient-from to-gradient-to bg-gradient-to-r text-gradient-foreground">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-18 md:py-32">
+        <div className="w-fit bg-accent text-sm text-primary font-bold px-2 mb-4 rounded-md">
+          Toastmasters International
+        </div>
         <div className="max-w-3xl space-y-8">
-          <h1 className="text-4xl md:text-6xl font-heading font-bold">
+          <h1 className="text-4xl md:text-6xl font-heading font-bold br-50">
             Find Your Voice.{" "}
             <div className="text-accent">Lead With Confidence.</div>
           </h1>

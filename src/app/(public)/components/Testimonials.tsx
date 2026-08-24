@@ -38,7 +38,7 @@ export default function Testimonials() {
                       width={128}
                       height={128}
                       quality={75}
-                      className="w-12 h-12 object-cover rounded-full"
+                      className="w-8 h-8 md:w-12 md:h-12 object-cover rounded-full"
                     />
                   ) : (
                     <div className="w-12 h-12 rounded-full flex justify-center items-center bg-primary text-primary-foreground text-sm font-bold">
@@ -47,10 +47,10 @@ export default function Testimonials() {
                   )}
 
                   <div>
-                    <cite className="text-sm text-primary-foreground font-bold not-italic">
+                    <cite className="text-xs md:text-sm text-primary-foreground font-bold not-italic">
                       {testimonial.name}
                     </cite>
-                    <div className="text-sm text-primary-foreground">
+                    <div className="text-xs text-sm text-primary-foreground">
                       {testimonial.role}
                     </div>
                   </div>

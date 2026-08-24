@@ -2,7 +2,7 @@ export const testimonials = [
   {
     name: "Brian Hatano",
     image: "brian-hatano.jpg",
-    role: "Toastmasters",
+    role: "Toastmasters Mentor",
     quote:
       "Since I joined Toastmasters in 2001, I've enjoyed the fellowship and learning life-changing skills that help me both professionally and personally. Serving has a mentor to several people has been one of the most rewarding experiences.",
   },

@@ -116,7 +116,7 @@ export default function Footer() {
             </a>
           </p>
         </div>
-        <p className="mt-4 text-primary-foreground/70">
+        <p className="text-sm mt-4 text-primary-foreground/70">
           The information on this website is for the sole use of Toastmasters’
           members, for Toastmasters business only. It is not to be used for
           solicitation and distribution of non-Toastmasters material or

@@ -1,3 +1,4 @@
+import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 
@@ -10,6 +11,7 @@ export default function PublicLayout({
     <>
       <Header />
       <main>{children}</main>
+      <CallToAction />
       <Footer />
     </>
   );

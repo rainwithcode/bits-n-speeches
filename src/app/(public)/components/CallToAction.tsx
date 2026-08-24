@@ -18,10 +18,10 @@ export default function CallToAction() {
             Register as a Guest
           </Link>
           <Link
-            href="/about"
+            href="/contact"
             className="block w-fit px-6 py-4 md:px-8 py-4 bg-white text-sm md:text-lg text-primary font-bold hover:bg-primary hover:text-primary-foreground"
           >
-            Learn More
+            Contact Us
           </Link>
         </div>
       </div>

@@ -50,7 +50,7 @@ export default function Testimonials() {
                     <cite className="text-xs md:text-sm text-primary-foreground font-bold not-italic">
                       {testimonial.name}
                     </cite>
-                    <div className="text-xs text-sm text-primary-foreground">
+                    <div className="text-xs md:text-sm text-primary-foreground">
                       {testimonial.role}
                     </div>
                   </div>

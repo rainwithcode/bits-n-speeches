@@ -24,3 +24,12 @@ export function formatMeetingDate(date: Date) {
     timeZone: "America/Los_Angeles",
   });
 }
+
+export function formatMeetingTime(date: Date) {
+  return date.toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    timeZone: "America/Los_Angeles",
+    timeZoneName: "short",
+  });
+}

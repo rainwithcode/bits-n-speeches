@@ -109,10 +109,10 @@ export default function Footer() {
           <p>
             A chartered club of{" "}
             <a
-              href="https://www.toastmasters.org/"
+              href={siteConfig.site}
               className="text-accent underline hover:text-hover transition-colors"
             >
-              Toastmasters International
+              {siteConfig.organization}
             </a>
           </p>
         </div>

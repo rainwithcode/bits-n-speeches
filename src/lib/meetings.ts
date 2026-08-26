@@ -1,4 +1,6 @@
+import { meetings } from "@/data/meetings";
 import { createServerClient } from "./supabase/server";
+import { Database } from "@/types/supabase";
 
 export async function getUpcomingMeetings() {
   const supabase = createServerClient();
@@ -39,4 +41,20 @@ export function getMeetingEndsAt(startsAt: Date, endsAt: string | null) {
   return endsAt
     ? new Date(endsAt)
     : new Date(startsAt.getTime() + 90 * 60 * 1000);
+}
+
+type MeetingType = Database["public"]["Enums"]["meeting_type"];
+
+export function getLocation(meetingType: MeetingType) {
+  switch (meetingType) {
+    case "virtual":
+      return meetings.location.online;
+    case "hybrid":
+      return `${meetings.location.online} & ${meetings.location.inPerson}`;
+    case "in_person":
+      return meetings.location.inPerson;
+    default:
+      meetingType satisfies never;
+      throw new Error("Unhandled meeting type: ${meetingType}");
+  }
 }

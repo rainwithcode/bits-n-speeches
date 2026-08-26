@@ -25,11 +25,12 @@ export function formatMeetingDate(date: Date) {
   });
 }
 
-export function formatMeetingTime(date: Date) {
+export function formatMeetingTime(date: Date, includeTimeZone: boolean) {
   return date.toLocaleTimeString("en-US", {
     hour: "numeric",
     minute: "2-digit",
     timeZone: "America/Los_Angeles",
     timeZoneName: "short",
+    ...(includeTimeZone && { timeZoneName: "short" }),
   });
 }

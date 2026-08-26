@@ -34,3 +34,9 @@ export function formatMeetingTime(date: Date, includeTimeZone: boolean) {
     ...(includeTimeZone && { timeZoneName: "short" }),
   });
 }
+
+export function getMeetingEndsAt(startsAt: Date, endsAt: string | null) {
+  return endsAt
+    ? new Date(endsAt)
+    : new Date(startsAt.getTime() + 90 * 60 * 1000);
+}

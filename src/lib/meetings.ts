@@ -14,3 +14,13 @@ export async function getUpcomingMeetings() {
   if (error) throw error;
   return data;
 }
+
+export function formatMeetingDate(date: Date) {
+  return date.toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "America/Los_Angeles",
+  });
+}

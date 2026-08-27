@@ -74,7 +74,7 @@ export default async function UpcomingMeetings() {
 
               return (
                 <article
-                  className="space-y-2 p-8 border border-gray-200 hover:shadow-md rounded-md bg-white text-primary"
+                  className="space-y-2 p-8 border border-border hover:shadow-md rounded-md bg-white text-primary"
                   key={meeting.id}
                 >
                   <div className="flex items-center">

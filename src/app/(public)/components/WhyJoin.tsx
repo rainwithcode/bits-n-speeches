@@ -20,7 +20,7 @@ export default function WhyJoin() {
             return (
               <li
                 key={reason.label}
-                className="space-y-2 md:space-y-4 bg-white p-8 rounded-md shadow-sm"
+                className="space-y-2 md:space-y-4 bg-white p-8 rounded-md border border-border"
               >
                 <div className="w-fit px-4 py-4 rounded-md bg-primary/10">
                   <Icon className="w-8 h-8 text-primary" />

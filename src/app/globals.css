@@ -15,6 +15,7 @@
   /* Application Neutrals */
 
   --neutral-0: #ffffff;
+  --neutral-200: #e5e7eb;
   --neutral-900: #18181b;
 
   /* Semantic Tokens */
@@ -39,6 +40,7 @@
   --color-gradient-foreground: var(--neutral-0);
 
   --color-hover: var(--neutral-0);
+  --color-border: var(--neutral-200);
 }
 
 body {

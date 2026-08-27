@@ -1,6 +1,8 @@
 import { ArrowRight, Calendar, Clock, MapPin } from "lucide-react";
 import Link from "next/link";
 
+import Badge from "@/components/ui/Badge";
+
 import {
   formatMeetingDate,
   formatMeetingTime,
@@ -9,6 +11,7 @@ import {
   getUpcomingMeetings,
 } from "@/lib/meetings";
 import IconText from "../../../components/ui/IconText";
+import ViewDetailsButton from "@/components/ui/ViewDetailsButton";
 
 export default async function UpcomingMeetings() {
   const meetings = await getUpcomingMeetings();
@@ -28,7 +31,7 @@ export default async function UpcomingMeetings() {
         <h2 className="font-heading font-bold text-primary text-xl md:text-4xl mb-8">
           Upcoming Meetings
         </h2>
-        <div className="space-y-4 md:flex">
+        <div className="flex flex-col gap-8 md:flex-row">
           {nextMeeting && (
             <article>
               <article
@@ -39,9 +42,7 @@ export default async function UpcomingMeetings() {
                   <div className="font-heading font-bold text-accent uppercase">
                     Next Meeting
                   </div>
-                  <div className="w-fit bg-accent text-sm text-primary font-bold px-2 mb-4 rounded-md">
-                    {nextMeeting.type}
-                  </div>
+                  <Badge>{nextMeeting.type}</Badge>
                 </div>
                 <h3 className="font-heading font-bold text-primary-foreground text-3xl mb-6">
                   {nextMeeting.title}
@@ -64,13 +65,9 @@ export default async function UpcomingMeetings() {
                   {getLocation(nextMeeting.type)}
                 </IconText>
 
-                <Link
-                  href="/meetings"
-                  className="flex items-center gap-2 w-fit px-4 py-2 mt-8 rounded-md bg-accent"
-                >
+                <ViewDetailsButton href="/meetings">
                   View Meeting
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                </ViewDetailsButton>
               </article>
             </article>
           )}

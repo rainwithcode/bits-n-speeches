@@ -4,7 +4,7 @@ import Link from "next/link";
 import { siteConfig } from "@/data/site-config";
 import toastmastersLogo from "@/imports/toastmasters-logo_2x.png";
 
-import Navigation from "../Navigation";
+import Navigation from "./Navigation";
 
 export default function Header() {
   return (

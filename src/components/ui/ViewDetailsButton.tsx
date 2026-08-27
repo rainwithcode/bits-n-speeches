@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
 const viewDetailsButtonVariants = cva(
-  "flex items-center gap-2 w-fit px-4 py-2 rounded-md font-bold",
+  "flex items-center gap-2 w-fit px-4 py-2 font-bold",
   {
     variants: {
       variant: {

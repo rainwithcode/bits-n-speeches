@@ -1,4 +1,3 @@
-import { Page } from "openai/pagination.js";
 import PageHero from "../components/PageHero";
 
 export default function About() {

@@ -3,7 +3,7 @@ export default function StoryAndMission() {
   const lastIndex = about.story.length - 1;
 
   return (
-    <div className="bg-white">
+    <section className="bg-white">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
         <h2 className="mb-6 text-primary text-lg md:text-3xl font-heading font-bold">
           Our Story and Mission
@@ -25,6 +25,6 @@ export default function StoryAndMission() {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

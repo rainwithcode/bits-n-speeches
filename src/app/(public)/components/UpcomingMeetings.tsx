@@ -73,6 +73,37 @@ export default async function UpcomingMeetings() {
               </article>
             </article>
           )}
+          <div className="space-y-8">
+            {meetings.slice(1).map((meeting) => {
+              const starts_at = new Date(meeting.starts_at);
+
+              const ends_at = getMeetingEndsAt(starts_at, meeting.ends_at);
+
+              return (
+                <article
+                  className="space-y-2 p-8 border border-gray-200 hover:shadow-md rounded-md bg-white text-primary"
+                  key={meeting.id}
+                >
+                  <div className="flex items-center">
+                    <h3 className="text-xl font-bold font-heading">
+                      {meeting.title}
+                    </h3>
+                    <Badge>{meeting.type}</Badge>
+                  </div>
+
+                  <time dateTime={starts_at.toISOString()}>
+                    {formatMeetingDate(starts_at)}
+                  </time>
+                  <ViewDetailsButton
+                    href="/meetings"
+                    label="View Meeting"
+                    variant="secondary"
+                    className="mt-4"
+                  />
+                </article>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

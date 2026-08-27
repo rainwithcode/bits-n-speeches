@@ -1,6 +1,10 @@
 export const about = {
-  story:
-    "Bits 'N Speeches is a chartered Toastmasters International club founded in 1997 dedicated to helping individuals grow as communicators, build confidence, and support one another's journey. We provide a supportive and structured environment where members can practice public speaking, receive constructive feedback, and develop leadership skills. Whether you're just starting out or looking to refine your skills, the club offers a space to learn by doing. Our members come from diverse backgrounds and experiences, creating a welcoming environment where everyone can contribute, learn, and grow together. We believe in progress through practice, confidence through experience, and growth through community.",
+  story: [
+    "Bits 'N Speeches is a chartered Toastmasters International club founded in 1997 dedicated to helping individuals grow as communicators, build confidence, and support one another's journey.",
+    "We provide a supportive and structured environment where members can practice public speaking, receive constructive feedback, and develop leadership skills. Whether you're just starting out or looking to refine your skills, the club offers a space to learn by doing.",
+    "Our members come from diverse backgrounds and experiences, creating a welcoming environment where everyone can contribute, learn, and grow together.",
+    "We believe in progress through practice, confidence through experience, and growth through community.",
+  ],
 
   values: [
     { icon: "Mic", title: "Speaking Skills" },

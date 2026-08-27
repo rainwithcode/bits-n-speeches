@@ -31,49 +31,42 @@ export default async function UpcomingMeetings() {
         <h2 className="font-heading font-bold text-primary text-xl md:text-4xl mb-8">
           Upcoming Meetings
         </h2>
-        <div className="flex flex-col gap-8 md:flex-row">
+        <div className="flex flex-col gap-4 md:gap-8 md:flex-row ">
           {nextMeeting && (
-            <article>
-              <article
-                className="bg-primary p-8 rounded-md"
-                key={nextMeeting.id}
-              >
-                <div className="flex justify-between mb-10">
-                  <div className="font-heading font-bold text-accent uppercase">
-                    Next Meeting
-                  </div>
-                  <Badge>{nextMeeting.type}</Badge>
+            <article className="bg-primary p-8 rounded-md" key={nextMeeting.id}>
+              <div className="flex justify-between mb-10">
+                <div className="font-heading font-bold text-accent uppercase">
+                  Next Meeting
                 </div>
-                <h3 className="font-heading font-bold text-primary-foreground text-3xl mb-6">
-                  {nextMeeting.title}
-                </h3>
-                <IconText icon={Calendar}>
-                  <time dateTime={nextMeetingStartsAt.toISOString()}>
-                    {formatMeetingDate(nextMeetingStartsAt)}
-                  </time>
-                </IconText>
-                <IconText icon={Clock}>
-                  <time dateTime={nextMeetingStartsAt.toISOString()}>
-                    {formatMeetingTime(nextMeetingStartsAt, false)}
-                  </time>{" "}
-                  –{" "}
-                  <time dateTime={nextMeetingEndsAt.toISOString()}>
-                    {formatMeetingTime(nextMeetingEndsAt, true)}
-                  </time>
-                </IconText>
-                <IconText icon={MapPin}>
-                  {getLocation(nextMeeting.type)}
-                </IconText>
+                <Badge>{nextMeeting.type}</Badge>
+              </div>
+              <h3 className="font-heading font-bold text-primary-foreground text-xl md:text-3xl mb-6">
+                {nextMeeting.title}
+              </h3>
+              <IconText icon={Calendar}>
+                <time dateTime={nextMeetingStartsAt.toISOString()}>
+                  {formatMeetingDate(nextMeetingStartsAt)}
+                </time>
+              </IconText>
+              <IconText icon={Clock}>
+                <time dateTime={nextMeetingStartsAt.toISOString()}>
+                  {formatMeetingTime(nextMeetingStartsAt, false)}
+                </time>{" "}
+                –{" "}
+                <time dateTime={nextMeetingEndsAt.toISOString()}>
+                  {formatMeetingTime(nextMeetingEndsAt, true)}
+                </time>
+              </IconText>
+              <IconText icon={MapPin}>{getLocation(nextMeeting.type)}</IconText>
 
-                <ViewDetailsButton
-                  href="/meetings"
-                  label="View Meeting"
-                  className="mt-8"
-                ></ViewDetailsButton>
-              </article>
+              <ViewDetailsButton
+                href="/meetings"
+                label="View Meeting"
+                className="mt-8"
+              ></ViewDetailsButton>
             </article>
           )}
-          <div className="space-y-8">
+          <div className="space-y-4 md:space-y-8">
             {meetings.slice(1).map((meeting) => {
               const starts_at = new Date(meeting.starts_at);
 
@@ -85,13 +78,16 @@ export default async function UpcomingMeetings() {
                   key={meeting.id}
                 >
                   <div className="flex items-center">
-                    <h3 className="text-xl font-bold font-heading">
+                    <h3 className="text-lg md:text-xl font-bold font-heading">
                       {meeting.title}
                     </h3>
                     <Badge>{meeting.type}</Badge>
                   </div>
 
-                  <time dateTime={starts_at.toISOString()}>
+                  <time
+                    dateTime={starts_at.toISOString()}
+                    className="text-sm md:text-base"
+                  >
                     {formatMeetingDate(starts_at)}
                   </time>
                   <ViewDetailsButton

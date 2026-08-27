@@ -9,7 +9,7 @@ export default function IconText({
   children: ReactNode;
 }) {
   return (
-    <div className="text-base md:text-lg mb-2" key="schedule">
+    <div className="text-sm md:text-lg mb-2" key="schedule">
       <div className="flex gap-2">
         <Icon className="w-5 text-accent" />
         <span className="text-primary-foreground">{children}</span>

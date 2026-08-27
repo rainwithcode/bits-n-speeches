@@ -5,12 +5,13 @@ import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
 const viewDetailsButtonVariants = cva(
-  "flex items-center gap-2 w-fit px-4 py-2 rounded-md",
+  "flex items-center gap-2 w-fit px-4 py-2 rounded-md font-bold",
   {
     variants: {
       variant: {
         primary: "bg-accent text-primary hover:bg-hover",
-        secondary: "bg-accent text-primary",
+        secondary:
+          "bg-white text-primary border border-primary hover:bg-primary hover:text-white",
       },
     },
     defaultVariants: {

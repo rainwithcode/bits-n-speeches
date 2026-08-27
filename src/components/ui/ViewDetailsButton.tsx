@@ -9,7 +9,7 @@ const viewDetailsButtonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-accent text-primary",
+        primary: "bg-accent text-primary hover:bg-hover",
         secondary: "bg-accent text-primary",
       },
     },
@@ -18,19 +18,27 @@ const viewDetailsButtonVariants = cva(
     },
   },
 );
+
+interface ViewDetailsButtonProps extends VariantProps<
+  typeof viewDetailsButtonVariants
+> {
+  href: string;
+  label?: string;
+  className?: string;
+}
+
 export default function ViewDetailsButton({
   href,
-  children,
-}: {
-  href: string;
-  children: ReactNode;
-}) {
+  label = "View Details",
+  variant,
+  className,
+}: ViewDetailsButtonProps) {
   return (
     <Link
       href={href}
-      className="flex items-center gap-2 w-fit px-4 py-2 mt-8 rounded-md bg-accent"
+      className={cn(viewDetailsButtonVariants({ variant }), className)}
     >
-      {children}
+      {label}
       <ArrowRight className="w-4 h-4" />
     </Link>
   );

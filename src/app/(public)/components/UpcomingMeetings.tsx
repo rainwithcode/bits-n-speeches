@@ -65,9 +65,11 @@ export default async function UpcomingMeetings() {
                   {getLocation(nextMeeting.type)}
                 </IconText>
 
-                <ViewDetailsButton href="/meetings">
-                  View Meeting
-                </ViewDetailsButton>
+                <ViewDetailsButton
+                  href="/meetings"
+                  label="View Meeting"
+                  className="mt-8"
+                ></ViewDetailsButton>
               </article>
             </article>
           )}

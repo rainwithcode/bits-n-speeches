@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { heroContent } from "../../data/hero-content";
+import { heroContent } from "../data/hero-content";
 import { siteConfig } from "@/data/site-config";
 import Badge from "@/components/ui/Badge";
 

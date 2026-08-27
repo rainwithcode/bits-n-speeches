@@ -1,4 +1,4 @@
-import { achievements } from "../../data/achievements";
+import { achievements } from "../data/achievements";
 export default function Achievements() {
   return (
     <section

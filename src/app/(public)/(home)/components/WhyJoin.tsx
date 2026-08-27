@@ -1,5 +1,5 @@
 import { Mic, Award, Users, type LucideIcon } from "lucide-react";
-import { whyJoin } from "../../data/why-join";
+import { whyJoin } from "../data/why-join";
 
 const icons: Record<string, LucideIcon> = { Mic, Award, Users };
 

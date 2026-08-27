@@ -1,4 +1,4 @@
-import PageHero from "../components/PageHero";
+import PageHero from "../(home)/components/PageHero";
 
 export default function Meetings() {
   return (

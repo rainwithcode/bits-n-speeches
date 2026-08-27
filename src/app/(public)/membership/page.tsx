@@ -1,4 +1,4 @@
-import PageHero from "../(home)/components/PageHero";
+import PageHero from "../components/layout/PageHero";
 
 export default function Membership() {
   return (

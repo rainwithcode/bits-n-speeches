@@ -22,7 +22,7 @@ export default function WhyJoin() {
                 key={reason.label}
                 className="space-y-2 md:space-y-4 bg-white p-8 rounded-md border border-border"
               >
-                <div className="w-fit px-4 py-4 rounded-md bg-primary/10">
+                <div className="mx-auto w-fit px-4 py-4 rounded-md bg-primary/10">
                   <Icon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="font-heading font-bold text-lg md:text-xl text-primary">

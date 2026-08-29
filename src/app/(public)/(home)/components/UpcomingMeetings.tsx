@@ -1,5 +1,4 @@
-import { ArrowRight, Calendar, Clock, MapPin } from "lucide-react";
-import Link from "next/link";
+import { Calendar, Clock, MapPin } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
 import ViewDetailsButton from "@/components/ui/ViewDetailsButton";
@@ -12,7 +11,6 @@ import {
 } from "@/lib/meetings";
 
 import IconText from "../../../../components/ui/IconText";
-
 
 export default async function UpcomingMeetings() {
   const meetings = await getUpcomingMeetings();
@@ -70,8 +68,6 @@ export default async function UpcomingMeetings() {
           <div className="space-y-4 md:space-y-8">
             {meetings.slice(1).map((meeting) => {
               const starts_at = new Date(meeting.starts_at);
-
-              const ends_at = getMeetingEndsAt(starts_at, meeting.ends_at);
 
               return (
                 <article

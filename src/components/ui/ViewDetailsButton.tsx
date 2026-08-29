@@ -1,7 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 

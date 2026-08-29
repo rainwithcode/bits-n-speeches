@@ -11,8 +11,8 @@ export default function Testimonials() {
           What Our Members Say
         </h2>
         <ul className="grid md:grid-cols-3 gap-4 md:gap-8 mt-8">
-          {members.slice(0, 3).map((members) => {
-            const nameParts = members.name.split(/\s+/);
+          {members.slice(0, 3).map((member) => {
+            const nameParts = member.name.split(/\s+/);
 
             const initials =
               nameParts.length > 1
@@ -21,20 +21,20 @@ export default function Testimonials() {
 
             return (
               <li
-                key={members.name}
+                key={member.name}
                 className="flex flex-col space-y-2 md:space-y-4 bg-white/10 p-8 rounded-md shadow-sm"
               >
                 <Quote className="w-8 h-8 text-accent" />
 
                 <blockquote className="text-sm md:text-base text-primary-foreground">
-                  <p>{members.testimonial}</p>
+                  <p>{member.testimonial}</p>
                 </blockquote>
 
                 <div className="mt-auto flex gap-4 items-center">
-                  {members.image ? (
+                  {member.image ? (
                     <Image
-                      src={`/members/${members.image}`}
-                      alt={members.name}
+                      src={`/member/${member.image}`}
+                      alt={member.name}
                       width={128}
                       height={128}
                       quality={75}
@@ -48,10 +48,10 @@ export default function Testimonials() {
 
                   <div>
                     <cite className="text-xs md:text-sm text-primary-foreground font-bold not-italic">
-                      {members.name}
+                      {member.name}
                     </cite>
                     <div className="text-xs md:text-sm text-primary-foreground">
-                      {members.role}
+                      {member.profession}
                     </div>
                   </div>
                 </div>

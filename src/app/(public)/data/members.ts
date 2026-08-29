@@ -2,21 +2,21 @@ export const members = [
   {
     name: "Brian Hatano",
     image: "brian-hatano.jpg",
-    role: "Toastmasters Mentor",
+    profession: "Toastmasters Mentor",
     testimonial:
       "Since I joined Toastmasters in 2001, I've enjoyed the fellowship and learning life-changing skills that help me both professionally and personally. Serving has a mentor to several people has been one of the most rewarding experiences.",
   },
   {
     name: "Dorothy Uzoh",
     image: "dorothy-uzoh.jpg",
-    role: "Pharmacist",
+    profession: "Pharmacist",
     testimonial:
       "Toastmasters helped me find my voice; giving me the tools and confidence to speak in public, the courage to speak up, and the heart and skills to truly listen.",
   },
   {
     name: "John Fox",
     image: "john-fox.JPG",
-    role: "Educator",
+    profession: "Educator",
     testimonial:
       'Bits \'N Speeches provides a supportive environment where members can develop confidence, refine their ideas, and strengthen their "speaking muscle."',
   },

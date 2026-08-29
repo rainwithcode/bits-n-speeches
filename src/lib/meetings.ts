@@ -1,6 +1,7 @@
 import { meetings } from "@/data/meetings";
-import { createServerClient } from "./supabase/server";
 import { Database } from "@/types/supabase";
+
+import { createServerClient } from "./supabase/server";
 
 export async function getUpcomingMeetings() {
   const supabase = createServerClient();

@@ -1,6 +1,6 @@
+import { Quote } from "lucide-react";
 import Image from "next/image";
 
-import { Quote } from "lucide-react";
 import { testimonials } from "../data/testimonials";
 
 export default function Testimonials() {

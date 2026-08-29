@@ -2,7 +2,7 @@ import { ArrowRight, Calendar, Clock, MapPin } from "lucide-react";
 import Link from "next/link";
 
 import Badge from "@/components/ui/Badge";
-
+import ViewDetailsButton from "@/components/ui/ViewDetailsButton";
 import {
   formatMeetingDate,
   formatMeetingTime,
@@ -10,8 +10,9 @@ import {
   getMeetingEndsAt,
   getUpcomingMeetings,
 } from "@/lib/meetings";
+
 import IconText from "../../../../components/ui/IconText";
-import ViewDetailsButton from "@/components/ui/ViewDetailsButton";
+
 
 export default async function UpcomingMeetings() {
   const meetings = await getUpcomingMeetings();

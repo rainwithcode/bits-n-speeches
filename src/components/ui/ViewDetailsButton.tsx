@@ -1,8 +1,10 @@
+import { cva, type VariantProps } from "class-variance-authority";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
+
+import { cn } from "@/lib/utils";
+
 
 const viewDetailsButtonVariants = cva(
   "flex items-center gap-2 w-fit px-4 py-2 font-bold",

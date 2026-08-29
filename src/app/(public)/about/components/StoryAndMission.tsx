@@ -1,4 +1,5 @@
 import { about } from "../data/about";
+
 import CoreValues from "./CoreValues";
 export default function StoryAndMission() {
   const lastIndex = about.story.length - 1;

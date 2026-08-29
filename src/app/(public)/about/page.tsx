@@ -1,4 +1,5 @@
 import PageHero from "../components/layout/PageHero";
+
 import StoryAndMission from "./components/StoryAndMission";
 
 export default function About() {

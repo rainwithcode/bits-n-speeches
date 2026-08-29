@@ -50,4 +50,14 @@ export const members = [
     testimonial:
       "Bits ’N Speeches has helped me overcome my fear of public speaking and discover how I can use my voice to help others.",
   },
+  {
+    name: "Douglas Bloom",
+  },
+  {
+    name: "Cheryl Isaac",
+  },
+
+  {
+    name: "Mark Graham",
+  },
 ];

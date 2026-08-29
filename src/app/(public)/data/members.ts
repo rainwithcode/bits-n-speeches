@@ -18,7 +18,7 @@ export const members = [
     image: "john-fox.JPG",
     profession: "Educator",
     testimonial:
-      'Bits \'N Speeches provides a supportive environment where members can develop confidence, refine their ideas, and strengthen their "speaking muscle."',
+      'Bits ’N Speeches provides a supportive environment where members can develop confidence, refine their ideas, and strengthen their "speaking muscle."',
   },
   {
     name: "Rosemary Okeke",

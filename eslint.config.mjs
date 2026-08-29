@@ -28,6 +28,12 @@ const eslintConfig = defineConfig([
       "unused-imports/no-unused-imports": "error",
     },
   },
+  {
+    files: ["eslint.config.mjs"],
+    rules: {
+      "import/order": "off",
+    },
+  },
   globalIgnores([
     ".next/**",
     "out/**",

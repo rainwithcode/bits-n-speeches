@@ -35,7 +35,7 @@ export default function Testimonials() {
                 <div className="mt-auto flex gap-4 items-center">
                   {member.image ? (
                     <Image
-                      src={`/member/${member.image}`}
+                      src={`/members/${member.image}`}
                       alt={member.name}
                       width={128}
                       height={128}

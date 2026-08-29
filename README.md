@@ -1,4 +1,4 @@
-# Bits 'N Speeches
+# Bits ’N Speeches
 
 A modern web application for managing a Toastmasters club.
 

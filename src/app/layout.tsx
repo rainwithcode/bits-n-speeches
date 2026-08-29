@@ -13,7 +13,7 @@ const sourceSans3 = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "Bits 'N Speeches",
+  title: "Bits ’N Speeches",
   description:
     "A Toastmasters club dedicated to developing confident communicators and leaders.",
 };

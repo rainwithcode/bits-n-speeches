@@ -1,6 +1,6 @@
 # Brand Guidelines
 
-Adapted from the Toastmasters International Brand Manual for use on the Bits 'N Speeches club website. Website-related rules are drawn from **Protocol 4.0: Intellectual Property**, scoped to what applies at the club level only.
+Adapted from the Toastmasters International Brand Manual for use on the Bits ’N Speeches club website. Website-related rules are drawn from **Protocol 4.0: Intellectual Property**, scoped to what applies at the club level only.
 
 ## 1. Colors
 
@@ -19,10 +19,10 @@ Three primary colors, one accent. Primary colors may be used for backgrounds and
 
 Linear Gradient, 0° (left to right):
 
-| Color        | Hex       |
-| ------------ | --------- |
-| Deep Maroon  | `#3B0104` |
-| Rich Maroon  | `#781327` |
+| Color       | Hex       |
+| ----------- | --------- |
+| Deep Maroon | `#3B0104` |
+| Rich Maroon | `#781327` |
 
 ## 2. Typography
 

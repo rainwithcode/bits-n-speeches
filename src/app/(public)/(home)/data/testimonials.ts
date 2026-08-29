@@ -23,7 +23,7 @@ export const testimonials = [
   {
     name: "Rosemary Okeke",
     quote:
-      "Joining Bits 'N Speeches has been an amazing experience! I am gaining confidence speaking in front of others, met amazing people, and growing both personally and professionally. I love being part of such a supportive and inspiring community.",
+      "Joining Bits ’N Speeches has been an amazing experience! I am gaining confidence speaking in front of others, met amazing people, and growing both personally and professionally. I love being part of such a supportive and inspiring community.",
   },
   {
     name: "Edward Johnson",
@@ -38,16 +38,16 @@ export const testimonials = [
   {
     name: "Susan Sontra",
     quote:
-      "Being a member of BNS (Bits 'N Speeches) has brought growth and skills I didn't expect. I've gained confidence in speaking and learned leadership and project management in fun, challenging ways.",
+      "Being a member of BNS (Bits ’N Speeches) has brought growth and skills I didn't expect. I've gained confidence in speaking and learned leadership and project management in fun, challenging ways.",
   },
   {
     name: "Kristen Bahler",
     quote:
-      "Joining Bits 'N Speeches has given me the confidence to speak up more in work settings, and becoming willing to teach others about the public speaking skills that will benefit them in their future endeavors.",
+      "Joining Bits ’N Speeches has given me the confidence to speak up more in work settings, and becoming willing to teach others about the public speaking skills that will benefit them in their future endeavors.",
   },
   {
     name: "Rain Kalugdan",
     quote:
-      "Bits 'N Speeches has helped me overcome my fear of public speaking and discover how I can use my voice to help others.",
+      "Bits ’N Speeches has helped me overcome my fear of public speaking and discover how I can use my voice to help others.",
   },
 ];

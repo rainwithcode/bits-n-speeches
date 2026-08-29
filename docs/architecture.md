@@ -2,7 +2,7 @@
 
 ## 1. Project Overview
 
-Bits 'N Speeches is a Next.js web application for managing a Toastmasters club. It includes a public website, a member portal, and an officer portal in a single application.
+Bits ’N Speeches is a Next.js web application for managing a Toastmasters club. It includes a public website, a member portal, and an officer portal in a single application.
 
 The goal is to replace multiple disconnected tools for tasks like RSVPs, meeting roles, member resources, and membership management with one centralized platform. User authentication and data are managed through Supabase and PostgreSQL.
 

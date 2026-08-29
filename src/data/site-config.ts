@@ -1,6 +1,6 @@
 export const siteConfig = {
   // identity
-  name: "Bits 'N Speeches",
+  name: "Bits ’N Speeches",
   organization: "Toastmasters International",
   tagline:
     "A Toastmasters club dedicated to developing confident communicators and leaders.",

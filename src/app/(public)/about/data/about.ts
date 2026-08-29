@@ -1,6 +1,6 @@
 export const about = {
   story: [
-    "Bits 'N Speeches is a chartered Toastmasters International club founded in 1997 dedicated to helping individuals grow as communicators, build confidence, and support one another's journey.",
+    "Bits ’N Speeches is a chartered Toastmasters International club founded in 1997 dedicated to helping individuals grow as communicators, build confidence, and support one another's journey.",
     "We provide a supportive and structured environment where members can practice public speaking, receive constructive feedback, and develop leadership skills. Whether you're just starting out or looking to refine your skills, the club offers a space to learn by doing.",
     "Our members come from diverse backgrounds and experiences, creating a welcoming environment where everyone can contribute, learn, and grow together.",
     "We believe in progress through practice, confidence through experience, and growth through community.",
@@ -18,12 +18,12 @@ export const about = {
       year: "1997",
       title: "Club Charter",
       description:
-        "Bits 'N Speeches was chartered as Packard Bell NEC, bringing together a diverse group of individuals passionate about improving their communication skills.",
+        "Bits ’N Speeches was chartered as Packard Bell NEC, bringing together a diverse group of individuals passionate about improving their communication skills.",
     },
     {
       year: "1999",
       title: "Club Rename",
-      description: "Relocated to SMUD building; renamed Bits 'N Speeches.",
+      description: "Relocated to SMUD building; renamed Bits ’N Speeches.",
     },
     {
       year: "Early 2000s",

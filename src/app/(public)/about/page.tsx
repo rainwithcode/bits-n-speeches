@@ -1,4 +1,4 @@
-import PageHero from "../components/layout/PageHero";
+import PageHero from "../shared/PageHero";
 
 import StoryAndMission from "./components/StoryAndMission";
 

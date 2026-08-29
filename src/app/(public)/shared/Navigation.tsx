@@ -1,12 +1,11 @@
 "use client";
 
-import { Menu } from "lucide-react";
-import { X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import { navLinks } from "../../data/nav-links";
+import { navLinks } from "../data/nav-links";
 
 export default function Navigation() {
   const pathname = usePathname();

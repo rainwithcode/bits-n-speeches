@@ -6,7 +6,7 @@ import { meetings } from "@/data/meetings";
 import { siteConfig } from "@/data/site-config";
 import toastmastersLogo from "@/imports/toastmasters-logo_2x.png";
 
-import { navLinks, membershipLinks } from "../../data/nav-links";
+import { membershipLinks, navLinks } from "../data/nav-links";
 
 export default function Footer() {
   return (

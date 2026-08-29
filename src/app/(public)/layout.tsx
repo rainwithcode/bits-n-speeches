@@ -1,6 +1,6 @@
-import CallToAction from "./components/layout/CallToAction";
-import Footer from "./components/layout/Footer";
-import Header from "./components/layout/Header";
+import CallToAction from "./shared/CallToAction";
+import Footer from "./shared/Footer";
+import Header from "./shared/Header";
 
 export default function PublicLayout({
   children,

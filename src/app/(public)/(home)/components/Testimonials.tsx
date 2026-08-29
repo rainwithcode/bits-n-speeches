@@ -1,7 +1,7 @@
 import { Quote } from "lucide-react";
 import Image from "next/image";
 
-import { testimonials } from "../data/testimonials";
+import { members } from "../../data/members";
 
 export default function Testimonials() {
   return (
@@ -11,8 +11,8 @@ export default function Testimonials() {
           What Our Members Say
         </h2>
         <ul className="grid md:grid-cols-3 gap-4 md:gap-8 mt-8">
-          {testimonials.slice(0, 3).map((testimonial) => {
-            const nameParts = testimonial.name.split(/\s+/);
+          {members.slice(0, 3).map((members) => {
+            const nameParts = members.name.split(/\s+/);
 
             const initials =
               nameParts.length > 1
@@ -21,20 +21,20 @@ export default function Testimonials() {
 
             return (
               <li
-                key={testimonial.name}
+                key={members.name}
                 className="flex flex-col space-y-2 md:space-y-4 bg-white/10 p-8 rounded-md shadow-sm"
               >
                 <Quote className="w-8 h-8 text-accent" />
 
                 <blockquote className="text-sm md:text-base text-primary-foreground">
-                  <p>{testimonial.quote}</p>
+                  <p>{members.testimonial}</p>
                 </blockquote>
 
                 <div className="mt-auto flex gap-4 items-center">
-                  {testimonial.image ? (
+                  {members.image ? (
                     <Image
-                      src={`/members/${testimonial.image}`}
-                      alt={testimonial.name}
+                      src={`/members/${members.image}`}
+                      alt={members.name}
                       width={128}
                       height={128}
                       quality={75}
@@ -48,10 +48,10 @@ export default function Testimonials() {
 
                   <div>
                     <cite className="text-xs md:text-sm text-primary-foreground font-bold not-italic">
-                      {testimonial.name}
+                      {members.name}
                     </cite>
                     <div className="text-xs md:text-sm text-primary-foreground">
-                      {testimonial.role}
+                      {members.role}
                     </div>
                   </div>
                 </div>

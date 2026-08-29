@@ -18,8 +18,8 @@ export default function StoryAndMission() {
                   key={index}
                   className={
                     index === lastIndex
-                      ? "text-primary text-base md:text-lg font-bold"
-                      : "text-foreground text-base md:text-lg"
+                      ? "text-primary text-base font-bold"
+                      : "text-foreground text-base"
                   }
                 >
                   {paragraph}

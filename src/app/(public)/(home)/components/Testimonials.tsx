@@ -1,6 +1,8 @@
 import { Quote } from "lucide-react";
 import Image from "next/image";
 
+import AvatarFallback from "@/components/ui/AvatarFallback";
+
 import { members } from "../../data/members";
 
 export default function Testimonials() {
@@ -41,9 +43,7 @@ export default function Testimonials() {
                       className="w-8 h-8 md:w-12 md:h-12 object-cover rounded-full"
                     />
                   ) : (
-                    <div className="w-12 h-12 rounded-full flex justify-center items-center bg-primary text-primary-foreground text-sm font-bold">
-                      {initials}
-                    </div>
+                    <AvatarFallback>{initials}</AvatarFallback>
                   )}
 
                   <div>

@@ -60,4 +60,7 @@ export const members = [
   {
     name: "Mark Graham",
   },
+  {
+    name: "Neelam Wadhwani",
+  },
 ];

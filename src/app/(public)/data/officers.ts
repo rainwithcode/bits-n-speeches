@@ -23,4 +23,8 @@ export const officers = [
     name: "Mark Graham",
     role: "Treasurer",
   },
+  {
+    name: "Neelam Wadhwani",
+    role: "Sergeant-at-Arms",
+  },
 ];

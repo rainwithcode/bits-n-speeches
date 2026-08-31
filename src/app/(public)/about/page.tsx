@@ -1,5 +1,6 @@
 import PageHero from "../shared/PageHero";
 
+import Leadership from "./components/Leadership";
 import Milestones from "./components/MIlestones";
 import StoryAndMission from "./components/StoryAndMission";
 
@@ -12,6 +13,7 @@ export default function About() {
       />
       <StoryAndMission />
       <Milestones />
+      <Leadership />
     </>
   );
 }

@@ -2,6 +2,7 @@ import { Award, Mic, Users, type LucideIcon } from "lucide-react";
 
 import { siteConfig } from "@/data/site-config";
 
+import SectionHeading from "../../shared/SectionHeading";
 import { whyJoin } from "../data/why-join";
 
 const icons: Record<string, LucideIcon> = { Mic, Award, Users };
@@ -10,9 +11,9 @@ export default function WhyJoin() {
   return (
     <section className="bg-muted/5">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
-        <h2 className="font-heading font-bold text-primary text-xl md:text-4xl mb-4">
+        <SectionHeading variant="primary">
           Why Join {siteConfig.name}?
-        </h2>
+        </SectionHeading>
         <p>
           Whether you&apos;re a seasoned professional or a first-time speaker,
           our structured program helps you grow at your own pace.

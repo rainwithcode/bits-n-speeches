@@ -5,14 +5,15 @@ import AvatarFallback from "@/components/ui/AvatarFallback";
 import getInitials from "@/utils/get-initials";
 
 import { members } from "../../data/members";
+import SectionHeading from "../../shared/SectionHeading";
 
 export default function Testimonials() {
   return (
     <section className="bg-primary">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
-        <h2 className="font-heading font-bold text-primary-foreground text-xl md:text-4xl mb-4">
+        <SectionHeading variant="secondary">
           What Our Members Say
-        </h2>
+        </SectionHeading>
         <ul className="grid md:grid-cols-3 gap-4 md:gap-8 mt-8">
           {members.slice(0, 3).map((member) => {
             const initials = getInitials(member.name);

@@ -11,6 +11,7 @@ import {
 } from "@/lib/meetings";
 
 import IconText from "../../../../components/ui/IconText";
+import SectionHeading from "../../shared/SectionHeading";
 
 export default async function UpcomingMeetings() {
   const meetings = await getUpcomingMeetings();
@@ -27,9 +28,7 @@ export default async function UpcomingMeetings() {
   return (
     <section className="bg-muted/5">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
-        <h2 className="font-heading font-bold text-primary text-xl md:text-4xl mb-8">
-          Upcoming Meetings
-        </h2>
+        <SectionHeading variant="primary">Upcoming Meetings</SectionHeading>
         <div className="flex flex-col gap-4 md:gap-8 md:flex-row ">
           {nextMeeting && (
             <article className="bg-primary p-8 rounded-md" key={nextMeeting.id}>

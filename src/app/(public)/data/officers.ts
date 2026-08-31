@@ -1,4 +1,9 @@
-export const officers = [
+type Officer = {
+  name: string;
+  role: string;
+};
+
+export const officers: Officer[] = [
   {
     name: "Susan Sontra",
     role: "President",

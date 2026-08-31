@@ -2,6 +2,7 @@ import { Quote } from "lucide-react";
 import Image from "next/image";
 
 import AvatarFallback from "@/components/ui/AvatarFallback";
+import getInitials from "@/utils/get-initials";
 
 import { members } from "../../data/members";
 
@@ -14,12 +15,7 @@ export default function Testimonials() {
         </h2>
         <ul className="grid md:grid-cols-3 gap-4 md:gap-8 mt-8">
           {members.slice(0, 3).map((member) => {
-            const nameParts = member.name.split(/\s+/);
-
-            const initials =
-              nameParts.length > 1
-                ? `${nameParts[0][0]}${nameParts[1][0]}`.toUpperCase()
-                : nameParts[0][0].toUpperCase();
+            const initials = getInitials(member.name);
 
             return (
               <li

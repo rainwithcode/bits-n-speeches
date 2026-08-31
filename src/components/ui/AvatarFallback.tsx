@@ -1,8 +1,16 @@
 import { ReactNode } from "react";
 
-export default function AvatarFallback({ children }: { children: ReactNode }) {
+export default function AvatarFallback({
+  className,
+  children,
+}: {
+  className?: string;
+  children: ReactNode;
+}) {
   return (
-    <div className="w-12 h-12 rounded-full flex justify-center items-center bg-primary text-primary-foreground text-sm font-bold">
+    <div
+      className={`rounded-full flex justify-center items-center bg-primary text-primary-foreground font-bold ${className}`}
+    >
       {children}
     </div>
   );

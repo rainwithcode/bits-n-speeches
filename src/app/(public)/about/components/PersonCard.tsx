@@ -25,10 +25,10 @@ export default function PersonCard({
           alt={name}
           width="150"
           height="150"
-          className="rounded-full mb-2"
+          className="size-[150px] rounded-full mb-2"
         ></Image>
       ) : (
-        <AvatarFallback className="w-40 h-40 mb-2 text-2xl">
+        <AvatarFallback className="size-[150px] mb-2 text-2xl">
           {initials}
         </AvatarFallback>
       )}

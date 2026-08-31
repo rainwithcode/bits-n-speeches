@@ -11,7 +11,7 @@ export default function Leadership() {
         <SectionHeading variant="primary">Club Leadership</SectionHeading>
         <ul className="flex flex-wrap justify-center gap-x-14 gap-y-10">
           {memberWithRoles.map((officer) => (
-            <li key={officer.officerRole} className="">
+            <li key={officer.officerRole}>
               <PersonCard
                 name={officer.name}
                 src={officer.image}

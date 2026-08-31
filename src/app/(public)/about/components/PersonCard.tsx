@@ -18,23 +18,26 @@ export default function PersonCard({
   const initials = getInitials(name);
 
   return (
-    <article className="flex flex-col justify-center items-center gap-3">
+    <article className="flex flex-col items-center justify-center gap-2 text-center md:gap-3">
       {src ? (
         <Image
           src={`/members/${src}`}
           alt={name}
-          width="150"
-          height="150"
-          className="size-[150px] rounded-full mb-2"
-        ></Image>
+          width={150}
+          height={150}
+          className="mb-1 size-16 rounded-full object-cover md:mb-2 md:size-[150px]"
+        />
       ) : (
-        <AvatarFallback className="size-[150px] mb-2 text-2xl">
+        <AvatarFallback className="mb-1 size-16 text-base md:mb-2 md:size-[150px] md:text-2xl">
           {initials}
         </AvatarFallback>
       )}
 
-      <h3 className="font-heading font-bold text-primary">{name}</h3>
-      <p className="text-sm text-primary font-medium">{role}</p>
+      <h3 className="text-sm font-heading font-bold text-primary md:text-base">
+        {name}
+      </h3>
+
+      <p className="text-xs font-medium text-primary md:text-sm">{role}</p>
     </article>
   );
 }

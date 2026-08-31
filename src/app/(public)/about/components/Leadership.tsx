@@ -9,9 +9,9 @@ export default function Leadership() {
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
         <SectionHeading variant="primary">Club Leadership</SectionHeading>
-        <ul className="flex flex-wrap justify-center gap-x-14 gap-y-10">
+        <ul className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-10 lg:gap-y-12">
           {memberWithRoles.map((officer) => (
-            <li key={officer.officerRole}>
+            <li key={officer.name}>
               <PersonCard
                 name={officer.name}
                 src={officer.image}

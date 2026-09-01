@@ -33,9 +33,16 @@ export async function getMeetingList() {
   return data;
 }
 
-// src/lib/meetings.ts
-export function formatMeetingDateTime(startsAt: string | Date) {
+export function formatMeetingDateTime(
+  startsAt: string | Date | null | undefined,
+) {
+  if (!startsAt) return "TBD";
+
   const date = new Date(startsAt);
+
+  if (Number.isNaN(date.getTime())) {
+    return "Invalid date";
+  }
 
   const parts = new Intl.DateTimeFormat("en-US", {
     month: "short",

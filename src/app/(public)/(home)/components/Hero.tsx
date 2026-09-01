@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section className="from-gradient-from to-gradient-to bg-gradient-to-r text-gradient-foreground">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-18 md:py-32">
-        <Badge>{siteConfig.organization}</Badge>
+        <Badge variant="highlight">{siteConfig.organization}</Badge>
         <div className="max-w-3xl space-y-8">
           <h1 className="text-4xl md:text-6xl font-heading font-bold br-50">
             {heroContent.heroTagline[0]}{" "}

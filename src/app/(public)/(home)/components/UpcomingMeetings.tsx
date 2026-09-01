@@ -36,7 +36,7 @@ export default async function UpcomingMeetings() {
                 <div className="font-heading font-bold text-accent uppercase">
                   Next Meeting
                 </div>
-                <Badge>{nextMeeting.type}</Badge>
+                <Badge variant="highlight">{nextMeeting.type}</Badge>
               </div>
               <h3 className="font-heading font-bold text-primary-foreground text-xl md:text-3xl mb-6">
                 {nextMeeting.title}

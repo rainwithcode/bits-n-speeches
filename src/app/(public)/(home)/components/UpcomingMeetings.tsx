@@ -60,6 +60,7 @@ export default async function UpcomingMeetings() {
               <ViewDetailsButton
                 href="/meetings"
                 label="View Meeting"
+                variant="accent"
                 className="mt-8"
               ></ViewDetailsButton>
             </article>

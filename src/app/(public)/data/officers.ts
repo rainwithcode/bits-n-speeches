@@ -32,4 +32,8 @@ export const officers: Officer[] = [
     name: "Neelam Wadhwani",
     role: "Sergeant-at-Arms",
   },
+  {
+    name: "John Fox",
+    role: "Immediate Past President",
+  },
 ];

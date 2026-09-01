@@ -4,15 +4,15 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
-
 const viewDetailsButtonVariants = cva(
   "flex items-center gap-2 w-fit px-4 py-2 font-bold",
   {
     variants: {
       variant: {
-        primary: "bg-accent text-primary hover:bg-hover",
+        primary: "bg-primary text-primary-foreground hover:bg-hover",
         secondary:
           "bg-white text-primary border border-primary hover:bg-primary hover:text-white",
+        accent: "bg-accent text-primary hover:bg-hover",
       },
     },
     defaultVariants: {

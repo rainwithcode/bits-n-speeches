@@ -33,6 +33,28 @@ export async function getMeetingList() {
   return data;
 }
 
+// src/lib/meetings.ts
+export function formatMeetingDateTime(startsAt: string | Date) {
+  const date = new Date(startsAt);
+
+  const parts = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: "America/Los_Angeles",
+  }).formatToParts(date);
+
+  const month = parts.find((p) => p.type === "month")?.value ?? "";
+  const day = parts.find((p) => p.type === "day")?.value ?? "";
+  const hour = parts.find((p) => p.type === "hour")?.value ?? "";
+  const minute = parts.find((p) => p.type === "minute")?.value ?? "";
+  const period = parts.find((p) => p.type === "dayPeriod")?.value ?? "";
+
+  return `${month} ${day} • ${hour}:${minute} ${period}`;
+}
+
 export function formatMeetingDate(date: Date) {
   return date.toLocaleDateString("en-US", {
     weekday: "long",

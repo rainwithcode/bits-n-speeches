@@ -18,6 +18,21 @@ export async function getUpcomingMeetings() {
   return data;
 }
 
+export async function getMeetingList() {
+  const supabase = createServerClient();
+
+  const { data, error } = await supabase
+    .from("meetings")
+    .select("*")
+    .eq("is_published", "true")
+    .gte("starts_at", new Date().toISOString())
+    .order("starts_at", { ascending: true })
+    .limit(8);
+
+  if (error) throw error;
+  return data;
+}
+
 export function formatMeetingDate(date: Date) {
   return date.toLocaleDateString("en-US", {
     weekday: "long",

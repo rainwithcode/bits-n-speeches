@@ -1,4 +1,4 @@
-import Link from "next/link";
+import ViewDetailsButton from "@/components/ui/ViewDetailsButton";
 
 export default function CallToAction() {
   return (
@@ -11,18 +11,15 @@ export default function CallToAction() {
           Join as a guest for free. No experience, no pressure — just growth.
         </p>
         <div className="flex gap-4 md:gap-6">
-          <Link
+          <ViewDetailsButton
             href="/membership#guest"
-            className="block w-fit px-6 py-4 md:px-8 md:py-4 bg-primary text-sm md:text-lg text-primary-foreground font-bold hover:bg-hover hover:text-primary"
-          >
-            Register as a Guest
-          </Link>
-          <Link
+            label="Register as a Guest"
+          />
+          <ViewDetailsButton
             href="/contact"
-            className="block w-fit px-6 py-4 md:px-8 py-4 bg-white text-sm md:text-lg text-primary font-bold hover:bg-primary hover:text-primary-foreground"
-          >
-            Contact Us
-          </Link>
+            label="Contact Us"
+            variant="secondary"
+          />
         </div>
       </div>
     </section>

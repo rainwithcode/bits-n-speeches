@@ -9,10 +9,11 @@ const viewDetailsButtonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-primary text-primary-foreground hover:bg-hover",
+        primary: "bg-primary text-primary-foreground hover:bg-secondary",
         secondary:
-          "bg-white text-primary border border-primary hover:bg-primary hover:text-white",
-        accent: "bg-accent text-primary hover:bg-hover",
+          "bg-white text-primary border border-primary hover:bg-primary hover:text-primary-foreground",
+        accent:
+          "bg-accent text-primary hover:bg-secondary hover:text-primary-foreground",
       },
     },
     defaultVariants: {

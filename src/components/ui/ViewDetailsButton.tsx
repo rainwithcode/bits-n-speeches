@@ -1,5 +1,4 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -42,7 +41,6 @@ export default function ViewDetailsButton({
       className={cn(viewDetailsButtonVariants({ variant }), className)}
     >
       {label}
-      <ArrowRight className="w-4 h-4" />
     </Link>
   );
 }

@@ -1,4 +1,4 @@
-import { Calendar, Clock, MapPin } from "lucide-react";
+import { ArrowRight, Calendar, Clock, MapPin } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
@@ -59,6 +59,7 @@ export default async function UpcomingMeetings() {
 
               <Button href="/meetings" color="accent" className="mt-8">
                 View Meeting
+                <ArrowRight className="w-4 h-4" />
               </Button>
             </article>
           )}
@@ -86,6 +87,7 @@ export default async function UpcomingMeetings() {
                   </time>
                   <Button href="/meetings" color="secondary" className="mt-4">
                     View Meeting
+                    <ArrowRight className="w-4 h-4" />
                   </Button>
                 </article>
               );

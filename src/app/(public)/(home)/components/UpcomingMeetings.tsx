@@ -1,7 +1,7 @@
 import { Calendar, Clock, MapPin } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
-import ViewDetailsButton from "@/components/ui/ViewDetailsButton";
+import Button from "@/components/ui/Button";
 import {
   formatMeetingDate,
   formatMeetingTime,
@@ -57,12 +57,12 @@ export default async function UpcomingMeetings() {
               </IconText>
               <IconText icon={MapPin}>{getLocation(nextMeeting.type)}</IconText>
 
-              <ViewDetailsButton
+              <Button
                 href="/meetings"
                 label="View Meeting"
                 variant="accent"
                 className="mt-8"
-              ></ViewDetailsButton>
+              ></Button>
             </article>
           )}
           <div className="space-y-4 md:space-y-8">
@@ -87,7 +87,7 @@ export default async function UpcomingMeetings() {
                   >
                     {formatMeetingDate(starts_at)}
                   </time>
-                  <ViewDetailsButton
+                  <Button
                     href="/meetings"
                     label="View Meeting"
                     variant="secondary"

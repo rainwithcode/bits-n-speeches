@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
-const viewDetailsButtonVariants = cva(
+const buttonVariants = cva(
   "flex items-center gap-2 w-fit px-4 py-2 font-bold",
   {
     variants: {
@@ -21,25 +21,20 @@ const viewDetailsButtonVariants = cva(
   },
 );
 
-interface ViewDetailsButtonProps extends VariantProps<
-  typeof viewDetailsButtonVariants
-> {
+interface buttonProps extends VariantProps<typeof buttonVariants> {
   href: string;
   label?: string;
   className?: string;
 }
 
-export default function ViewDetailsButton({
+export default function Button({
   href,
   label = "View Details",
   variant,
   className,
-}: ViewDetailsButtonProps) {
+}: buttonProps) {
   return (
-    <Link
-      href={href}
-      className={cn(viewDetailsButtonVariants({ variant }), className)}
-    >
+    <Link href={href} className={cn(buttonVariants({ variant }), className)}>
       {label}
     </Link>
   );

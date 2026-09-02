@@ -60,7 +60,7 @@ export default async function UpcomingMeetings() {
               <Button
                 href="/meetings"
                 label="View Meeting"
-                variant="accent"
+                color="accent"
                 className="mt-8"
               ></Button>
             </article>
@@ -90,7 +90,7 @@ export default async function UpcomingMeetings() {
                   <Button
                     href="/meetings"
                     label="View Meeting"
-                    variant="secondary"
+                    color="secondary"
                     className="mt-4"
                   />
                 </article>

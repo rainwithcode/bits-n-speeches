@@ -3,23 +3,25 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
-const buttonVariants = cva(
-  "flex items-center gap-2 w-fit px-4 py-2 font-bold",
-  {
-    variants: {
-      variant: {
-        primary: "bg-primary text-primary-foreground hover:bg-secondary",
-        secondary:
-          "bg-white text-primary border border-primary hover:bg-primary hover:text-primary-foreground",
-        accent:
-          "bg-accent text-primary hover:bg-secondary hover:text-primary-foreground",
-      },
+const buttonVariants = cva("flex items-center gap-2 w-fit font-bold", {
+  variants: {
+    color: {
+      primary: "bg-primary text-primary-foreground hover:bg-secondary",
+      secondary:
+        "bg-white text-primary border border-primary hover:bg-primary hover:text-primary-foreground",
+      accent:
+        "bg-accent text-primary hover:bg-secondary hover:text-primary-foreground",
     },
-    defaultVariants: {
-      variant: "primary",
+    size: {
+      big: "px-6 py-4 md:px-8 md:py-4 text-sm md:text-lg",
+      small: "px-4 py-2",
     },
   },
-);
+  defaultVariants: {
+    color: "primary",
+    size: "small",
+  },
+});
 
 interface buttonProps extends VariantProps<typeof buttonVariants> {
   href: string;
@@ -30,11 +32,15 @@ interface buttonProps extends VariantProps<typeof buttonVariants> {
 export default function Button({
   href,
   label = "View Details",
-  variant,
+  color,
+  size,
   className,
 }: buttonProps) {
   return (
-    <Link href={href} className={cn(buttonVariants({ variant }), className)}>
+    <Link
+      href={href}
+      className={cn(buttonVariants({ color, size }), className)}
+    >
       {label}
     </Link>
   );

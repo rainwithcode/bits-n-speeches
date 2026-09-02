@@ -12,7 +12,7 @@ export default function CallToAction() {
         </p>
         <div className="flex gap-4 md:gap-6">
           <Button href="/membership#guest" label="Register as a Guest" />
-          <Button href="/contact" label="Contact Us" variant="secondary" />
+          <Button href="/contact" label="Contact Us" color="secondary" />
         </div>
       </div>
     </section>

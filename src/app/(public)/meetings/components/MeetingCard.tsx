@@ -31,7 +31,7 @@ export default function MeetingCard({
           View Meeting
           <ArrowRight className="w-4 h-4" />
         </Button>
-        <Button href="/" color="secondary">
+        <Button href={`/meetings/${id}/register`} color="secondary">
           Register
           <UserPlus className="w-4 h-4" />
         </Button>

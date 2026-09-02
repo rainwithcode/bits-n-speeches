@@ -18,6 +18,7 @@ export default async function MeetingList() {
                 date={meeting.starts_at}
                 theme={meeting.title}
                 type={meeting.type}
+                id={meeting.id}
               ></MeetingCard>
             </li>
           );

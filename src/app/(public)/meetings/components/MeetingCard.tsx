@@ -8,9 +8,15 @@ type MeetingCardProps = {
   date: string;
   type: "virtual" | "hybrid" | "in-person";
   theme: string;
+  id: "string";
 };
 
-export default function MeetingCard({ date, theme, type }: MeetingCardProps) {
+export default function MeetingCard({
+  date,
+  theme,
+  type,
+  id,
+}: MeetingCardProps) {
   return (
     <article className="p-4 border border-border rounded-md">
       <div className="flex justify-between">
@@ -21,7 +27,7 @@ export default function MeetingCard({ date, theme, type }: MeetingCardProps) {
       </div>
       <h3 className="font-heading font-bold text-primary">{theme}</h3>
       <div className="flex gap-4 mt-4">
-        <Button href="/meetings">
+        <Button href={`/meetings/${id}`}>
           View Meeting
           <ArrowRight className="w-4 h-4" />
         </Button>

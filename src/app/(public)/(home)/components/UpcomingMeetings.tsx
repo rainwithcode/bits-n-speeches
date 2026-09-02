@@ -57,7 +57,11 @@ export default async function UpcomingMeetings() {
               </IconText>
               <IconText icon={MapPin}>{getLocation(nextMeeting.type)}</IconText>
 
-              <Button href="/meetings" color="accent" className="mt-8">
+              <Button
+                href={`/meetings/${nextMeeting.id}`}
+                color="accent"
+                className="mt-8"
+              >
                 View Meeting
                 <ArrowRight className="w-4 h-4" />
               </Button>
@@ -85,7 +89,11 @@ export default async function UpcomingMeetings() {
                   >
                     {formatMeetingDate(starts_at)}
                   </time>
-                  <Button href="/meetings" color="secondary" className="mt-4">
+                  <Button
+                    href={`/meetings/${meeting.id}`}
+                    color="secondary"
+                    className="mt-4"
+                  >
                     View Meeting
                     <ArrowRight className="w-4 h-4" />
                   </Button>

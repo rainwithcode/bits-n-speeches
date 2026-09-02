@@ -11,8 +11,17 @@ export default function CallToAction() {
           Join as a guest for free. No experience, no pressure — just growth.
         </p>
         <div className="flex gap-4 md:gap-6">
-          <Button href="/membership#guest" label="Register as a Guest" />
-          <Button href="/contact" label="Contact Us" color="secondary" />
+          <Button
+            href="/membership#guest"
+            label="Register as a Guest"
+            size="big"
+          />
+          <Button
+            href="/contact"
+            label="Contact Us"
+            color="secondary"
+            size="big"
+          />
         </div>
       </div>
     </section>

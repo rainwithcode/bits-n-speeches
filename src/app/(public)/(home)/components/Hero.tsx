@@ -1,6 +1,5 @@
-import Link from "next/link";
-
 import Badge from "@/components/ui/Badge";
+import Button from "@/components/ui/Button";
 import { siteConfig } from "@/data/site-config";
 
 import { heroContent } from "../data/hero-content";
@@ -17,18 +16,18 @@ export default function Hero() {
           </h1>
           <p className="text-base md:text-xl">{heroContent.heroDescription}</p>
           <div className="flex gap-4 md:gap-6">
-            <Link
+            <Button
               href="/membership#guest"
-              className="block w-fit px-6 py-4 md:px-8 md:py-4 bg-accent text-sm md:text-lg text-primary font-bold hover:bg-hover"
-            >
-              Attend a Free Meeting
-            </Link>
-            <Link
+              color="accent"
+              size="big"
+              label="Attend a Free Meeting"
+            />
+            <Button
               href="/about"
-              className="block w-fit px-6 py-4 md:px-8 py-4 border text-sm md:text-lg text-gradient-foreground font-bold hover:bg-hover hover:text-primary"
-            >
-              Learn More
-            </Link>
+              color="secondary"
+              size="big"
+              label="Learn More"
+            />
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ const buttonVariants = cva("flex items-center gap-2 w-fit font-bold", {
     color: {
       primary: "bg-primary text-primary-foreground hover:bg-secondary",
       secondary:
-        "bg-white text-primary border border-primary hover:bg-primary hover:text-primary-foreground",
+        "bg-white text-primary border border-primary hover:bg-secondary hover:text-primary-foreground",
       accent:
         "bg-accent text-primary hover:bg-secondary hover:text-primary-foreground",
     },

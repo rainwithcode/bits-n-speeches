@@ -95,7 +95,7 @@ export default async function UpcomingMeetings() {
                     {formatMeetingDate(starts_at)}
                   </time>
                   <div className="flex gap-4 mt-4">
-                    <Button href={`/meetings/${meeting.id}`} color="secondary">
+                    <Button href={`/meetings/${meeting.id}`}>
                       View Meeting
                       <ArrowRight className="w-4 h-4" />
                     </Button>

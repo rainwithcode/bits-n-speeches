@@ -16,18 +16,12 @@ export default function Hero() {
           </h1>
           <p className="text-base md:text-xl">{heroContent.heroDescription}</p>
           <div className="flex gap-4 md:gap-6">
-            <Button
-              href="/membership#guest"
-              color="accent"
-              size="big"
-              label="Attend a Free Meeting"
-            />
-            <Button
-              href="/about"
-              color="secondary"
-              size="big"
-              label="Learn More"
-            />
+            <Button href="/membership#guest" color="accent" size="big">
+              Attend a Free Meeting
+            </Button>
+            <Button href="/about" color="secondary" size="big">
+              Learn More
+            </Button>
           </div>
         </div>
       </div>

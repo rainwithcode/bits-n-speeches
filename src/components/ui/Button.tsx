@@ -1,5 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import Link from "next/link";
+import { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -25,23 +26,23 @@ const buttonVariants = cva("flex items-center gap-2 w-fit font-bold", {
 
 interface buttonProps extends VariantProps<typeof buttonVariants> {
   href: string;
-  label?: string;
   className?: string;
+  children: ReactNode;
 }
 
 export default function Button({
   href,
-  label = "View Details",
   color,
   size,
   className,
+  children = "View Details",
 }: buttonProps) {
   return (
     <Link
       href={href}
       className={cn(buttonVariants({ color, size }), className)}
     >
-      {label}
+      {children}
     </Link>
   );
 }

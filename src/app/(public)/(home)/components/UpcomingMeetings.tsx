@@ -57,12 +57,9 @@ export default async function UpcomingMeetings() {
               </IconText>
               <IconText icon={MapPin}>{getLocation(nextMeeting.type)}</IconText>
 
-              <Button
-                href="/meetings"
-                label="View Meeting"
-                color="accent"
-                className="mt-8"
-              ></Button>
+              <Button href="/meetings" color="accent" className="mt-8">
+                View Meeting
+              </Button>
             </article>
           )}
           <div className="space-y-4 md:space-y-8">
@@ -87,12 +84,9 @@ export default async function UpcomingMeetings() {
                   >
                     {formatMeetingDate(starts_at)}
                   </time>
-                  <Button
-                    href="/meetings"
-                    label="View Meeting"
-                    color="secondary"
-                    className="mt-4"
-                  />
+                  <Button href="/meetings" color="secondary" className="mt-4">
+                    View Meeting
+                  </Button>
                 </article>
               );
             })}

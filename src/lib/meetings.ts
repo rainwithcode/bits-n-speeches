@@ -3,6 +3,19 @@ import { Database } from "@/types/supabase";
 
 import { createServerClient } from "./supabase/server";
 
+export async function getMeetingById(id: string) {
+  const supabase = createServerClient();
+
+  const { data, error } = await supabase
+    .from("meetings")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) throw Error;
+  return data;
+}
+
 export async function getUpcomingMeetings() {
   const supabase = createServerClient();
 

@@ -100,7 +100,7 @@ export default async function UpcomingMeetings() {
                       <ArrowRight className="w-4 h-4" />
                     </Button>
                     <Button
-                      href={`/meetings/${nextMeeting.id}/register`}
+                      href={`/meetings/${meeting.id}/register`}
                       color="secondary"
                     >
                       Register

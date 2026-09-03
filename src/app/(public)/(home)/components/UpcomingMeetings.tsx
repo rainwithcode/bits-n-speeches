@@ -28,7 +28,9 @@ export default async function UpcomingMeetings() {
   return (
     <section className="bg-muted/5">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
-        <SectionHeading variant="primary">Upcoming Meetings</SectionHeading>
+        <SectionHeading className="mb-6" variant="primary">
+          Upcoming Meetings
+        </SectionHeading>
         <div className="flex flex-col gap-4 md:gap-8 md:flex-row ">
           {nextMeeting && (
             <article className="bg-primary p-8 rounded-md" key={nextMeeting.id}>

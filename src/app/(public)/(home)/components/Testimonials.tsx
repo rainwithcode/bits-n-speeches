@@ -11,7 +11,7 @@ export default function Testimonials() {
   return (
     <section className="bg-primary">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
-        <SectionHeading variant="secondary">
+        <SectionHeading className="mb-6" variant="secondary">
           What Our Members Say
         </SectionHeading>
         <ul className="grid md:grid-cols-3 gap-4 md:gap-8 mt-8">

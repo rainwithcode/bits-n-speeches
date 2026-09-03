@@ -8,7 +8,9 @@ export default function StoryAndMission() {
   return (
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
-        <SectionHeading variant="primary">Our Story and Mission</SectionHeading>
+        <SectionHeading className="mb-6" variant="primary">
+          Our Story and Mission
+        </SectionHeading>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <div className="space-y-4">
             {about.story.map((paragraph, index) => {

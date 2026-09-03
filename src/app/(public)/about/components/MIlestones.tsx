@@ -7,7 +7,9 @@ export default function Milestones() {
   return (
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
-        <SectionHeading variant="primary">Our Milestones</SectionHeading>
+        <SectionHeading className="mb-6" variant="primary">
+          Our Milestones
+        </SectionHeading>
         <p>
           Explore the key events that have shaped {siteConfig.name} into the
           thriving community it is today.

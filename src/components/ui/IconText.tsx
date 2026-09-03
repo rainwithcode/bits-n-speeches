@@ -18,7 +18,11 @@ export default function IconText({
         <Icon
           className={`w-5 ${variant === "primary" ? "text-primary" : "text-accent"}`}
         />
-        <span className="text-primary-foreground">{children}</span>
+        <span
+          className={`${variant === "primary" ? "text-primary" : "text-primary-foreground"}`}
+        >
+          {children}
+        </span>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import {
 } from "@/lib/meetings";
 import type { Meeting } from "@/types/supabase";
 
-export const meetings = {
+export const meetingInfo = {
   day: "Thursday",
   time: "7:00 – 8:30 PM Pacific",
   location: {

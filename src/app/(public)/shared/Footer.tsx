@@ -2,7 +2,7 @@ import { Clock, MapPin, Video } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { meetings } from "@/data/meetings";
+import { meetingInfo } from "@/data/meetings";
 import { siteConfig } from "@/data/site-config";
 import toastmastersLogo from "@/imports/toastmasters-logo_2x.png";
 
@@ -73,22 +73,22 @@ export default function Footer() {
                       Schedule:
                     </span>{" "}
                   </div>
-                  Every {meetings.day} at {meetings.time}
+                  Every {meetingInfo.day} at {meetingInfo.time}
                 </li>
                 <li className="text-base md:text-lg mb-2" key="in-person">
                   <div className="flex gap-2">
                     <MapPin className="w-5 text-accent" />
                     <span className="text-primary-foreground">
-                      In Person (1st &amp; 3rd {meetings.day}s):
+                      In Person (1st &amp; 3rd {meetingInfo.day}s):
                     </span>{" "}
                   </div>
-                  {meetings.location.inPerson}
+                  {meetingInfo.location.inPerson}
                 </li>
                 <li className="text-base md:text-lg mb-2" key="online">
                   <div className="flex gap-2">
                     <Video className="w-5 text-accent" />
                     <span className="text-primary-foreground">
-                      {meetings.location.online}:
+                      {meetingInfo.location.online}:
                     </span>{" "}
                   </div>
                   <a

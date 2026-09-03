@@ -1,4 +1,4 @@
-import { meetings } from "@/data/meetings";
+import { meetingInfo } from "@/data/meetings";
 import { Database } from "@/types/supabase";
 
 import { createServerClient } from "./supabase/server";
@@ -106,11 +106,11 @@ type MeetingType = Database["public"]["Enums"]["meeting_type"];
 export function getLocation(meetingType: MeetingType) {
   switch (meetingType) {
     case "virtual":
-      return meetings.location.online;
+      return meetingInfo.location.online;
     case "hybrid":
-      return `${meetings.location.online} & ${meetings.location.inPerson}`;
+      return `${meetingInfo.location.online} & ${meetingInfo.location.inPerson}`;
     case "in_person":
-      return meetings.location.inPerson;
+      return meetingInfo.location.inPerson;
     default:
       meetingType satisfies never;
       throw new Error("Unhandled meeting type: ${meetingType}");

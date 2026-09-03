@@ -41,12 +41,12 @@ export default async function UpcomingMeetings() {
               <h3 className="font-heading font-bold text-primary-foreground text-xl md:text-3xl mb-6">
                 {nextMeeting.title}
               </h3>
-              <IconText icon={Calendar}>
+              <IconText icon={Calendar} variant="accent">
                 <time dateTime={nextMeetingStartsAt.toISOString()}>
                   {formatMeetingDate(nextMeetingStartsAt)}
                 </time>
               </IconText>
-              <IconText icon={Clock}>
+              <IconText icon={Clock} variant="accent">
                 <time dateTime={nextMeetingStartsAt.toISOString()}>
                   {formatMeetingTime(nextMeetingStartsAt, false)}
                 </time>{" "}
@@ -55,7 +55,9 @@ export default async function UpcomingMeetings() {
                   {formatMeetingTime(nextMeetingEndsAt, true)}
                 </time>
               </IconText>
-              <IconText icon={MapPin}>{getLocation(nextMeeting.type)}</IconText>
+              <IconText icon={MapPin} variant="accent">
+                {getLocation(nextMeeting.type)}
+              </IconText>
 
               <div className="flex gap-4 mt-8">
                 <Button href={`/meetings/${nextMeeting.id}`} color="accent">

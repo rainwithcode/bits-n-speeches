@@ -1,4 +1,5 @@
 import Badge from "@/components/ui/Badge";
+import Button from "@/components/ui/Button";
 import { meetingDetailItems } from "@/data/meetings";
 import type { Meeting } from "@/types/supabase";
 
@@ -35,7 +36,12 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
         <h3 className="mt-5 font-heading font-bold text-primary md:text-xl">
           About This Meeting
         </h3>
-        <p className="mt-2">{meeting.description}</p>
+        <p className="mt-2 pb-8 border-b border-border">
+          {meeting.description}
+        </p>
+        <Button href="/membership" className="mt-6">
+          Register as a Guest for This Meeting
+        </Button>
       </div>
     </article>
   );

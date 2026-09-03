@@ -80,11 +80,11 @@ export default async function UpcomingMeetings() {
 
               return (
                 <article
-                  className="space-y-2 p-8 border border-border hover:shadow-md rounded-md bg-white text-primary"
+                  className="space-y-2 p-8 border border-border hover:shadow-md rounded-md bg-white"
                   key={meeting.id}
                 >
                   <div className="flex items-center">
-                    <h3 className="text-lg md:text-xl font-bold font-heading">
+                    <h3 className="text-lg md:text-xl font-bold font-heading text-primary">
                       {meeting.title}
                     </h3>
                     <Badge>{meeting.type}</Badge>

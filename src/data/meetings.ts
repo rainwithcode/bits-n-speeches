@@ -4,6 +4,7 @@ import {
   formatMeetingDate,
   formatMeetingTime,
   getLocation,
+  getMeetingEndsAt,
 } from "@/lib/meetings";
 import type { Meeting } from "@/types/supabase";
 
@@ -27,7 +28,7 @@ export const meetingDetailItems = [
     label: "Time",
     icon: Clock,
     getValue: (meeting: Meeting) =>
-      formatMeetingTime(new Date(meeting.starts_at), true),
+      `${formatMeetingTime(new Date(meeting.starts_at), false)} – ${formatMeetingTime(getMeetingEndsAt(new Date(meeting.starts_at), meeting.ends_at), true)}`,
   },
   {
     label: "Location",

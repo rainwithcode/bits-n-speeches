@@ -21,12 +21,14 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
           const Icon = meetingDetail.icon;
           return (
             <li key={meetingDetail.label} className="flex gap-3 items-center">
-              <Icon className="w-5 h-5 text-primary" />
+              <Icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
               <div>
-                <div className="font-bold text-primary">
+                <div className="font-bold text-primary text-sm md:text-base">
                   {meetingDetail.label}
                 </div>
-                <p>{meetingDetail.getValue(meeting)}</p>
+                <p className="text-sm md:text-base">
+                  {meetingDetail.getValue(meeting)}
+                </p>
               </div>
             </li>
           );
@@ -35,7 +37,9 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
       <h3 className="mt-5 font-heading font-bold text-primary md:text-xl">
         About This Meeting
       </h3>
-      <p className="mt-2 pb-8 border-b border-border">{meeting.description}</p>
+      <p className="mt-2 pb-8 border-b border-border text-sm md:text-base">
+        {meeting.description}
+      </p>
       <Button href="/membership" className="mt-6">
         Register as a Guest for This Meeting
       </Button>

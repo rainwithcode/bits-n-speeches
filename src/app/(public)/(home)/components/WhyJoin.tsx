@@ -9,7 +9,7 @@ const icons: Record<string, LucideIcon> = { Mic, Award, Users };
 
 export default function WhyJoin() {
   return (
-    <section className="bg-muted/5">
+    <section className="bg-primary/5">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
         <SectionHeading className="mb-6" variant="primary">
           Why Join {siteConfig.name}?

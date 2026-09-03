@@ -1,3 +1,12 @@
+import { Calendar, Clock, MapPin } from "lucide-react";
+
+import {
+  formatMeetingDate,
+  formatMeetingTime,
+  getLocation,
+} from "@/lib/meetings";
+import type { Meeting } from "@/types/supabase";
+
 export const meetings = {
   day: "Thursday",
   time: "7:00 – 8:30 PM Pacific",
@@ -6,3 +15,23 @@ export const meetings = {
     inPerson: "WINN Center Consumnes River College, Elk Grove, CA 95624",
   },
 };
+
+export const meetingDetailItems = [
+  {
+    label: "Date",
+    icon: Calendar,
+    getValue: (meeting: Meeting) =>
+      formatMeetingDate(new Date(meeting.starts_at)),
+  },
+  {
+    label: "Time",
+    icon: Clock,
+    getValue: (meeting: Meeting) =>
+      formatMeetingTime(new Date(meeting.starts_at), true),
+  },
+  {
+    label: "Location",
+    icon: MapPin,
+    getValue: (meeting: Meeting) => getLocation(meeting.type),
+  },
+];

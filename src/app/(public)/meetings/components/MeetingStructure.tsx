@@ -15,7 +15,7 @@ export default function MeetingStructure() {
               <div className="w-fit px-5 py-3 rounded-full bg-primary font-bold text-primary-foreground">
                 {index + 1}
               </div>
-              <h3 className="font-bold text-lg md:text-xl text-primary">
+              <h3 className="font-bold text-base md:text-xl text-primary">
                 {item.title}
               </h3>
               <p className="text-center text-sm md:text-base">

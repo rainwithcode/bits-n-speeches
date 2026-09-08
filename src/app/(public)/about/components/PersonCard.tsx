@@ -33,11 +33,11 @@ export default function PersonCard({
         </AvatarFallback>
       )}
 
-      <h3 className="text-sm font-heading font-bold text-primary md:text-base">
+      <h3 className="text-sm font-heading font-bold text-primary text-base md:text-lg">
         {name}
       </h3>
 
-      <p className="text-xs font-medium md:text-sm">{role}</p>
+      <p className="font-medium text-sm md:text-base">{role}</p>
     </article>
   );
 }

@@ -29,7 +29,7 @@ export default function WhyJoin() {
                 <div className="mx-auto w-fit px-4 py-4 rounded-md bg-primary/10">
                   <Icon className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="font-heading font-bold text-lg md:text-xl text-primary">
+                <h3 className="font-heading font-bold text-base md:text-xl text-primary">
                   {reason.label}
                 </h3>
                 <p className="text-sm md:text-base">{reason.description}</p>

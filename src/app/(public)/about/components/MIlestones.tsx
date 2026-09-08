@@ -26,7 +26,7 @@ export default function Milestones() {
               >
                 {milestone.year}
               </time>
-              <h3 className="text-lg md:text-xl font-bold">
+              <h3 className="font-heading font-bold text-base md:text-xl text-primary">
                 {milestone.title}
               </h3>
               <p className="text-sm md:text-base">{milestone.description}</p>

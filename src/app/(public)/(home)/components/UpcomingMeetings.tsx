@@ -39,7 +39,7 @@ export default async function UpcomingMeetings() {
               </div>
               <Badge variant="highlight">{nextMeeting.type}</Badge>
             </div>
-            <h3 className="font-heading font-bold text-primary-foreground text-xl md:text-3xl mb-6">
+            <h3 className="font-heading font-bold text-primary-foreground text-xl md:text-2xl mb-6">
               {nextMeeting.title}
             </h3>
             <IconText icon={Calendar} variant="accent">
@@ -85,7 +85,7 @@ export default async function UpcomingMeetings() {
                 key={meeting.id}
               >
                 <div className="flex items-center">
-                  <h3 className="text-lg md:text-xl font-bold font-heading text-primary">
+                  <h3 className="text-lg md:text-lg font-bold font-heading text-primary">
                     {meeting.title}
                   </h3>
                   <Badge>{meeting.type}</Badge>

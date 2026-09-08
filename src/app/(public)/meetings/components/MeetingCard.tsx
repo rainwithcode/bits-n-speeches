@@ -20,7 +20,7 @@ export default function MeetingCard({ meeting }: MeetingCardProps) {
         </Badge>
       </div>
       <div className="space-y-2">
-        <h3 className="font-heading font-bold text-primary text-base md:text-lg">
+        <h3 className="font-heading font-bold text-primary text-sm md:text-lg">
           {meeting.title}
         </h3>
         <IconText icon={MapPin}>{getLocation(meeting.type)}</IconText>

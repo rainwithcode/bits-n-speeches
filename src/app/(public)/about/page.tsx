@@ -1,5 +1,6 @@
 import PageHero from "../shared/PageHero";
 
+import AboutToastmasters from "./components/AboutToastmasters";
 import Leadership from "./components/Leadership";
 import Milestones from "./components/MIlestones";
 import StoryAndMission from "./components/StoryAndMission";
@@ -11,6 +12,7 @@ export default function About() {
         title="About Us"
         description="Who we are, what we believe, and why we meet every Thursday."
       />
+      <AboutToastmasters />
       <StoryAndMission />
       <Milestones />
       <Leadership />

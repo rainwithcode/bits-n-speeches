@@ -37,7 +37,7 @@ export default function PersonCard({
         {name}
       </h3>
 
-      <p className="text-xs font-medium text-primary md:text-sm">{role}</p>
+      <p className="text-xs font-medium md:text-sm">{role}</p>
     </article>
   );
 }

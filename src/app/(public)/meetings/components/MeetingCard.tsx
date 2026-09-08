@@ -25,7 +25,9 @@ export default function MeetingCard({
           {type}
         </Badge>
       </div>
-      <h3 className="font-heading font-bold text-primary">{theme}</h3>
+      <h3 className="font-heading font-bold text-primary text-base md:text-lg">
+        {theme}
+      </h3>
       <div className="flex gap-4 mt-4">
         <Button href={`/meetings/${id}`}>
           View Meeting

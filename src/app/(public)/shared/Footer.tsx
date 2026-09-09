@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import { meetingInfo } from "@/data/meetings";
 import { siteConfig } from "@/data/site-config";
-import toastmastersLogo from "@/imports/toastmasters-logo_2x.png";
 
 import { membershipLinks, navLinks } from "../data/nav-links";
 
@@ -15,8 +14,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pb-8 mb-6 border-b border-primary-foreground/70">
           <div>
             <Image
-              src={toastmastersLogo}
+              src="/logo.png"
               alt="Toastmasters logo"
+              width={148}
+              height={124}
               className="w-14 h-auto mb-3"
             />
             <div className="space-y-2">

@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { siteConfig } from "@/data/site-config";
-import toastmastersLogo from "@/imports/toastmasters-logo_2x.png";
 
 import Navigation from "./Navigation";
 
@@ -15,9 +14,11 @@ export default function Header() {
           className="flex items-center gap-4 text-primary-foreground font-heading font-bold text-lg md:text-2xl tracking-wide"
         >
           <Image
-            src={toastmastersLogo}
+            src="/logo.png"
             alt="Toastmasters logo"
             className="w-auto h-12"
+            width={148}
+            height={124}
           />
           {siteConfig.name}
         </Link>

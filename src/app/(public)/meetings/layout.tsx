@@ -1,6 +1,6 @@
 import PageHero from "../shared/PageHero";
 
-export default function MeetingLayout({
+export default function MeetingsLayout({
   children,
 }: {
   children: React.ReactNode;

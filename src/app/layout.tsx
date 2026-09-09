@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Bits ’N Speeches",
   description:
     "A Toastmasters club dedicated to developing confident communicators and leaders.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

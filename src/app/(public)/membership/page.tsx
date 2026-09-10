@@ -1,3 +1,3 @@
 export default function Membership() {
-  return <></>;
+  return null;
 }

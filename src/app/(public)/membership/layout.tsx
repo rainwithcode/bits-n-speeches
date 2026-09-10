@@ -1,5 +1,7 @@
 import PageHero from "../shared/PageHero";
 
+import MembershipTabs from "./components/MembershipTabs";
+
 export default function MembershipLayout({
   children,
 }: {
@@ -11,6 +13,7 @@ export default function MembershipLayout({
         title="Become a Member"
         description="Take the first step toward becoming a confident communicator."
       />
+      <MembershipTabs />
       {children}
     </>
   );

@@ -1,5 +1,6 @@
 import { Award, Mic, Users, type LucideIcon } from "lucide-react";
 
+import IconCard from "@/components/ui/IconCard";
 import { siteConfig } from "@/data/site-config";
 
 import SectionHeading from "../../shared/SectionHeading";
@@ -22,17 +23,12 @@ export default function WhyJoin() {
           {whyJoin.map((reason) => {
             const Icon = icons[reason.icon];
             return (
-              <li
-                key={reason.label}
-                className="space-y-2 md:space-y-4 bg-white p-8 rounded-md border border-border"
-              >
-                <div className="mx-auto w-fit px-4 py-4 rounded-md bg-primary/10">
-                  <Icon className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="font-heading font-bold text-base md:text-xl text-primary">
-                  {reason.label}
-                </h3>
-                <p className="text-sm md:text-base">{reason.description}</p>
+              <li key={reason.label}>
+                <IconCard
+                  icon={icons[reason.icon]}
+                  label={reason.label}
+                  description={reason.description}
+                />
               </li>
             );
           })}

@@ -1,3 +1,5 @@
+import Circle from "@/components/ui/Circle";
+
 import SectionHeading from "../../shared/SectionHeading";
 import { meetingStructure } from "../data/meeting-structure";
 
@@ -12,9 +14,7 @@ export default function MeetingStructure() {
               key={item.title}
               className="flex flex-col items-center gap-3 mt-8"
             >
-              <div className="w-fit px-5 py-3 rounded-full bg-primary font-bold text-primary-foreground">
-                {index + 1}
-              </div>
+              <Circle>{index + 1}</Circle>
               <h3 className="font-bold text-base md:text-xl text-primary">
                 {item.title}
               </h3>

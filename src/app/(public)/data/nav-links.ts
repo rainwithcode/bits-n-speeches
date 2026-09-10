@@ -15,7 +15,7 @@ export const membershipLinks = [
   { href: "/membership#join", label: "How to Join", sectionId: "join" },
   {
     href: "/membership#guest",
-    label: "Register as Guest",
+    label: "Register as a Guest",
     sectionId: "guest",
   },
   { href: "/membership#dues", label: "Membership Dues", sectionId: "dues" },

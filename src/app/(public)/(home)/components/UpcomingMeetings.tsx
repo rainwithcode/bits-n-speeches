@@ -33,13 +33,13 @@ export default async function UpcomingMeetings() {
       <div className="flex flex-col gap-4 md:gap-8 md:flex-row ">
         {nextMeeting && (
           <article className="bg-primary p-8 rounded-md" key={nextMeeting.id}>
-            <div className="flex justify-between mb-10">
+            <div className="flex justify-between mb-3 md:mb-10">
               <div className="font-heading font-bold text-accent uppercase">
                 Next Meeting
               </div>
               <Badge variant="highlight">{nextMeeting.type}</Badge>
             </div>
-            <h3 className="font-heading font-bold text-primary-foreground text-xl md:text-2xl mb-6">
+            <h3 className="font-heading font-bold text-primary-foreground text-sm md:text-2xl mb-6">
               {nextMeeting.title}
             </h3>
             <IconText icon={Calendar} variant="accent">
@@ -85,7 +85,7 @@ export default async function UpcomingMeetings() {
                 key={meeting.id}
               >
                 <div className="flex items-center">
-                  <h3 className="text-lg md:text-lg font-bold font-heading text-primary">
+                  <h3 className="text-sm md:text-lg font-bold font-heading text-primary">
                     {meeting.title}
                   </h3>
                   <Badge>{meeting.type}</Badge>

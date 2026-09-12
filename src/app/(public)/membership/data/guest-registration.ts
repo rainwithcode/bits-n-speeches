@@ -3,7 +3,7 @@ type FormField = {
   id: string;
   label: string;
   placeholder?: string;
-  type: "text" | "email" | "tel" | "date" | "textarea";
+  type: "text" | "email" | "tel" | "select" | "textarea";
   required: boolean;
 };
 
@@ -33,11 +33,11 @@ export const guestRegistrationFields: FormField[] = [
     required: false,
   },
   {
-    name: "preferredVisitDate",
-    id: "preferred-visit-date",
-    label: "Preferred Visit Date",
-    type: "date",
-    required: false,
+    name: "meetingId",
+    id: "meeting",
+    label: "Which meeting would you like to attend?",
+    type: "select",
+    required: true,
   },
   {
     name: "message",

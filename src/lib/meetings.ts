@@ -16,7 +16,7 @@ export async function getMeetingById(id: string) {
   return data;
 }
 
-export async function getUpcomingMeetings() {
+export async function getUpcomingMeetings(limit = 3) {
   const supabase = createServerClient();
 
   const { data, error } = await supabase
@@ -25,22 +25,7 @@ export async function getUpcomingMeetings() {
     .eq("is_published", true)
     .gte("starts_at", new Date().toISOString())
     .order("starts_at", { ascending: true })
-    .limit(3);
-
-  if (error) throw error;
-  return data;
-}
-
-export async function getMeetingList() {
-  const supabase = createServerClient();
-
-  const { data, error } = await supabase
-    .from("meetings")
-    .select("*")
-    .eq("is_published", "true")
-    .gte("starts_at", new Date().toISOString())
-    .order("starts_at", { ascending: true })
-    .limit(8);
+    .limit(limit);
 
   if (error) throw error;
   return data;

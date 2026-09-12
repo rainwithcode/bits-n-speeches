@@ -18,7 +18,10 @@ export default function MembershipNavigation({
       aria-label="Membership sections"
       className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 pt-8 pb-4 md:pt-16 md:pb-8"
     >
-      <div role="tablist" className="flex flex-wrap gap-8 border-b border-border">
+      <div
+        role="tablist"
+        className="flex flex-wrap gap-4 md:gap-8 border-b border-border"
+      >
         {membershipLinks.map((link) => {
           const isActive = activeSection === link.sectionId;
 

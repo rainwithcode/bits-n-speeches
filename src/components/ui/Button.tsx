@@ -24,24 +24,46 @@ const buttonVariants = cva("flex items-center gap-2 w-fit font-bold", {
   },
 });
 
-interface buttonProps extends VariantProps<typeof buttonVariants> {
-  href: string;
+type BaseProps = VariantProps<typeof buttonVariants> & {
   className?: string;
   children: ReactNode;
-}
+};
+
+type LinkButtonProps = BaseProps & {
+  as?: "link";
+  href: string;
+};
+
+type NativeButtonProps = BaseProps & {
+  as: "button";
+  type?: "button" | "submit" | "reset";
+  onClick?: () => void;
+};
+
+type ButtonProps = LinkButtonProps | NativeButtonProps;
 
 export default function Button({
-  href,
   color,
   size,
   className,
   children = "View Details",
-}: buttonProps) {
+  ...props
+}: ButtonProps) {
+  const classNameValue = cn(buttonVariants({ color, size }), className);
+
+  if (props.as === "button") {
+    return (
+      <button
+        type={props.type}
+        onClick={props.onClick}
+        className={classNameValue}
+      >
+        {children}
+      </button>
+    );
+  }
   return (
-    <Link
-      href={href}
-      className={cn(buttonVariants({ color, size }), className)}
-    >
+    <Link href={props.href} className={classNameValue}>
       {children}
     </Link>
   );

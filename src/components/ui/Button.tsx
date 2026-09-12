@@ -56,7 +56,10 @@ export default function Button({
       <button
         type={props.type}
         onClick={props.onClick}
-        className={classNameValue}
+        className={cn(
+          "cursor-pointer disabled:cursor-not-allowed disabled:opacity-50",
+          classNameValue,
+        )}
       >
         {children}
       </button>

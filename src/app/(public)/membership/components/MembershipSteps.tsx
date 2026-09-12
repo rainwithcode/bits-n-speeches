@@ -3,7 +3,7 @@ import Circle from "@/components/ui/Circle";
 import SectionHeading from "../../shared/SectionHeading";
 import { membershipSteps } from "../data/membership-steps";
 
-export default function HowToJoin() {
+export default function MembershipSteps() {
   return (
     <section
       role="tabpanel"

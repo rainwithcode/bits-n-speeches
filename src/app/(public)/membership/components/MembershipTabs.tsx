@@ -5,10 +5,10 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { membershipLinks } from "../../data/nav-links";
 
 import GuestRegistration from "./GuestRegistration";
-import HowToJoin from "./HowToJoin";
 import MembershipBenefits from "./MembershipBenefits";
 import MembershipDues from "./MembershipDues";
 import MembershipNavigation from "./MembershipNavigation";
+import MembershipSteps from "./MembershipSteps";
 
 export type MembershipSection = (typeof membershipLinks)[number]["sectionId"];
 
@@ -46,7 +46,7 @@ export default function MembershipTabs() {
       />
 
       {activeSection === "benefits" && <MembershipBenefits />}
-      {activeSection === "join" && <HowToJoin />}
+      {activeSection === "join" && <MembershipSteps />}
       {activeSection === "guest" && <GuestRegistration />}
       {activeSection === "dues" && <MembershipDues />}
     </>

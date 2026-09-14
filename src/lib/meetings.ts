@@ -31,6 +31,58 @@ export async function getUpcomingMeetings(limit = 3) {
   return data;
 }
 
+type DateTimeFormat = "date" | "time" | "datetime";
+
+type FormatDateOptions = {
+  format?: DateTimeFormat;
+  timeZone?: string;
+  includeTimeZone?: boolean;
+};
+
+export function formatDateTime(
+  value: string | Date | null | undefined,
+  {
+    format = "datetime",
+    timeZone = "America/Los_Angeles",
+    includeTimeZone = false,
+  }: FormatDateOptions,
+) {
+  if (!value) return "TBD";
+
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return "Invalid date";
+  }
+
+  const options: Intl.DateTimeFormatOptions = {
+    timeZone,
+  };
+
+  if (format === "date" || format === "datetime") {
+    Object.assign(options, {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  }
+
+  if (format === "time" || format === "datetime") {
+    Object.assign(options, {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    });
+  }
+
+  if (includeTimeZone) {
+    options.timeZoneName = "short";
+  }
+
+  return new Intl.DateTimeFormat("en-US", options).format(date);
+}
+
 export function formatMeetingDateTime(
   startsAt: string | Date | null | undefined,
 ) {

@@ -2,6 +2,8 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
+import { Meeting } from "@/types/supabase";
+
 import { membershipLinks } from "../../data/nav-links";
 
 import GuestRegistration from "./GuestRegistration";
@@ -12,13 +14,17 @@ import MembershipSteps from "./MembershipSteps";
 
 export type MembershipSection = (typeof membershipLinks)[number]["sectionId"];
 
+type MembershipTabsProps = {
+  meetings: Meeting[];
+};
+
 const defaultSection: MembershipSection = "benefits";
 
 function isMembershipSection(value: string | null): value is MembershipSection {
   return membershipLinks.some((link) => link.sectionId === value);
 }
 
-export default function MembershipTabs() {
+export default function MembershipTabs({ meetings }: MembershipTabsProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -47,7 +53,7 @@ export default function MembershipTabs() {
 
       {activeSection === "benefits" && <MembershipBenefits />}
       {activeSection === "join" && <MembershipSteps />}
-      {activeSection === "guest" && <GuestRegistration />}
+      {activeSection === "guest" && <GuestRegistration meetings={meetings} />}
       {activeSection === "dues" && <MembershipDues />}
     </>
   );

@@ -49,6 +49,7 @@ export function formatMeetingDateTime(
     minute: "2-digit",
     hour12: true,
     timeZone: "America/Los_Angeles",
+    timeZoneName: "short",
   }).formatToParts(date);
 
   const month = parts.find((p) => p.type === "month")?.value ?? "";
@@ -56,8 +57,9 @@ export function formatMeetingDateTime(
   const hour = parts.find((p) => p.type === "hour")?.value ?? "";
   const minute = parts.find((p) => p.type === "minute")?.value ?? "";
   const period = parts.find((p) => p.type === "dayPeriod")?.value ?? "";
+  const timeZone = parts.find((p) => p.type === "timeZoneName")?.value ?? "";
 
-  return `${month} ${day} • ${hour}:${minute} ${period}`;
+  return `${month} ${day} • ${hour}:${minute} ${period} ${timeZone}`;
 }
 
 export function formatMeetingDate(date: Date) {

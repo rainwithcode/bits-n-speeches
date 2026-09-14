@@ -75,7 +75,6 @@ export function formatMeetingTime(date: Date, includeTimeZone: boolean) {
     hour: "numeric",
     minute: "2-digit",
     timeZone: "America/Los_Angeles",
-    timeZoneName: "short",
     ...(includeTimeZone && { timeZoneName: "short" }),
   });
 }

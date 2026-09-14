@@ -1,18 +1,39 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { z } from "zod";
 
 import { formatDateTime, getMeetingById } from "@/lib/meetings";
+import { guestRegistrationSchema } from "@/lib/validations/guest-registration";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   const formData = await request.formData();
 
-  const fullName = formData.get("fullName");
-  const email = formData.get("email");
-  const phone = formData.get("phone");
-  const meetingId = formData.get("meeting");
-  const message = formData.get("message");
+  const rawData = {
+    fullName: formData.get("fullName"),
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    meetingId: formData.get("meeting"),
+    message: formData.get("message"),
+  };
+
+  // Validate form data
+  const result = guestRegistrationSchema.safeParse(rawData);
+
+  if (!result.success) {
+    return NextResponse.json(
+      {
+        error: "Invalid form data",
+        issues: z.treeifyError(result.error),
+      },
+      {
+        status: 400,
+      },
+    );
+  }
+
+  const { fullName, email, phone, meeting: meetingId, message } = result.data;
 
   const meeting =
     typeof meetingId === "string" ? await getMeetingById(meetingId) : null;

@@ -12,7 +12,7 @@ export async function getMeetingById(id: string) {
     .eq("id", id)
     .single();
 
-  if (error) throw Error;
+  if (error) throw error;
   return data;
 }
 

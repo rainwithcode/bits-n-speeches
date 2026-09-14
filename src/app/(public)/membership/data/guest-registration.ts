@@ -33,7 +33,7 @@ export const guestRegistrationFields: FormField[] = [
     required: false,
   },
   {
-    name: "meetingId",
+    name: "meeting",
     id: "meeting",
     label: "Which meeting would you like to attend?",
     type: "select",

@@ -3,7 +3,7 @@ import { ArrowRight, MapPin, UserPlus } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import IconText from "@/components/ui/IconText";
-import { formatMeetingDateTime, getLocation } from "@/lib/meetings";
+import { formatMeetingOption, getLocation } from "@/lib/meetings";
 import { Meeting } from "@/types/supabase";
 
 type MeetingCardProps = {
@@ -14,7 +14,7 @@ export default function MeetingCard({ meeting }: MeetingCardProps) {
   return (
     <article className="p-4 border border-border rounded-md">
       <div className="flex justify-between">
-        <p>{formatMeetingDateTime(meeting.starts_at)}</p>
+        <p>{formatMeetingOption(meeting.starts_at)}</p>
         <Badge {...(meeting.type === "hybrid" && { variant: "highlight" })}>
           {meeting.type}
         </Badge>

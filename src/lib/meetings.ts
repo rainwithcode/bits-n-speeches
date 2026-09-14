@@ -33,7 +33,7 @@ export async function getUpcomingMeetings(limit = 3) {
 
 type DateTimeFormat = "date" | "time" | "datetime";
 
-type FormatDateOptions = {
+type FormatDateTimeOptions = {
   format?: DateTimeFormat;
   timeZone?: string;
   includeTimeZone?: boolean;
@@ -45,7 +45,7 @@ export function formatDateTime(
     format = "datetime",
     timeZone = "America/Los_Angeles",
     includeTimeZone = false,
-  }: FormatDateOptions,
+  }: FormatDateTimeOptions = {},
 ) {
   if (!value) return "TBD";
 
@@ -55,35 +55,43 @@ export function formatDateTime(
     return "Invalid date";
   }
 
-  const options: Intl.DateTimeFormatOptions = {
+  const baseOptions: Intl.DateTimeFormatOptions = {
     timeZone,
+    ...(includeTimeZone && { timeZoneName: "short" }),
   };
 
-  if (format === "date" || format === "datetime") {
-    Object.assign(options, {
+  if (format === "date") {
+    return new Intl.DateTimeFormat("en-US", {
+      ...baseOptions,
       weekday: "long",
       year: "numeric",
       month: "long",
       day: "numeric",
-    });
+    }).format(date);
   }
 
-  if (format === "time" || format === "datetime") {
-    Object.assign(options, {
+  if (format === "time") {
+    return new Intl.DateTimeFormat("en-US", {
+      ...baseOptions,
       hour: "numeric",
       minute: "2-digit",
       hour12: true,
-    });
+    }).format(date);
   }
 
-  if (includeTimeZone) {
-    options.timeZoneName = "short";
-  }
-
-  return new Intl.DateTimeFormat("en-US", options).format(date);
+  return new Intl.DateTimeFormat("en-US", {
+    ...baseOptions,
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  }).format(date);
 }
 
-export function formatMeetingDateTime(
+export function formatMeetingOption(
   startsAt: string | Date | null | undefined,
 ) {
   if (!startsAt) return "TBD";
@@ -112,25 +120,6 @@ export function formatMeetingDateTime(
   const timeZone = parts.find((p) => p.type === "timeZoneName")?.value ?? "";
 
   return `${month} ${day} • ${hour}:${minute} ${period} ${timeZone}`;
-}
-
-export function formatMeetingDate(date: Date) {
-  return date.toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "America/Los_Angeles",
-  });
-}
-
-export function formatMeetingTime(date: Date, includeTimeZone: boolean) {
-  return date.toLocaleTimeString("en-US", {
-    hour: "numeric",
-    minute: "2-digit",
-    timeZone: "America/Los_Angeles",
-    ...(includeTimeZone && { timeZoneName: "short" }),
-  });
 }
 
 export function getMeetingEndsAt(startsAt: Date, endsAt: string | null) {

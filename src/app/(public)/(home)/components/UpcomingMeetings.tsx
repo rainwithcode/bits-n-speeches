@@ -3,8 +3,7 @@ import { ArrowRight, Calendar, Clock, MapPin, UserPlus } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import {
-  formatMeetingDate,
-  formatMeetingTime,
+  formatDateTime,
   getLocation,
   getMeetingEndsAt,
   getUpcomingMeetings,
@@ -44,16 +43,19 @@ export default async function UpcomingMeetings() {
             </h3>
             <IconText icon={Calendar} variant="accent">
               <time dateTime={nextMeetingStartsAt.toISOString()}>
-                {formatMeetingDate(nextMeetingStartsAt)}
+                {formatDateTime(nextMeetingStartsAt, { format: "date" })}
               </time>
             </IconText>
             <IconText icon={Clock} variant="accent">
               <time dateTime={nextMeetingStartsAt.toISOString()}>
-                {formatMeetingTime(nextMeetingStartsAt, false)}
+                {formatDateTime(nextMeetingStartsAt, { format: "time" })}
               </time>{" "}
               –{" "}
               <time dateTime={nextMeetingEndsAt.toISOString()}>
-                {formatMeetingTime(nextMeetingEndsAt, true)}
+                {formatDateTime(nextMeetingEndsAt, {
+                  format: "time",
+                  includeTimeZone: true,
+                })}
               </time>
             </IconText>
             <IconText icon={MapPin} variant="accent">
@@ -95,7 +97,7 @@ export default async function UpcomingMeetings() {
                   dateTime={starts_at.toISOString()}
                   className="text-sm md:text-base"
                 >
-                  {formatMeetingDate(starts_at)}
+                  {formatDateTime(starts_at, { format: "date" })}
                 </time>
                 <div className="flex gap-4 mt-4">
                   <Button href={`/meetings/${meeting.id}`}>

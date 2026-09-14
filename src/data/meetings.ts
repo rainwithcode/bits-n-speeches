@@ -1,11 +1,6 @@
 import { Calendar, Clock, MapPin } from "lucide-react";
 
-import {
-  formatMeetingDate,
-  formatMeetingTime,
-  getLocation,
-  getMeetingEndsAt,
-} from "@/lib/meetings";
+import { formatDateTime, getLocation, getMeetingEndsAt } from "@/lib/meetings";
 import type { Meeting } from "@/types/supabase";
 
 export const meetingInfo = {
@@ -22,13 +17,20 @@ export const meetingDetailItems = [
     label: "Date",
     icon: Calendar,
     getValue: (meeting: Meeting) =>
-      formatMeetingDate(new Date(meeting.starts_at)),
+      formatDateTime(new Date(meeting.starts_at), { format: "date" }),
   },
   {
     label: "Time",
     icon: Clock,
-    getValue: (meeting: Meeting) =>
-      `${formatMeetingTime(new Date(meeting.starts_at), false)} – ${formatMeetingTime(getMeetingEndsAt(new Date(meeting.starts_at), meeting.ends_at), true)}`,
+    getValue: (meeting: Meeting) => {
+      const startsAt = new Date(meeting.starts_at);
+      const endsAt = new Date(getMeetingEndsAt(startsAt, meeting.ends_at));
+
+      return `${formatDateTime(startsAt, { format: "time" })} – ${formatDateTime(
+        endsAt,
+        { format: "time" },
+      )}`;
+    },
   },
   {
     label: "Location",

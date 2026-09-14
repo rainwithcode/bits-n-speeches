@@ -1,9 +1,17 @@
 import Button from "@/components/ui/Button";
+import { formatMeetingOption } from "@/lib/meetings";
+import type { Meeting } from "@/types/supabase";
 
 import SectionHeading from "../../shared/SectionHeading";
 import { guestRegistrationFields } from "../data/guest-registration";
 
-export default function GuestRegistration() {
+type GuestRegistrationProps = {
+  meetings: Meeting[];
+};
+
+export default function GuestRegistration({
+  meetings,
+}: GuestRegistrationProps) {
   return (
     <section
       role="tabpanel"
@@ -25,6 +33,7 @@ export default function GuestRegistration() {
               <label htmlFor={field.id} className="block mb-1">
                 {field.label} {field.required && " *"}
               </label>
+
               {field.type === "textarea" ? (
                 <textarea
                   id={field.id}
@@ -33,6 +42,20 @@ export default function GuestRegistration() {
                   required={field.required}
                   className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
                 />
+              ) : field.type === "select" ? (
+                <select
+                  id={field.id}
+                  name={field.name}
+                  required={field.required}
+                  className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
+                >
+                  {meetings.map((meeting) => (
+                    <option value={meeting.id} key={meeting.id}>
+                      {formatMeetingOption(new Date(meeting.starts_at))} —{" "}
+                      {meeting.title}
+                    </option>
+                  ))}
+                </select>
               ) : (
                 <input
                   type={field.type}

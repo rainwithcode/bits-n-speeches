@@ -91,7 +91,7 @@ export function formatDateTime(
   }).format(date);
 }
 
-export function formatMeetingOption(
+export function formatMeetingDateTime(
   startsAt: string | Date | null | undefined,
 ) {
   if (!startsAt) return "TBD";
@@ -102,24 +102,21 @@ export function formatMeetingOption(
     return "Invalid date";
   }
 
-  const parts = new Intl.DateTimeFormat("en-US", {
+  const datePart = new Intl.DateTimeFormat("en-US", {
     month: "short",
     day: "numeric",
-    hour: "2-digit",
+    timeZone: "America/Los_Angeles",
+  }).format(date);
+
+  const timePart = new Intl.DateTimeFormat("en-US", {
+    hour: "numeric",
     minute: "2-digit",
     hour12: true,
     timeZone: "America/Los_Angeles",
     timeZoneName: "short",
-  }).formatToParts(date);
+  }).format(date);
 
-  const month = parts.find((p) => p.type === "month")?.value ?? "";
-  const day = parts.find((p) => p.type === "day")?.value ?? "";
-  const hour = parts.find((p) => p.type === "hour")?.value ?? "";
-  const minute = parts.find((p) => p.type === "minute")?.value ?? "";
-  const period = parts.find((p) => p.type === "dayPeriod")?.value ?? "";
-  const timeZone = parts.find((p) => p.type === "timeZoneName")?.value ?? "";
-
-  return `${month} ${day} • ${hour}:${minute} ${period} ${timeZone}`;
+  return `${datePart} • ${timePart}`;
 }
 
 export function getMeetingEndsAt(startsAt: Date, endsAt: string | null) {

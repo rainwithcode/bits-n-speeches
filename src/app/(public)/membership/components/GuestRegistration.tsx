@@ -1,5 +1,5 @@
 import Button from "@/components/ui/Button";
-import { formatMeetingOption } from "@/lib/meetings";
+import { formatMeetingDateTime } from "@/lib/meetings";
 import type { Meeting } from "@/types/supabase";
 
 import SectionHeading from "../../shared/SectionHeading";
@@ -51,7 +51,7 @@ export default function GuestRegistration({
                 >
                   {meetings.map((meeting) => (
                     <option value={meeting.id} key={meeting.id}>
-                      {formatMeetingOption(new Date(meeting.starts_at))} —{" "}
+                      {formatMeetingDateTime(new Date(meeting.starts_at))} —{" "}
                       {meeting.title}
                     </option>
                   ))}

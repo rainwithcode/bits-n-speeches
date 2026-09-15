@@ -1,4 +1,4 @@
-import TextLink from "@/components/ui/Link";
+import TextLink from "@/components/ui/TexLink";
 
 import SectionHeading from "../../shared/SectionHeading";
 import { membershipDues } from "../data/membership-dues";

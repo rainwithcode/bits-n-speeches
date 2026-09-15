@@ -1,7 +1,7 @@
 getMembershipUrl;
 import type { ReactNode } from "react";
 
-import TextLink from "@/components/ui/Link";
+import TextLink from "@/components/ui/TexLink";
 
 import { getMembershipUrl } from "../../data/nav-links";
 
@@ -50,7 +50,7 @@ export const membershipSteps: MembershipStep[] = [
     description: (
       <>
         Complete the{" "}
-        <TextLink href="/membership/apply">
+        <TextLink href="https://content.toastmasters.org/image/upload/800-membership-application-ff.pdf" target="_blank">
           official Toastmasters membership application
         </TextLink>{" "}
         and submit your completed form to our VP of Membership. They&apos;ll

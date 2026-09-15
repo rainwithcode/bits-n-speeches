@@ -1,3 +1,5 @@
+import { MembershipSection } from "../membership/components/MembershipTabs";
+
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
@@ -20,3 +22,7 @@ export const membershipLinks = [
   },
   { href: "/membership#dues", label: "Membership Dues", sectionId: "dues" },
 ];
+
+export function getMembershipUrl(section: MembershipSection) {
+  return `/membership?tab=${section}`;
+}

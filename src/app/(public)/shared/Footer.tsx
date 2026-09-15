@@ -5,7 +5,7 @@ import Link from "next/link";
 import { meetingInfo } from "@/data/meetings";
 import { siteConfig } from "@/data/site-config";
 
-import { membershipLinks, navLinks } from "../data/nav-links";
+import { getMembershipUrl, membershipLinks, navLinks } from "../data/nav-links";
 
 export default function Footer() {
   return (
@@ -53,7 +53,7 @@ export default function Footer() {
                 {membershipLinks.map((link) => (
                   <li className="mb-2" key={link.href}>
                     <Link
-                      href={link.href}
+                      href={getMembershipUrl(link.sectionId)}
                       className="text-base md:text-lg font-semi-bold text-primary-foreground/70 hover:text-hover transition-colors"
                     >
                       {link.label}

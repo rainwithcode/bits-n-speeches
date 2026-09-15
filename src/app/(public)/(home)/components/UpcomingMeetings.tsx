@@ -10,6 +10,7 @@ import {
 } from "@/lib/meetings";
 
 import IconText from "../../../../components/ui/IconText";
+import { getMembershipUrl } from "../../data/nav-links";
 import SectionHeading from "../../shared/SectionHeading";
 
 export default async function UpcomingMeetings() {
@@ -67,10 +68,7 @@ export default async function UpcomingMeetings() {
                 View Meeting
                 <ArrowRight className="w-4 h-4" />
               </Button>
-              <Button
-                href={`/meetings/${nextMeeting.id}/register`}
-                color="secondary"
-              >
+              <Button href={getMembershipUrl("guest")} color="secondary">
                 Register
                 <UserPlus className="w-4 h-4" />
               </Button>
@@ -104,10 +102,7 @@ export default async function UpcomingMeetings() {
                     View Meeting
                     <ArrowRight className="w-4 h-4" />
                   </Button>
-                  <Button
-                    href={`/meetings/${meeting.id}/register`}
-                    color="secondary"
-                  >
+                  <Button href={getMembershipUrl("guest")} color="secondary">
                     Register
                     <UserPlus className="w-4 h-4" />
                   </Button>

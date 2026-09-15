@@ -6,6 +6,8 @@ import IconText from "@/components/ui/IconText";
 import { formatMeetingDateTime, getLocation } from "@/lib/meetings";
 import { Meeting } from "@/types/supabase";
 
+import { getMembershipUrl } from "../../data/nav-links";
+
 type MeetingCardProps = {
   meeting: Meeting;
 };
@@ -30,7 +32,7 @@ export default function MeetingCard({ meeting }: MeetingCardProps) {
           View Meeting
           <ArrowRight className="w-4 h-4" />
         </Button>
-        <Button href={`/meetings/${meeting.id}/register`} color="secondary">
+        <Button href={getMembershipUrl("guest")} color="secondary">
           Register
           <UserPlus className="w-4 h-4" />
         </Button>

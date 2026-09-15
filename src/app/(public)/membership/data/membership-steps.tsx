@@ -1,5 +1,8 @@
+getMembershipUrl;
 import Link from "next/link";
 import type { ReactNode } from "react";
+
+import { getMembershipUrl } from "../../data/nav-links";
 
 type MembershipStep = {
   title: string;
@@ -12,7 +15,10 @@ export const membershipSteps: MembershipStep[] = [
     description: (
       <>
         Fill out our{" "}
-        <Link href="/guest-registration" className="text-primary underline">
+        <Link
+          href={getMembershipUrl("guest")}
+          className="text-primary underline"
+        >
           guest registration form
         </Link>{" "}
         so we can welcome you personally. Guests can attend meetings for free

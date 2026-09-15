@@ -1,5 +1,7 @@
 import Button from "@/components/ui/Button";
 
+import { getMembershipUrl } from "../data/nav-links";
+
 export default function CallToAction() {
   return (
     <section className="bg-accent">
@@ -11,7 +13,7 @@ export default function CallToAction() {
           Join as a guest for free. No experience, no pressure — just growth.
         </p>
         <div className="flex gap-4 md:gap-6">
-          <Button href="/membership#guest" size="big">
+          <Button href={getMembershipUrl("guest")} size="big">
             Register as a Guest
           </Button>
           <Button href="/contact" color="secondary" size="big">

@@ -3,6 +3,7 @@ import Button from "@/components/ui/Button";
 import { meetingDetailItems } from "@/data/meetings";
 import type { Meeting } from "@/types/supabase";
 
+import { getMembershipUrl } from "../../data/nav-links";
 import SectionHeading from "../../shared/SectionHeading";
 
 type MeetingDetailProps = {
@@ -40,7 +41,7 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
       <p className="mt-2 pb-8 border-b border-border text-sm md:text-base">
         {meeting.description}
       </p>
-      <Button href="/membership" className="mt-6">
+      <Button href={getMembershipUrl("guest")} className="mt-6">
         Register as a Guest for This Meeting
       </Button>
     </article>

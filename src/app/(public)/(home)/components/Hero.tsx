@@ -2,6 +2,7 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { siteConfig } from "@/data/site-config";
 
+import { getMembershipUrl } from "../../data/nav-links";
 import { heroContent } from "../data/hero-content";
 
 export default function Hero() {
@@ -16,7 +17,7 @@ export default function Hero() {
           </h1>
           <p className="text-base md:text-xl">{heroContent.heroDescription}</p>
           <div className="flex gap-4 md:gap-6">
-            <Button href="/membership#guest" color="accent" size="big">
+            <Button href={getMembershipUrl("guest")} color="accent" size="big">
               Attend a Free Meeting
             </Button>
             <Button href="/about" color="secondary" size="big">

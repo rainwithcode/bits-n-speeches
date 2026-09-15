@@ -51,9 +51,9 @@ export default function Footer() {
                   Join Us
                 </h2>
                 {membershipLinks.map((link) => (
-                  <li className="mb-2" key={link.sectionId}>
+                  <li className="mb-2" key={link.section}>
                     <Link
-                      href={getMembershipUrl(link.sectionId)}
+                      href={getMembershipUrl(link.section)}
                       className="text-base md:text-lg font-semi-bold text-primary-foreground/70 hover:text-hover transition-colors"
                     >
                       {link.label}

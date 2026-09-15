@@ -12,7 +12,7 @@ import MembershipDues from "./MembershipDues";
 import MembershipNavigation from "./MembershipNavigation";
 import MembershipSteps from "./MembershipSteps";
 
-export type MembershipSection = (typeof membershipLinks)[number]["sectionId"];
+export type MembershipSection = (typeof membershipLinks)[number]["section"];
 
 type MembershipTabsProps = {
   meetings: Meeting[];
@@ -21,7 +21,7 @@ type MembershipTabsProps = {
 const defaultSection: MembershipSection = "benefits";
 
 function isMembershipSection(value: string | null): value is MembershipSection {
-  return membershipLinks.some((link) => link.sectionId === value);
+  return membershipLinks.some((link) => link.section === value);
 }
 
 export default function MembershipTabs({ meetings }: MembershipTabsProps) {

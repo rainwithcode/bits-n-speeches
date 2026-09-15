@@ -23,18 +23,18 @@ export default function MembershipNavigation({
         className="flex flex-wrap gap-4 md:gap-8 border-b border-border"
       >
         {membershipLinks.map((link) => {
-          const isActive = activeSection === link.sectionId;
+          const isActive = activeSection === link.section;
 
           return (
             <button
-              key={link.sectionId}
+              key={link.section}
               type="button"
               role="tab"
-              id={`tab-${link.sectionId}`}
+              id={`tab-${link.section}`}
               aria-selected={isActive}
-              aria-controls={`panel-${link.sectionId}`}
+              aria-controls={`panel-${link.section}`}
               tabIndex={isActive ? 0 : -1}
-              onClick={() => onSectionChange(link.sectionId)}
+              onClick={() => onSectionChange(link.section)}
               className={`px-4 py-1.5 md:py-2.5 font-medium cursor-pointer ${
                 isActive
                   ? "border-b-2 border-primary text-primary"

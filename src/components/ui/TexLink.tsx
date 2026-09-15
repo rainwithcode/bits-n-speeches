@@ -3,6 +3,7 @@ export type LinkProps = {
   href: string;
   children: React.ReactNode;
   className?: string;
+  target
 };
 
 export default function TextLink({ href, children, className }: LinkProps) {

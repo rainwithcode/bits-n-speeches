@@ -10,17 +10,15 @@ export const navLinks = [
 
 export const membershipLinks = [
   {
-    href: "/membership#benefits",
     label: "Membership Benefits",
     sectionId: "benefits",
   },
-  { href: "/membership#join", label: "How to Join", sectionId: "join" },
+  { label: "How to Join", sectionId: "join" },
   {
-    href: "/membership#guest",
     label: "Register as a Guest",
     sectionId: "guest",
   },
-  { href: "/membership#dues", label: "Membership Dues", sectionId: "dues" },
+  { label: "Membership Dues", sectionId: "dues" },
 ];
 
 export function getMembershipUrl(section: MembershipSection) {

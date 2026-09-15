@@ -1,6 +1,7 @@
 getMembershipUrl;
-import Link from "next/link";
 import type { ReactNode } from "react";
+
+import TextLink from "@/components/ui/Link";
 
 import { getMembershipUrl } from "../../data/nav-links";
 
@@ -15,12 +16,9 @@ export const membershipSteps: MembershipStep[] = [
     description: (
       <>
         Fill out our{" "}
-        <Link
-          href={getMembershipUrl("guest")}
-          className="text-primary underline"
-        >
+        <TextLink href={getMembershipUrl("guest")}>
           guest registration form
-        </Link>{" "}
+        </TextLink>{" "}
         so we can welcome you personally. Guests can attend meetings for free
         with no obligation to join.
       </>
@@ -30,13 +28,10 @@ export const membershipSteps: MembershipStep[] = [
     title: "Attend a Meeting",
     description: (
       <>
-        Join us for a{" "}
-        <Link href="/meetings" className="text-primary underline">
-          meeting
-        </Link>{" "}
-        and experience Toastmasters firsthand. You can simply observe or
-        participate in Table Topics if you feel comfortable — there&apos;s no
-        pressure to speak.
+        Join us for a <TextLink href="/meetings">meeting </TextLink> and
+        experience Toastmasters firsthand. You can simply observe or participate
+        in Table Topics if you feel comfortable — there&apos;s no pressure to
+        speak.
       </>
     ),
   },
@@ -55,9 +50,9 @@ export const membershipSteps: MembershipStep[] = [
     description: (
       <>
         Complete the{" "}
-        <Link href="/membership/apply" className="text-primary underline">
+        <TextLink href="/membership/apply">
           official Toastmasters membership application
-        </Link>{" "}
+        </TextLink>{" "}
         and submit your completed form to our VP of Membership. They&apos;ll
         guide you through the remaining steps, including membership dues.
       </>

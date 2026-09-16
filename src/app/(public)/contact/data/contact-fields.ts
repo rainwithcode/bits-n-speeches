@@ -37,7 +37,7 @@ export const contactFields: FormField[] = [
     id: "message",
     label: "Message",
     placeholder:
-      "Is there anything I need to prepare or bring in my first Toastmasters meeting?",
+      "Hello! Is there anything I need to prepare or bring in my first Toastmasters meeting?",
     type: "textarea",
     required: true,
   },

@@ -7,6 +7,7 @@ export default function ContactForm() {
   return (
     <section className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
       <form
+        action="/api/contact"
         method="POST"
         className="mx-auto max-w-lg p-6 border border-border rounded-md"
       >

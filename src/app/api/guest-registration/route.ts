@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import { z } from "zod";
 
 import { sendEmail } from "@/lib/email/sendEmail";
 import { formatDateTime, getMeetingById } from "@/lib/meetings";
 import { guestRegistrationSchema } from "@/lib/validations/guest-registration";
+import validateFormData from "@/lib/validations/validate-form-data";
 
 export async function POST(request: Request) {
   const formData = await request.formData();
@@ -17,21 +17,19 @@ export async function POST(request: Request) {
   };
 
   // Validate form data
-  const result = guestRegistrationSchema.safeParse(rawData);
+  const validation = validateFormData(guestRegistrationSchema, rawData);
 
-  if (!result.success) {
-    return NextResponse.json(
-      {
-        error: "Invalid form data",
-        issues: z.treeifyError(result.error),
-      },
-      {
-        status: 400,
-      },
-    );
+  if (!validation.success) {
+    return validation.response;
   }
 
-  const { fullName, email, phone, meeting: meetingId, message } = result.data;
+  const {
+    fullName,
+    email,
+    phone,
+    meeting: meetingId,
+    message,
+  } = validation.data;
 
   const meeting =
     typeof meetingId === "string" ? await getMeetingById(meetingId) : null;

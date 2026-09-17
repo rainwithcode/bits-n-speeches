@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 
+import { sendEmail } from "@/lib/email/sendEmail";
 import { formatDateTime, getMeetingById } from "@/lib/meetings";
 import { guestRegistrationSchema } from "@/lib/validations/guest-registration";
 
@@ -38,11 +39,9 @@ export async function POST(request: Request) {
   const meeting =
     typeof meetingId === "string" ? await getMeetingById(meetingId) : null;
 
-  const { data, error } = await resend.emails.send({
-    from: "BNS Website <onboarding@resend.dev>",
-    to: "delivered@resend.dev",
+  const { data, error } = await sendEmail({
     subject: `New Guest — ${fullName} would like to attend a BNS meeting`,
-    html: `
+    html:  `
     <h2>New Guest — ${fullName} would like to attend a BNS meeting</h2>
 
     <p><strong>Email:</strong> ${email}</p>

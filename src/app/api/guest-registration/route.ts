@@ -1,12 +1,9 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
 import { z } from "zod";
 
 import { sendEmail } from "@/lib/email/sendEmail";
 import { formatDateTime, getMeetingById } from "@/lib/meetings";
 import { guestRegistrationSchema } from "@/lib/validations/guest-registration";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   const formData = await request.formData();
@@ -41,7 +38,7 @@ export async function POST(request: Request) {
 
   const { data, error } = await sendEmail({
     subject: `New Guest — ${fullName} would like to attend a BNS meeting`,
-    html:  `
+    html: `
     <h2>New Guest — ${fullName} would like to attend a BNS meeting</h2>
 
     <p><strong>Email:</strong> ${email}</p>

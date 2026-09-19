@@ -7,7 +7,6 @@ import Button from "@/components/ui/Button";
 import { submitForm } from "@/lib/submitForm";
 import type { FormStatus } from "@/types/forms";
 
-
 import SectionHeading from "../../shared/SectionHeading";
 import { contactFields } from "../data/contact-fields";
 
@@ -20,6 +19,8 @@ export default function ContactForm() {
   };
 
   const [status, setStatus] = useState<FormStatus>("idle");
+
+  const isDisabled = status === "loading" || status === "success";
 
   async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -76,7 +77,7 @@ export default function ContactForm() {
               )}
             </div>
           ))}
-          <Button as="button" type="submit">
+          <Button as="button" type="submit" disabled={isDisabled}>
             {status === "success" && <CheckIcon />}
             {buttonLabel[status]}
           </Button>

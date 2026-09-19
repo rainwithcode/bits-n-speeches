@@ -28,6 +28,8 @@ export default function GuestRegistration({
 
   const [status, setStatus] = useState<FormStatus>("idle");
 
+  const isDisabled = status === "loading" || status === "success";
+
   async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -105,7 +107,7 @@ export default function GuestRegistration({
               )}
             </div>
           ))}
-          <Button as="button" type="submit">
+          <Button as="button" type="submit" disabled={isDisabled}>
             {status === "success" && <CheckIcon />}
             {buttonLabel[status]}
           </Button>

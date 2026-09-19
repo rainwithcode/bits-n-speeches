@@ -31,7 +31,7 @@ export default function ContactForm() {
     const formData = new FormData(form);
 
     try {
-      const response = await submitForm("/api/contact", formData);
+      await submitForm("/api/contact", formData);
 
       form.reset();
       setStatus("success");

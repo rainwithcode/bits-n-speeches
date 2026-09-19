@@ -39,7 +39,7 @@ export default function GuestRegistration({
     const formData = new FormData(form);
 
     try {
-      const response = await submitForm("/api/guest-registration", formData);
+      await submitForm("/api/guest-registration", formData);
 
       form.reset();
       setStatus("success");

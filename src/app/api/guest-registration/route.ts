@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     fullName: formData.get("fullName"),
     email: formData.get("email"),
     phone: formData.get("phone"),
-    meetingId: formData.get("meeting"),
+    meeting: formData.get("meeting"),
     message: formData.get("message"),
   };
 
@@ -23,31 +23,26 @@ export async function POST(request: Request) {
     return validation.response;
   }
 
-  const {
-    fullName,
-    email,
-    phone,
-    meeting: meetingId,
-    message,
-  } = validation.data;
+  const { fullName, email, phone, meeting, message } = validation.data;
 
-  const meeting =
-    typeof meetingId === "string" ? await getMeetingById(meetingId) : null;
+  const preferredMeeting =
+    typeof meeting === "string" ? await getMeetingById(meeting) : null;
 
   const { data, error } = await sendEmail({
-    subject: `New Guest — ${fullName} would like to attend a BNS meeting`,
+    subject: `BNS Guest — ${fullName} would like to attend a meeting`,
     html: `
-    <h2>New Guest — ${fullName} would like to attend a BNS meeting</h2>
+    <h2>New BNS Guest</h2>
 
+    <p><strong>Name:</strong> ${fullName}</p>
     <p><strong>Email:</strong> ${email}</p>
     <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
 
     <h3>I would like to attend:</h3>
     <p>
       <strong>
-        ${formatDateTime(meeting.starts_at, { format: "date" })}
+        ${formatDateTime(preferredMeeting.starts_at, { format: "date" })}
       </strong>
-      — ${meeting.title}
+      — ${preferredMeeting.title}
     </p>
     
     <p><strong>Message:</strong> ${message || "None"}</p>

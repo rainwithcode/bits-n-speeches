@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import Button from "@/components/ui/Button";
 import { formatMeetingDateTime } from "@/lib/meetings";
 import type { Meeting } from "@/types/supabase";
@@ -12,6 +16,16 @@ type GuestRegistrationProps = {
 export default function GuestRegistration({
   meetings,
 }: GuestRegistrationProps) {
+  type FormStatus = "idle" | "loading" | "success" | "error";
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  const buttonLabel = {
+    idle: "Register as a Guest",
+    loading: "Registering...",
+    success: "Registered",
+    error: "Try Again",
+  };
+
   return (
     <section
       role="tabpanel"
@@ -69,7 +83,7 @@ export default function GuestRegistration({
             </div>
           ))}
           <Button as="button" type="submit">
-            Register as a Guest
+            {buttonLabel[status]}
           </Button>
         </div>
       </form>

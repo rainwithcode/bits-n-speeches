@@ -1,14 +1,52 @@
+"use client";
+
+import { CheckIcon } from "lucide-react";
+import { useState } from "react";
+
 import Button from "@/components/ui/Button";
+import { submitForm } from "@/lib/submitForm";
+import type { FormStatus } from "@/types/forms";
+
 
 import SectionHeading from "../../shared/SectionHeading";
 import { contactFields } from "../data/contact-fields";
 
 export default function ContactForm() {
+  const buttonLabel = {
+    idle: "Send Message",
+    loading: "Sending...",
+    success: "Sent",
+    error: "Try Again",
+  };
+
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    setStatus("loading");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await submitForm("/api/contact", formData);
+
+      form.reset();
+      setStatus("success");
+
+      setTimeout(() => {
+        setStatus("idle");
+      }, 3000);
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <section className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
       <form
-        action="/api/contact"
-        method="POST"
+        onSubmit={handleSubmit}
         className="mx-auto max-w-lg p-6 border border-border rounded-md"
       >
         <SectionHeading className="mb-6">Send a Message</SectionHeading>
@@ -39,7 +77,8 @@ export default function ContactForm() {
             </div>
           ))}
           <Button as="button" type="submit">
-            Send Message
+            {status === "success" && <CheckIcon />}
+            {buttonLabel[status]}
           </Button>
         </div>
       </form>

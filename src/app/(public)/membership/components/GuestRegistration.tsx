@@ -106,7 +106,7 @@ export default function GuestRegistration({
             </div>
           ))}
           <Button as="button" type="submit">
-            {buttonLabel[status] === "Registered" && <CheckIcon />}
+            {status === "success" && <CheckIcon />}
             {buttonLabel[status]}
           </Button>
         </div>

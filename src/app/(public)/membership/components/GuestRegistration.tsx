@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import Button from "@/components/ui/Button";
 import { formatMeetingDateTime } from "@/lib/meetings";
+import { submitForm } from "@/lib/submitForm";
 import type { Meeting } from "@/types/supabase";
 
 import SectionHeading from "../../shared/SectionHeading";
@@ -36,15 +37,7 @@ export default function GuestRegistration({
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("/api/guest-registration", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        setStatus("error");
-        return;
-      }
+      const response = await submitForm("/api/guest-registration", formData);
 
       form.reset();
       setStatus("success");

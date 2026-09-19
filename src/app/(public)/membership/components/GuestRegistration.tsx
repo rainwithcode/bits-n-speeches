@@ -7,7 +7,6 @@ import Button from "@/components/ui/Button";
 import { formatMeetingDateTime } from "@/lib/meetings";
 import type { Meeting } from "@/types/supabase";
 
-
 import SectionHeading from "../../shared/SectionHeading";
 import { guestRegistrationFields } from "../data/guest-registration";
 
@@ -28,7 +27,7 @@ export default function GuestRegistration({
   type FormStatus = "idle" | "loading" | "success" | "error";
   const [status, setStatus] = useState<FormStatus>("idle");
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
 
     setStatus("loading");

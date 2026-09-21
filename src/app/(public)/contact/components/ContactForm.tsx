@@ -45,10 +45,10 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
+    <section>
       <form
         onSubmit={handleSubmit}
-        className="mx-auto max-w-lg p-6 border border-border rounded-md"
+        className="p-6 border border-border rounded-md"
       >
         <SectionHeading className="mb-6">Send a Message</SectionHeading>
         <div className="space-y-4">

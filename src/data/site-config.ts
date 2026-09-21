@@ -1,3 +1,5 @@
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+
 export const siteConfig = {
   // identity
   name: "Bits ’N Speeches",
@@ -8,8 +10,18 @@ export const siteConfig = {
   // contact
   email: "bitsspeeches@gmail.com",
   site: "https://www.toastmasters.org/",
-  social: {
-    facebook: "https://www.facebook.com/BitsnSpeeches",
-    instagram: "https://www.instagram.com/bits_nspeeches/",
-  },
+  social: [
+    {
+      name: "Facebook",
+      username: "BitsnSpeeches",
+      href: "https://www.facebook.com/BitsnSpeeches",
+      icon: FaFacebook,
+    },
+    {
+      name: "Instagram",
+      username: "bits_nspeeches",
+      href: "https://www.instagram.com/bits_nspeeches/",
+      icon: FaInstagram,
+    },
+  ],
 };

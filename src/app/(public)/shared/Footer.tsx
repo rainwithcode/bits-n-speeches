@@ -82,8 +82,10 @@ export default function Footer() {
                     <span className="text-primary-foreground">
                       In Person (1st &amp; 3rd {meetingInfo.day}s):
                     </span>{" "}
-                  </div>
-                  {meetingInfo.location.inPerson}
+                  </div>{" "}
+                  {meetingInfo.location.inPerson.name}
+                  {", "}
+                  {meetingInfo.location.inPerson.room}
                 </li>
                 <li className="text-base md:text-lg mb-2" key="online">
                   <div className="flex gap-2">

@@ -132,9 +132,9 @@ export function getLocation(meetingType: MeetingType) {
     case "virtual":
       return meetingInfo.location.online;
     case "hybrid":
-      return `${meetingInfo.location.online} & ${meetingInfo.location.inPerson}`;
+      return `${meetingInfo.location.online} & ${meetingInfo.location.inPerson.name}, ${meetingInfo.location.inPerson.room}`;
     case "in_person":
-      return meetingInfo.location.inPerson;
+      return `${meetingInfo.location.inPerson.name}, ${meetingInfo.location.inPerson.room}`;
     default:
       meetingType satisfies never;
       throw new Error("Unhandled meeting type: ${meetingType}");

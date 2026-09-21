@@ -45,7 +45,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section>
+    <section className="h-full">
       <form
         onSubmit={handleSubmit}
         className="p-6 border border-border rounded-md"

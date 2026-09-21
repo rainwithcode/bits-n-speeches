@@ -9,6 +9,8 @@ export const meetingInfo = {
   location: {
     online: "Zoom",
     inPerson: "WINN Center Consumnes River College, Elk Grove, CA 95624",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3124.5003431079263!2d-121.42334172305533!3d38.45300867182229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac6751a891f97%3A0xb6f8808396d03863!2sWinn%20Center!5e0!3m2!1sen!2sph!4v1789978646046!5m2!1sen!2sph",
   },
 };
 

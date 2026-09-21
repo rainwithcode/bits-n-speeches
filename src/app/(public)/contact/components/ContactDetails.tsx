@@ -14,21 +14,15 @@ type ContactDetailProps = {
 
 function ContactDetail({ Icon, label, contact, href }: ContactDetailProps) {
   return (
-    <div className="flex gap-4 items-center">
+    <a href={href} className="flex gap-4 items-center">
       <div className="w-10 h-10 flex items-center justify-center rounded-md bg-primary/10">
         <Icon className="text-primary" size={25} />
       </div>
       <div>
         <p className="font-medium">{label}</p>
-        <a
-          href={href}
-          className="hover:underline hover:text-primary"
-          target="_blank"
-        >
-          {contact}
-        </a>
+        <p>{contact}</p>
       </div>
-    </div>
+    </a>
   );
 }
 

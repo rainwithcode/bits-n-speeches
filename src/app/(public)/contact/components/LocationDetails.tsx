@@ -12,6 +12,11 @@ export default function LocationDetails() {
         src={meetingInfo.location.mapUrl}
         title={`${siteConfig.name} meeting location`}
       />
+      <address className="mt-4 not-italic">
+        <p className="font-medium">{meetingInfo.location.inPerson.name}</p>
+        <p>{meetingInfo.location.inPerson.room}</p>
+        <p>{meetingInfo.location.inPerson.address}</p>
+      </address>
     </section>
   );
 }

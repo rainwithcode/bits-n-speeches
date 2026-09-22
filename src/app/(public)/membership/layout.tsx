@@ -1,11 +1,10 @@
 import { Suspense } from "react";
 
-import { getUpcomingMeetings } from "@/lib/meetings";
+import { getUpcomingMeetings } from "@/lib/meetings/meetings";
 
 import PageHero from "../shared/PageHero";
 
 import MembershipTabs from "./components/MembershipTabs";
-
 
 export default async function MembershipLayout({
   children,

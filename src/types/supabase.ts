@@ -7,6 +7,7 @@ export type Json =
   | Json[];
 
 export type Meeting = Database["public"]["Tables"]["meetings"]["Row"];
+export type MeetingUpdate = Database["public"]["Tables"]["meetings"]["Update"];
 
 export type Database = {
   graphql_public: {

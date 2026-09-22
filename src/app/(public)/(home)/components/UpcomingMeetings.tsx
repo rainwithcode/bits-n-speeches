@@ -1,7 +1,6 @@
 import { ArrowRight, Calendar, Clock, MapPin, UserPlus } from "lucide-react";
 import { unstable_noStore as noStore } from "next/cache";
 
-
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import {
@@ -9,7 +8,7 @@ import {
   getLocation,
   getMeetingEndsAt,
   getUpcomingMeetings,
-} from "@/lib/meetings";
+} from "@/lib/meetings/meetings";
 
 import IconText from "../../../../components/ui/IconText";
 import { getMembershipUrl } from "../../data/nav-links";

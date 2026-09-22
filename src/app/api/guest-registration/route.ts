@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { sendEmail } from "@/lib/email/sendEmail";
-import { formatDateTime, getMeetingById } from "@/lib/meetings";
+import { formatDateTime, getMeetingById } from "@/lib/meetings/meetings";
 import { guestRegistrationSchema } from "@/lib/validations/guest-registration";
 import validateFormData from "@/lib/validations/validate-form-data";
 

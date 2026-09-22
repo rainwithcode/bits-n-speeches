@@ -1,4 +1,4 @@
-import { getUpcomingMeetings } from "@/lib/meetings";
+import { getUpcomingMeetings } from "@/lib/meetings/meetings";
 
 import SectionHeading from "../../shared/SectionHeading";
 

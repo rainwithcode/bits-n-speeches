@@ -1,8 +1,7 @@
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
-import { getMeetingById } from "@/lib/meetings";
-
+import { getMeetingById } from "@/lib/meetings/meetings";
 
 import MeetingDetail from "../components/MeetingDetail";
 

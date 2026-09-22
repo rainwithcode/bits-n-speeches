@@ -3,7 +3,7 @@ import { ArrowRight, MapPin, UserPlus } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import IconText from "@/components/ui/IconText";
-import { formatMeetingDateTime, getLocation } from "@/lib/meetings";
+import { formatMeetingDateTime, getLocation } from "@/lib/meetings/meetings";
 import { Meeting } from "@/types/supabase";
 
 import { getMembershipUrl } from "../../data/nav-links";

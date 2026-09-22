@@ -1,4 +1,6 @@
 import { ArrowRight, Calendar, Clock, MapPin, UserPlus } from "lucide-react";
+import { unstable_noStore as noStore } from "next/cache";
+
 
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
@@ -14,6 +16,7 @@ import { getMembershipUrl } from "../../data/nav-links";
 import SectionHeading from "../../shared/SectionHeading";
 
 export default async function UpcomingMeetings() {
+  noStore();
   const meetings = await getUpcomingMeetings();
 
   if (!meetings || meetings.length === 0) return null;

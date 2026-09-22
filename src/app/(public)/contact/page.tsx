@@ -2,7 +2,7 @@ import PageHero from "../shared/PageHero";
 
 import ContactInformation from "./components/ContactDetails";
 import ContactForm from "./components/ContactForm";
-import LocationDetails from "./components/LocationDetails";
+import LocationDetails from "./components/MeetingDetails";
 
 export default function Contact() {
   return (

@@ -7,7 +7,7 @@ import { siteConfig } from "@/data/site-config";
 import MapEmbed from "../../shared/MapEmbed";
 import SectionHeading from "../../shared/SectionHeading";
 
-export default function LocationDetails() {
+export default function MeetingDetails() {
   return (
     <section>
       <SectionHeading className="mb-6">Visit Us</SectionHeading>

@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 import { z } from "zod";
 export default function validateFormData<T>(
   schema: z.ZodType<T>,
@@ -9,11 +10,11 @@ export default function validateFormData<T>(
   if (!result.success) {
     return {
       success: false as const,
-      response: z.treeifyError(result.error),
+      response: NextResponse.json(
+        { errors: z.treeifyError(result.error) },
+        { status: 400 },
+      ),
     };
-    {
-      status: 400;
-    }
   }
   return {
     success: true as const,

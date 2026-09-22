@@ -4,8 +4,11 @@ import { formatDateTime, getLocation, getMeetingEndsAt } from "@/lib/meetings";
 import type { Meeting } from "@/types/supabase";
 
 export const meetingInfo = {
-  day: "Thursday",
   time: "7:00 – 8:30 PM Pacific",
+  schedule: {
+    online: "Every Thursday",
+    inPerson: "1st and 3rd Thursdays",
+  },
   location: {
     online: "Zoom",
     inPerson: {

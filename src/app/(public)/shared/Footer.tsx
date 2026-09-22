@@ -74,13 +74,13 @@ export default function Footer() {
                       Schedule:
                     </span>{" "}
                   </div>
-                  Every {meetingInfo.day} at {meetingInfo.time}
+                  {meetingInfo.schedule.online} at {meetingInfo.time}
                 </li>
                 <li className="text-base md:text-lg mb-2" key="in-person">
                   <div className="flex gap-2">
                     <MapPin className="w-5 text-accent" />
                     <span className="text-primary-foreground">
-                      In Person (1st &amp; 3rd {meetingInfo.day}s):
+                      In Person ({meetingInfo.schedule.inPerson}):
                     </span>{" "}
                   </div>{" "}
                   {meetingInfo.location.inPerson.name}

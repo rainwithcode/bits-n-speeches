@@ -1,3 +1,5 @@
+import { unstable_noStore as noStore } from "next/cache";
+
 import { getUpcomingMeetings } from "@/lib/meetings/meetings";
 
 import SectionHeading from "../../shared/SectionHeading";
@@ -5,6 +7,7 @@ import SectionHeading from "../../shared/SectionHeading";
 import MeetingCard from "./MeetingCard";
 
 export default async function MeetingList() {
+  noStore();
   const meetings = await getUpcomingMeetings(8);
   return (
     <section className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">

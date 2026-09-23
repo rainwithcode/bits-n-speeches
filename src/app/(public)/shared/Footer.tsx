@@ -16,7 +16,7 @@ export default function Footer() {
           <div>
             <Image
               src="/logo.png"
-              alt="Toastmasters logo"
+              alt={`${siteConfig.organization} logo`}
               width={148}
               height={124}
               className="w-14 h-auto mb-3"
@@ -105,7 +105,8 @@ export default function Footer() {
         </div>
         <div className="flex flex-col md:flex-row md:justify-between">
           <small className="text-base">
-            © 2026 {siteConfig.name} Toastmasters Club
+            © {siteConfig.copyrightDate} {siteConfig.name}{" "}
+            {siteConfig.organization} Club
           </small>
           <p>
             A chartered club of{" "}
@@ -115,10 +116,7 @@ export default function Footer() {
           </p>
         </div>
         <p className="text-sm mt-4 text-primary-foreground/70">
-          The information on this website is for the sole use of Toastmasters’
-          members, for Toastmasters business only. It is not to be used for
-          solicitation and distribution of non-Toastmasters material or
-          information.
+          {siteConfig.copyrightNotice}
         </p>
       </div>
     </footer>

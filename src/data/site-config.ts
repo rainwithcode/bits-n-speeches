@@ -8,6 +8,9 @@ export const siteConfig = {
   tagline:
     "A Toastmasters club dedicated to developing confident communicators and leaders.",
   organizationUrl: "https://www.toastmasters.org/",
+  copyrightDate: new Date().getFullYear(),
+  copyrightNotice:
+    "The information on this website is for the sole use of Toastmasters’ members, for Toastmasters business only. It is not to be used for solicitation and distribution of non-Toastmasters material or information.",
   // contact
   contact: {
     email: {

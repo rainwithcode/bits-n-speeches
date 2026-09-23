@@ -1,3 +1,4 @@
+import { Mail } from "lucide-react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 export const siteConfig = {
@@ -13,6 +14,7 @@ export const siteConfig = {
       address: "bitsspeeches@gmail.com",
       subject: "Question about Bits ’N Speeches",
       body: "Hi! I'd like to learn more about Bits ’N Speeches.",
+      icon: Mail,
     },
     social: [
       {

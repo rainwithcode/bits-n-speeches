@@ -2,6 +2,7 @@ import { Clock, MapPin, Video } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import TextLink from "@/components/ui/TexLink";
 import { meetingInfo } from "@/data/meetings";
 import { siteConfig } from "@/data/site-config";
 
@@ -94,12 +95,9 @@ export default function Footer() {
                       {meetingInfo.location.online}:
                     </span>{" "}
                   </div>
-                  <a
-                    href="mailto:bitsspeeches@gmail.com?subject=Meeting%20Link%20Request&body=Hi%2C%20could%20you%20send%20me%20the%20link%20to%20join%20the%20next%20meeting%3F"
-                    className="text-accent underline hover:text-hover transition-colors"
-                  >
-                    Email us for link
-                  </a>
+                  <TextLink href="membership?tab=guest" variant="highlight">
+                    Register to receive the meeting link
+                  </TextLink>
                 </li>
               </ul>
             </div>
@@ -111,12 +109,9 @@ export default function Footer() {
           </small>
           <p>
             A chartered club of{" "}
-            <a
-              href={siteConfig.organizationUrl}
-              className="text-accent underline hover:text-hover transition-colors"
-            >
+            <TextLink href={siteConfig.organizationUrl} variant="highlight">
               {siteConfig.organization}
-            </a>
+            </TextLink>
           </p>
         </div>
         <p className="text-sm mt-4 text-primary-foreground/70">

@@ -1,9 +1,11 @@
 import Link from "next/link";
+
 export type LinkProps = {
   href: string;
   target?: string;
   children: React.ReactNode;
   className?: string;
+  variant?: "default" | "highlight";
 };
 
 export default function TextLink({
@@ -11,12 +13,18 @@ export default function TextLink({
   target,
   children,
   className,
+  variant = "default",
 }: LinkProps) {
+  const variantClasses = {
+    default: "text-primary hover:text-secondary",
+    highlight: "text-accent hover:text-accent/80",
+  };
+
   return (
     <Link
       href={href}
       target={target}
-      className={`text-primary underline hover:text-secondary transition-colors ${className}`}
+      className={`underline transition-colors ${variantClasses[variant]} ${className ?? ""}`}
     >
       {children}
     </Link>

@@ -1,6 +1,6 @@
 import { Clock, MapPin } from "lucide-react";
 
-import InfoItem from "@/components/InfoItem";
+import InfoItem from "@/components/ui/InfoItem";
 import { meetingInfo } from "@/data/meetings";
 import { siteConfig } from "@/data/site-config";
 

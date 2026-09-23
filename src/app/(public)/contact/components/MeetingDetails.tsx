@@ -14,12 +14,13 @@ export default function MeetingDetails() {
       <div className="space-y-4 mb-6">
         <InfoItem Icon={Clock}>
           <p>
-            <span className="font-medium">Online:</span>{" "}
-            {meetingInfo.schedule.online}
+            <span className="font-medium">
+              {meetingInfo.schedule.day} {"• "} {meetingInfo.schedule.time}
+            </span>{" "}
           </p>
           <p>
-            <span className="font-medium">In person:</span>{" "}
-            {meetingInfo.schedule.inPerson}
+            <span className="font-medium">Online every week</span>
+            {" • "} In-person {meetingInfo.schedule.inPerson}
           </p>
         </InfoItem>
         <address className="not-italic">

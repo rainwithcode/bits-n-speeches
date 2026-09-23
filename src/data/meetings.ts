@@ -8,9 +8,9 @@ import {
 import type { Meeting } from "@/types/supabase";
 
 export const meetingInfo = {
-  time: "7:00 – 8:30 PM Pacific",
   schedule: {
-    online: "Every Thursday",
+    time: "7:00 – 8:30 PM Pacific",
+    day: "Thursdays",
     inPerson: "1st and 3rd Thursdays",
   },
   location: {

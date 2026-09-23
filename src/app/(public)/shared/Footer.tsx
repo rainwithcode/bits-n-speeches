@@ -75,7 +75,7 @@ export default function Footer() {
                       Schedule:
                     </span>{" "}
                   </div>
-                  {meetingInfo.schedule.online} at {meetingInfo.time}
+                  {meetingInfo.schedule.day} at {meetingInfo.schedule.time}
                 </li>
                 <li className="text-base md:text-lg mb-2" key="in-person">
                   <div className="flex gap-2">

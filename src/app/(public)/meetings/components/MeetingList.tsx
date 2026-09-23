@@ -8,7 +8,7 @@ import MeetingCard from "./MeetingCard";
 
 export default async function MeetingList() {
   noStore();
-  const meetings = await getUpcomingMeetings(8);
+  const meetings = await getUpcomingMeetings(6);
   return (
     <section className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
       <SectionHeading className="mb-6">Upcoming Meetings</SectionHeading>

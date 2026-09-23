@@ -1,4 +1,4 @@
-import { Mail, type LucideIcon } from "lucide-react";
+import { type LucideIcon } from "lucide-react";
 import type { IconType } from "react-icons";
 
 import { siteConfig } from "@/data/site-config";
@@ -33,13 +33,15 @@ export default function ContactDetails() {
       <ul className="flex flex-col gap-4">
         <li key="Email">
           <ContactDetail
-            Icon={Mail}
+            Icon={siteConfig.contact.email.icon}
             label="Email"
-            contact={siteConfig.email}
-            href={`mailto:${siteConfig.email}`}
+            contact={siteConfig.contact.email.address}
+            href={`mailto:${siteConfig.contact.email.address}?subject=${encodeURIComponent(
+              siteConfig.contact.email.subject,
+            )}&body=${encodeURIComponent(siteConfig.contact.email.body)}`}
           />
         </li>
-        {siteConfig.social.map((social) => (
+        {siteConfig.contact.social.map((social) => (
           <li key={social.name}>
             <ContactDetail
               Icon={social.icon}

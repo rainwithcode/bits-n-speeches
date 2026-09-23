@@ -112,7 +112,7 @@ export default function Footer() {
           <p>
             A chartered club of{" "}
             <a
-              href={siteConfig.site}
+              href={siteConfig.organizationUrl}
               className="text-accent underline hover:text-hover transition-colors"
             >
               {siteConfig.organization}

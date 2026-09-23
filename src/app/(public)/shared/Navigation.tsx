@@ -64,6 +64,7 @@ export default function Navigation() {
                 <Link
                   href={link.href}
                   className={navLinkClassName(link.href === pathname, "mobile")}
+                  onClick={toggleMenu}
                 >
                   {link.label}
                 </Link>

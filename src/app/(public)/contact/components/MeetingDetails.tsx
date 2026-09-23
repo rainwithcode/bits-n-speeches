@@ -19,7 +19,9 @@ export default function MeetingDetails() {
             </span>{" "}
           </p>
           <p>
-            <span className="font-medium">Online every week</span>
+            <span className="font-medium">
+              Online {meetingInfo.schedule.online.toLowerCase()}
+            </span>
             {" • "} In-person {meetingInfo.schedule.inPerson}
           </p>
         </InfoItem>

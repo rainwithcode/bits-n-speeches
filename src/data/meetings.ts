@@ -11,6 +11,7 @@ export const meetingInfo = {
   schedule: {
     time: "7:00 – 8:30 PM Pacific",
     day: "Thursdays",
+    online: "Every week",
     inPerson: "1st and 3rd Thursdays",
   },
   location: {

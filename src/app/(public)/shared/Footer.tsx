@@ -33,16 +33,25 @@ export default function Footer() {
                     href={`mailto:${siteConfig.contact.email.address}?subject=${encodeURIComponent(
                       siteConfig.contact.email.subject,
                     )}&body=${encodeURIComponent(siteConfig.contact.email.body)}`}
+                    rel="noopener noreferrer"
+                    aria-label="Email us"
+                    className="text-primary-foreground/70 hover:text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-foreground"
                   >
-                    <MailIcon className="w-6 h-6 text-primary-foreground/70 hover:text-primary-foreground" />
+                    <MailIcon className="size-6" />
                   </a>
                 </li>
                 {siteConfig.contact.social.map((social) => {
                   const Icon = social.icon;
                   return (
                     <li key={`${social.name.toLowerCase()}-footer`}>
-                      <a href={social.href} target="_blank">
-                        <Icon className="w-6 h-6 text-primary-foreground/70 hover:text-primary-foreground" />
+                      <a
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Visit our ${social.name}`}
+                        className="text-primary-foreground/70 hover:text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-foreground"
+                      >
+                        <Icon className="size-6 text-primary-foreground/70 hover:text-primary-foreground" />
                       </a>
                     </li>
                   );

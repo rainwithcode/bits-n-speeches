@@ -13,10 +13,11 @@ export default function IconText({
   children,
 }: IconTextProps) {
   return (
-    <div className="text-sm md:text-lg mb-2" key="schedule">
+    <div className="text-sm md:text-lg mb-2">
       <div className="flex gap-2">
         <Icon
           className={`w-5 ${variant === "primary" ? "text-primary" : "text-accent"}`}
+          aria-hidden="true"
         />
         <span
           className={`${variant === "primary" ? "" : "text-primary-foreground"}`}

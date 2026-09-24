@@ -22,7 +22,7 @@ export const members: Member[] = [
   },
   {
     name: "John Fox",
-    image: "john-fox.JPG",
+    image: "john-fox.jpg",
     profession: "Educator",
     testimonial:
       'Bits ’N Speeches provides a supportive environment where members can develop confidence, refine their ideas, and strengthen their "speaking muscle."',

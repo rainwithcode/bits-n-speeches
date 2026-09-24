@@ -1,8 +1,6 @@
 import { Quote } from "lucide-react";
-import Image from "next/image";
 
-import AvatarFallback from "@/components/ui/AvatarFallback";
-import getInitials from "@/utils/get-initials";
+import MemberAvatar from "@/components/ui/MemberAvatar";
 
 import { members } from "../../data/members";
 import SectionHeading from "../../shared/SectionHeading";
@@ -16,8 +14,6 @@ export default function Testimonials() {
         </SectionHeading>
         <ul className="grid md:grid-cols-3 gap-4 md:gap-8 mt-8">
           {members.slice(0, 3).map((member) => {
-            const initials = getInitials(member.name);
-
             return (
               <li
                 key={member.name}
@@ -30,19 +26,7 @@ export default function Testimonials() {
                 </blockquote>
 
                 <div className="mt-auto flex gap-4 items-center">
-                  {member.image ? (
-                    <Image
-                      src={`/members/${member.image}`}
-                      alt={member.name}
-                      width={128}
-                      height={128}
-                      quality={75}
-                      className="w-8 h-8 md:w-12 md:h-12 object-cover rounded-full"
-                    />
-                  ) : (
-                    <AvatarFallback>{initials}</AvatarFallback>
-                  )}
-
+                  <MemberAvatar image={member.image} name={member.name} />
                   <div>
                     <cite className="text-xs md:text-sm text-primary-foreground font-bold not-italic">
                       {member.name}

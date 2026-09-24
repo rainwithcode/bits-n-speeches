@@ -17,7 +17,7 @@ export default function TextLink({
 }: LinkProps) {
   const variantClasses = {
     default: "text-primary hover:text-secondary",
-    highlight: "text-accent hover:text-accent/80",
+    highlight: "text-accent hover:text-primary-foreground",
   };
 
   return (

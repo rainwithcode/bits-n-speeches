@@ -31,7 +31,7 @@ export default function ContactDetails() {
     <section>
       <SectionHeading className="mb-6">Get in Touch</SectionHeading>
       <ul className="flex flex-col gap-4">
-        <li key="Email">
+        <li key="email-contact">
           <ContactDetail
             Icon={siteConfig.contact.email.icon}
             label="Email"
@@ -42,7 +42,7 @@ export default function ContactDetails() {
           />
         </li>
         {siteConfig.contact.social.map((social) => (
-          <li key={social.name}>
+          <li key={`${social.name}-contact`}>
             <ContactDetail
               Icon={social.icon}
               label={social.name}

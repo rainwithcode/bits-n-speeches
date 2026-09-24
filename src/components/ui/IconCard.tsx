@@ -13,7 +13,10 @@ export default function IconCard({
 }: IconCardProps) {
   return (
     <div className="space-y-2 md:space-y-4 bg-white p-8 rounded-md border border-border">
-      <div className="w-fit px-4 py-4 rounded-md bg-primary/10">
+      <div
+        className="w-fit px-4 py-4 rounded-md bg-primary/10"
+        aria-hidden="true"
+      >
         <Icon className="w-6 h-6 md:w-8 md:h-8 text-primary" />
       </div>
       <h3 className="font-heading font-bold text-base md:text-xl text-primary">

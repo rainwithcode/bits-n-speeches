@@ -51,7 +51,10 @@ export default function Footer() {
                         aria-label={`Visit our ${social.name}`}
                         className="text-primary-foreground/70 hover:text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-foreground"
                       >
-                        <Icon className="size-6 text-primary-foreground/70 hover:text-primary-foreground" />
+                        <Icon
+                          className="size-6 text-primary-foreground/70 hover:text-primary-foreground"
+                          aria-hidden="true"
+                        />
                       </a>
                     </li>
                   );

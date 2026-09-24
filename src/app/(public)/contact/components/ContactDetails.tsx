@@ -15,7 +15,10 @@ type ContactDetailProps = {
 function ContactDetail({ Icon, label, contact, href }: ContactDetailProps) {
   return (
     <a href={href} className="flex gap-4 items-center">
-      <div className="w-10 h-10 flex items-center justify-center rounded-md bg-primary/10">
+      <div
+        className="w-10 h-10 flex items-center justify-center rounded-md bg-primary/10"
+        aria-hidden="true"
+      >
         <Icon className="text-primary" size={25} />
       </div>
       <div>

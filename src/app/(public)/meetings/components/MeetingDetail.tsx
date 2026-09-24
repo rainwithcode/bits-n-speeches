@@ -22,7 +22,10 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
           const Icon = meetingDetail.icon;
           return (
             <li key={meetingDetail.label} className="flex gap-3 items-center">
-              <Icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+              <Icon
+                className="w-4 h-4 md:w-5 md:h-5 text-primary"
+                aria-hidden="true"
+              />
               <div>
                 <div className="font-bold text-primary text-sm md:text-base">
                   {meetingDetail.label}

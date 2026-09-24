@@ -16,7 +16,10 @@ export default function GuestExpectations() {
                 key={experience.title}
                 className="flex flex-col items-center gap-3"
               >
-                <Icon className="w-10 h-10 text-primary"></Icon>
+                <Icon
+                  className="w-10 h-10 text-primary"
+                  aria-hidden="true"
+                ></Icon>
                 <h3 className="font-bold text-base md:text-xl text-primary">
                   {experience.title}
                 </h3>

@@ -9,6 +9,7 @@ import { siteConfig } from "@/data/site-config";
 import { getMembershipUrl, membershipLinks, navLinks } from "../data/nav-links";
 
 export default function Footer() {
+  const MailIcon = siteConfig.contact.email.icon;
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12 ">
@@ -26,6 +27,27 @@ export default function Footer() {
                 {siteConfig.name}
               </h2>
               <p className="text-primary-foreground/70">{siteConfig.tagline}</p>
+              <ul className="flex gap-2">
+                <li key="email-footer">
+                  <a
+                    href={`mailto:${siteConfig.contact.email.address}?subject=${encodeURIComponent(
+                      siteConfig.contact.email.subject,
+                    )}&body=${encodeURIComponent(siteConfig.contact.email.body)}`}
+                  >
+                    <MailIcon className="w-6 h-6 text-primary-foreground/70 hover:text-primary-foreground" />
+                  </a>
+                </li>
+                {siteConfig.contact.social.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <li key={`${social.name.toLowerCase()}-footer`}>
+                      <a href={social.href} target="_blank">
+                        <Icon className="w-6 h-6 text-primary-foreground/70 hover:text-primary-foreground" />
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
           <nav className="contents" aria-label="Footer">

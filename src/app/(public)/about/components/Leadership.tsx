@@ -12,7 +12,7 @@ export default function Leadership() {
         </SectionHeading>
         <ul className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-10 lg:gap-y-12">
           {memberWithRoles.map((officer) => (
-            <li key={officer.name}>
+            <li key={officer.officerRole}>
               <PersonCard
                 name={officer.name}
                 src={officer.image}

@@ -23,10 +23,10 @@ export default function GuestRegistration({
     idle: "Register as a Guest",
     loading: "Registering...",
     success: "Registered",
-    error: "Try Again",
   };
 
   const [status, setStatus] = useState<FormStatus>("idle");
+  const [error, setError] = useState<string | null>(null);
 
   const isDisabled = status === "loading" || status === "success";
 
@@ -34,6 +34,7 @@ export default function GuestRegistration({
     event.preventDefault();
 
     setStatus("loading");
+    setError(null);
 
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -47,8 +48,10 @@ export default function GuestRegistration({
       setTimeout(() => {
         setStatus("idle");
       }, 3000);
-    } catch {
-      setStatus("error");
+    } catch (error) {
+      setStatus("idle");
+
+      setError("We couldn't send your message. Please try again.");
     }
   }
 
@@ -111,6 +114,7 @@ export default function GuestRegistration({
             {status === "success" && <CheckIcon />}
             {buttonLabel[status]}
           </Button>
+          {error && <p className="text-secondary font-medium">{error}</p>}
         </div>
       </form>
     </section>

@@ -15,10 +15,10 @@ export default function ContactForm() {
     idle: "Send Message",
     loading: "Sending...",
     success: "Sent",
-    error: "Try Again",
   };
 
   const [status, setStatus] = useState<FormStatus>("idle");
+  const [error, setError] = useState<string | null>(null);
 
   const isDisabled = status === "loading" || status === "success";
 
@@ -26,6 +26,7 @@ export default function ContactForm() {
     event.preventDefault();
 
     setStatus("loading");
+    setError(null);
 
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -39,8 +40,10 @@ export default function ContactForm() {
       setTimeout(() => {
         setStatus("idle");
       }, 3000);
-    } catch {
-      setStatus("error");
+    } catch (error) {
+      setStatus("idle");
+
+      setError("We couldn't send your message. Please try again.");
     }
   }
 
@@ -81,6 +84,7 @@ export default function ContactForm() {
             {status === "success" && <CheckIcon />}
             {buttonLabel[status]}
           </Button>
+          {error && <p className="text-secondary font-medium">{error}</p>}
         </div>
       </form>
     </section>

@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     <p>
       <strong>Name:</strong> ${fullName}<br />
       <strong>Email:</strong> <a href="mailto:${email}">${email}</a><br />
-      <strong>Subject:</strong> ${subject}
+      <strong>Subject:</strong> ${subject}<br />
       <strong>Newsletter:</strong> ${newsletterOptIn ? "Subscribed" : "Not subscribed"}
     </p>
 

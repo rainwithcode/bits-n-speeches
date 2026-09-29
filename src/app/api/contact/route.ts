@@ -54,7 +54,11 @@ export async function POST(request: Request) {
   }
 
   if (newsletterOptIn) {
-    await subscribeToNewsletter({ email, name: fullName });
+    try {
+      await subscribeToNewsletter({ email, name: fullName });
+    } catch (error) {
+      console.error("Newsletter subscription failed: ", error);
+    }
   }
 
   return NextResponse.json({ success: true, data });

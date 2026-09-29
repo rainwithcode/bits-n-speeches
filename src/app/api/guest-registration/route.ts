@@ -72,13 +72,12 @@ export async function POST(request: Request) {
   `,
   });
 
-  if (newsletterOptIn) {
-    await subscribeToNewsletter({ email, name: fullName });
-  }
-
   if (error) {
     return NextResponse.json({ error }, { status: 500 });
   }
 
+  if (newsletterOptIn) {
+    await subscribeToNewsletter({ email, name: fullName });
+  }
   return NextResponse.json({ success: true, data });
 }

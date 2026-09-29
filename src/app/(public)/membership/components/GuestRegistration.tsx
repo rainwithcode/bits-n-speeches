@@ -72,41 +72,64 @@ export default function GuestRegistration({
         <div className="space-y-4">
           {guestRegistrationFields.map((field) => (
             <div key={field.id}>
-              <label htmlFor={field.id} className="block mb-1">
-                {field.label} {field.required && " *"}
-              </label>
-
-              {field.type === "textarea" ? (
-                <textarea
-                  id={field.id}
-                  name={field.name}
-                  placeholder={field.placeholder}
-                  required={field.required}
-                  className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
-                />
+              {field.type === "checkbox" ? (
+                <label htmlFor={field.id} className="flex gap-2">
+                  <input
+                    type={field.type}
+                    id={field.id}
+                    name={field.name}
+                    value="true"
+                    placeholder={field.placeholder}
+                    required={field.required}
+                  />
+                  <span>{field.label}</span>
+                </label>
+              ) : field.type === "textarea" ? (
+                <>
+                  <label htmlFor={field.id} className="block mb-1">
+                    {field.label} {field.required && " *"}
+                  </label>
+                  <textarea
+                    id={field.id}
+                    name={field.name}
+                    placeholder={field.placeholder}
+                    required={field.required}
+                    className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
+                  />
+                </>
               ) : field.type === "select" ? (
-                <select
-                  id={field.id}
-                  name={field.name}
-                  required={field.required}
-                  className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
-                >
-                  {meetings.map((meeting) => (
-                    <option value={meeting.id} key={meeting.id}>
-                      {formatMeetingDateTime(new Date(meeting.starts_at))} —{" "}
-                      {meeting.title}
-                    </option>
-                  ))}
-                </select>
+                <>
+                  <label htmlFor={field.id} className="block mb-1">
+                    {field.label} {field.required && " *"}
+                  </label>
+                  <select
+                    id={field.id}
+                    name={field.name}
+                    required={field.required}
+                    className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
+                  >
+                    {meetings.map((meeting) => (
+                      <option value={meeting.id} key={meeting.id}>
+                        {formatMeetingDateTime(new Date(meeting.starts_at))} —{" "}
+                        {meeting.title}
+                      </option>
+                    ))}
+                  </select>
+                </>
               ) : (
-                <input
-                  type={field.type}
-                  id={field.id}
-                  name={field.name}
-                  placeholder={field.placeholder}
-                  required={field.required}
-                  className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
-                />
+                <>
+                  <label htmlFor={field.id} className="block mb-1">
+                    {field.label} {field.required && " *"}
+                  </label>
+                  <input
+                    type={field.type}
+                    id={field.id}
+                    name={field.name}
+                    placeholder={field.placeholder}
+                    required={field.required}
+                    className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
+                  />
+                </>
               )}
             </div>
           ))}

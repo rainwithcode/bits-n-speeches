@@ -41,8 +41,8 @@ export const guestRegistrationFields: FormField[] = [
     required: false,
   },
   {
-    name: "newsletter",
-    id: "newsletter",
+    name: "newsletterOptIn",
+    id: "newsletter-opt-in",
     label: " Email me news and updates from Bits 'N Speeches.",
     type: "checkbox",
     required: false,

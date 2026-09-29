@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { escapeHtml } from "@/lib/email/escapeHtml";
 import { sendEmail } from "@/lib/email/sendEmail";
 import { subscribeToNewsletter } from "@/lib/newsletter/subscribe";
 import { contactSchema } from "@/lib/validations/contact";
@@ -25,21 +26,26 @@ export async function POST(request: Request) {
   const { fullName, email, subject, message, newsletterOptIn } =
     validation.data;
 
+  const safeFullName = escapeHtml(fullName);
+  const safeEmail = escapeHtml(email);
+  const safeSubject = escapeHtml(subject);
+  const safeMessage = escapeHtml(message);
+
   const { data, error } = await sendEmail({
-    subject: `BNS Message — ${subject}`,
+    subject: `BNS Message — ${safeSubject}`,
     html: `
     <h2>New BNS Message</h2>
 
     <h3>Sender</h3>
     <p>
-      <strong>Name:</strong> ${fullName}<br />
-      <strong>Email:</strong> <a href="mailto:${email}">${email}</a><br />
-      <strong>Subject:</strong> ${subject}<br />
+      <strong>Name:</strong> ${safeFullName}<br />
+      <strong>Email:</strong> <a href="mailto:${safeEmail}">${safeEmail}</a><br />
+      <strong>Subject:</strong> ${safeSubject}<br />
       <strong>Newsletter:</strong> ${newsletterOptIn ? "Subscribed" : "Not subscribed"}
     </p>
 
     <h3>Message</h3>
-    <p>${message}</p>
+    <p>${safeMessage}</p>
   `,
   });
 

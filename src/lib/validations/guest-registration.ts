@@ -6,4 +6,8 @@ export const guestRegistrationSchema = z.object({
   phone: z.string().trim().optional(),
   meeting: z.string().trim().min(1, "Please select a meeting"),
   message: z.string().trim().optional(),
+  newsletterOptIn: z
+    .literal("true")
+    .optional()
+    .transform((value) => value === "true"),
 });

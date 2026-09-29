@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { siteConfig } from "@/data/site-config";
 import { escapeHtml } from "@/lib/email/escapeHtml";
 import { sendEmail } from "@/lib/email/sendEmail";
 import { subscribeToNewsletter } from "@/lib/newsletter/subscribe";
@@ -32,6 +33,7 @@ export async function POST(request: Request) {
   const safeMessage = escapeHtml(message);
 
   const { data, error } = await sendEmail({
+    to: [siteConfig.contact.email.address],
     subject: `BNS Message — ${safeSubject}`,
     html: `
     <h2>New BNS Message</h2>

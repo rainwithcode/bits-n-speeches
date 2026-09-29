@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { siteConfig } from "@/data/site-config";
 import { escapeHtml } from "@/lib/email/escapeHtml";
 import { sendEmail } from "@/lib/email/sendEmail";
 import { formatDateTime, getMeetingById } from "@/lib/meetings/meetings";
@@ -45,6 +46,7 @@ export async function POST(request: Request) {
 
   // Send guest registration email
   const { data, error } = await sendEmail({
+    to: [siteConfig.contact.email.address],
     subject: `New Guest Registration — ${fullName}`,
     html: `
     <h2>New Guest Registration</h2>

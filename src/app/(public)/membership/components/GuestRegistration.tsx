@@ -10,7 +10,7 @@ import type { FormStatus } from "@/types/forms";
 import type { Meeting } from "@/types/supabase";
 
 import SectionHeading from "../../shared/SectionHeading";
-import { guestRegistrationFields } from "../data/guest-registration";
+import { guestRegistrationFields } from "../data/guest-registration-fields";
 
 type GuestRegistrationProps = {
   meetings: Meeting[];

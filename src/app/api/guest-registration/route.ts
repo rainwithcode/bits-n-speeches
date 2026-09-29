@@ -33,25 +33,31 @@ export async function POST(request: Request) {
 
   // Send guest registration email
   const { data, error } = await sendEmail({
-    subject: `BNS Guest — ${fullName} would like to attend a meeting`,
+    subject: `New Guest Registration — ${fullName}`,
     html: `
-    <h2>New BNS Guest</h2>
+    <h2>New Guest Registration</h2>
 
-    <p><strong>Name:</strong> ${fullName}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
-    <p><strong>Newsletter:</strong> ${newsletterOptIn ? "Subscribed" : "Not Subscribed"}</p>
+    <h3>Guest</h3>
+    <p>
+      <strong>Name:</strong> ${fullName}<br />
+      <strong>Email:</strong>
+      <a href="mailto:${email}">${email}</a><br />
+      <strong>Phone:</strong> ${phone || "Not provided"}<br />
+      <strong>Newsletter:</strong>
+      ${newsletterOptIn ? "Subscribed" : "Not subscribed"}
+    </p>
 
-    <h3>I would like to attend:</h3>
+    <h3>Meeting</h3>
     <p>
       <strong>
         ${formatDateTime(preferredMeeting.starts_at, { format: "date" })}
-      </strong>
-      — ${preferredMeeting.title}
+      </strong><br />
+      ${preferredMeeting.title}
     </p>
-    
-    <p><strong>Message:</strong> ${message || "None"}</p>
-    `,
+
+    <h3>Message</h3>
+    <p>${message || "None"}</p>
+  `,
   });
 
   if (newsletterOptIn) {

@@ -23,9 +23,9 @@ export async function POST(request: Request) {
   const { fullName, email, subject, message } = validation.data;
 
   const { data, error } = await sendEmail({
-    subject: `BNS Inquiry — ${subject}`,
+    subject: `BNS Message — ${subject}`,
     html: `     
-    <h2>New BNS Inquiry</h2>
+    <h2>New BNS Message</h2>
 
     <p><strong>Name:</strong> ${fullName}</p>
     <p><strong>Email:</strong> ${email}</p>

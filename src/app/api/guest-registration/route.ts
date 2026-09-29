@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { escapeHtml } from "@/lib/email/escapeHtml";
 import { sendEmail } from "@/lib/email/sendEmail";
 import { formatDateTime, getMeetingById } from "@/lib/meetings/meetings";
 import { subscribeToNewsletter } from "@/lib/newsletter/subscribe";
@@ -28,8 +29,15 @@ export async function POST(request: Request) {
   const { fullName, email, phone, meeting, message, newsletterOptIn } =
     validation.data;
 
+  const safeFullName = escapeHtml(fullName);
+  const safeEmail = escapeHtml(email);
+  const safePhone = escapeHtml(phone);
+  const safeMessage = escapeHtml(message);
+
   const preferredMeeting =
     typeof meeting === "string" ? await getMeetingById(meeting) : null;
+
+  const safeMeetingTitle = escapeHtml(preferredMeeting.title);
 
   // Send guest registration email
   const { data, error } = await sendEmail({
@@ -39,10 +47,10 @@ export async function POST(request: Request) {
 
     <h3>Guest</h3>
     <p>
-      <strong>Name:</strong> ${fullName}<br />
+      <strong>Name:</strong> ${safeFullName}<br />
       <strong>Email:</strong>
-      <a href="mailto:${email}">${email}</a><br />
-      <strong>Phone:</strong> ${phone || "Not provided"}<br />
+      <a href="mailto:${safeEmail}">${safeEmail}</a><br />
+      <strong>Phone:</strong> ${safePhone || "Not provided"}<br />
       <strong>Newsletter:</strong>
       ${newsletterOptIn ? "Subscribed" : "Not subscribed"}
     </p>
@@ -52,11 +60,11 @@ export async function POST(request: Request) {
       <strong>
         ${formatDateTime(preferredMeeting.starts_at, { format: "date" })}
       </strong><br />
-      ${preferredMeeting.title}
+      ${safeMeetingTitle}
     </p>
 
     <h3>Message</h3>
-    <p>${message || "None"}</p>
+    <p>${safeMessage || "None"}</p>
   `,
   });
 

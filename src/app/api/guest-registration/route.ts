@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     phone: formData.get("phone"),
     meeting: formData.get("meeting"),
     message: formData.get("message"),
-    newsletterOptIn: formData.get("newsletterOptIn"),
+    newsletterOptIn: formData.get("newsletterOptIn") ?? undefined,
   };
 
   // Validate form data

@@ -3,7 +3,7 @@ type FormField = {
   id: string;
   label: string;
   placeholder?: string;
-  type: "text" | "email" | "tel" | "select" | "textarea";
+  type: "text" | "email" | "tel" | "select" | "textarea" | "checkbox";
   required: boolean;
 };
 
@@ -45,6 +45,13 @@ export const guestRegistrationFields: FormField[] = [
     label: "Anything you'd like us to know?",
     placeholder: "Goals, questions, accessibility needs...",
     type: "textarea",
+    required: false,
+  },
+  {
+    name: "newsletter",
+    id: "newsletter",
+    label: " Email me news and updates from Bits 'N Speeches.",
+    type: "checkbox",
     required: false,
   },
 ];

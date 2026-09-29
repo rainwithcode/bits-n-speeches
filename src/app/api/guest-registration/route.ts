@@ -37,6 +37,10 @@ export async function POST(request: Request) {
   const preferredMeeting =
     typeof meeting === "string" ? await getMeetingById(meeting) : null;
 
+  if (!preferredMeeting) {
+    return NextResponse.json({ error: "Meeting not found" }, { status: 404 });
+  }
+
   const safeMeetingTitle = escapeHtml(preferredMeeting.title);
 
   // Send guest registration email

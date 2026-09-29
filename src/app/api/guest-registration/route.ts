@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { sendEmail } from "@/lib/email/sendEmail";
 import { formatDateTime, getMeetingById } from "@/lib/meetings/meetings";
+import { subscribeToNewsletter } from "@/lib/newsletter/subscribe";
 import { guestRegistrationSchema } from "@/lib/validations/guest-registration";
 import validateFormData from "@/lib/validations/validate-form-data";
 
@@ -24,11 +25,13 @@ export async function POST(request: Request) {
     return validation.response;
   }
 
-  const { fullName, email, phone, meeting, message } = validation.data;
+  const { fullName, email, phone, meeting, message, newsletterOptIn } =
+    validation.data;
 
   const preferredMeeting =
     typeof meeting === "string" ? await getMeetingById(meeting) : null;
 
+  // Send guest registration email
   const { data, error } = await sendEmail({
     subject: `BNS Guest — ${fullName} would like to attend a meeting`,
     html: `
@@ -37,6 +40,7 @@ export async function POST(request: Request) {
     <p><strong>Name:</strong> ${fullName}</p>
     <p><strong>Email:</strong> ${email}</p>
     <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
+    <p><strong>Newsletter:</strong> ${newsletterOptIn ? "Subscribed" : "Not Subscribed"}</p>
 
     <h3>I would like to attend:</h3>
     <p>
@@ -49,6 +53,10 @@ export async function POST(request: Request) {
     <p><strong>Message:</strong> ${message || "None"}</p>
     `,
   });
+
+  if (newsletterOptIn) {
+    await subscribeToNewsletter({ email, name: fullName });
+  }
 
   if (error) {
     return NextResponse.json({ error }, { status: 500 });

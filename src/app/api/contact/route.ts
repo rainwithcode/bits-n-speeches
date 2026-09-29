@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { sendEmail } from "@/lib/email/sendEmail";
+import { subscribeToNewsletter } from "@/lib/newsletter/subscribe";
 import { contactSchema } from "@/lib/validations/contact";
 import validateFormData from "@/lib/validations/validate-form-data";
 
@@ -12,6 +13,7 @@ export async function POST(request: Request) {
     email: formData.get("email"),
     subject: formData.get("subject"),
     message: formData.get("message"),
+    newsletterOptIn: formData.get("newsletterOptIn") ?? undefined,
   };
 
   const validation = validateFormData(contactSchema, rawData);
@@ -20,20 +22,30 @@ export async function POST(request: Request) {
     return validation.response;
   }
 
-  const { fullName, email, subject, message } = validation.data;
+  const { fullName, email, subject, message, newsletterOptIn } =
+    validation.data;
 
   const { data, error } = await sendEmail({
     subject: `BNS Message — ${subject}`,
-    html: `     
+    html: `
     <h2>New BNS Message</h2>
 
-    <p><strong>Name:</strong> ${fullName}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Subject:</strong> ${subject}</p>
+    <h3>Sender</h3>
+    <p>
+      <strong>Name:</strong> ${fullName}<br />
+      <strong>Email:</strong> <a href="mailto:${email}">${email}</a><br />
+      <strong>Subject:</strong> ${subject}
+      <strong>Newsletter:</strong> ${newsletterOptIn ? "Subscribed" : "Not subscribed"}
+    </p>
 
     <h3>Message</h3>
-    <p>${message}</p>`,
+    <p>${message}</p>
+  `,
   });
+
+  if (newsletterOptIn) {
+    await subscribeToNewsletter({ email, name: fullName });
+  }
 
   if (error) {
     return NextResponse.json({ error }, { status: 500 });

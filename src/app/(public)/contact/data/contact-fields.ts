@@ -1,11 +1,4 @@
-type FormField = {
-  name: string;
-  id: string;
-  label: string;
-  placeholder?: string;
-  type: "text" | "email" | "tel" | "select" | "textarea";
-  required: boolean;
-};
+import type { FormField } from "@/types/forms";
 
 export const contactFields: FormField[] = [
   {
@@ -40,5 +33,12 @@ export const contactFields: FormField[] = [
       "Hello! Is there anything I need to prepare or bring in my first Toastmasters meeting?",
     type: "textarea",
     required: true,
+  },
+  {
+    name: "newsletter",
+    id: "newsletter",
+    label: " Email me news and updates from Bits 'N Speeches.",
+    type: "checkbox",
+    required: false,
   },
 ];

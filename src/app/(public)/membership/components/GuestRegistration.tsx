@@ -4,8 +4,8 @@ import { CheckIcon } from "lucide-react";
 import { useState } from "react";
 
 import Button from "@/components/ui/Button";
+import { submitForm } from "@/lib/forms/submitForm";
 import { formatMeetingDateTime } from "@/lib/meetings/meetings";
-import { submitForm } from "@/lib/submitForm";
 import type { FormStatus } from "@/types/forms";
 import type { Meeting } from "@/types/supabase";
 

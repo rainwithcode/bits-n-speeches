@@ -4,7 +4,7 @@ import { CheckIcon } from "lucide-react";
 import { useState } from "react";
 
 import Button from "@/components/ui/Button";
-import { submitForm } from "@/lib/submitForm";
+import { submitForm } from "@/lib/forms/submitForm";
 import type { FormStatus } from "@/types/forms";
 
 import SectionHeading from "../../shared/SectionHeading";

@@ -28,7 +28,7 @@ export default function createCalendarEvent(meeting: Meeting) {
     `DTSTAMP:${formatIcsDate(new Date())}`,
     `DTSTART:${formatIcsDate(startsAt)}`,
     `DTEND:${formatIcsDate(endsAt)}`,
-    `SUMMARY:${escapeIcsText(meeting.title)}`,
+    `SUMMARY:${escapeIcsText(`${siteConfig.name} (${meeting.title})`)}`,
     `DESCRIPTION:${escapeIcsText(description)}`,
     "END:VEVENT",
     "END:VCALENDAR",

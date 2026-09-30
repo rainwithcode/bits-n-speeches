@@ -4,6 +4,7 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 export const siteConfig = {
   // identity
   name: "Bits ’N Speeches",
+  shortName: "BNS",
   organization: "Toastmasters International",
   domain: "bitsnspeeches.org",
   tagline:

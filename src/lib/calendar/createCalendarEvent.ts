@@ -30,7 +30,6 @@ export default function createCalendarEvent(meeting: Meeting) {
     `DTEND:${formatIcsDate(endsAt)}`,
     `SUMMARY:${escapeIcsText(meeting.title)}`,
     `DESCRIPTION:${escapeIcsText(description)}`,
-    `URL:${meetingInfo.meetingUrl}`,
     "END:VEVENT",
     "END:VCALENDAR",
   ].join("\r\n");

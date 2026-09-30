@@ -1,3 +1,5 @@
+import { CalendarPlus } from "lucide-react";
+
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { meetingDetailItems } from "@/data/meetings";
@@ -44,9 +46,19 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
       <p className="mt-2 pb-8 border-b border-border text-sm md:text-base">
         {meeting.description}
       </p>
-      <Button href={getMembershipUrl("guest")} className="mt-6">
-        Register as a Guest for This Meeting
-      </Button>
+      <div className="flex flex-col md:flex-row md:gap-3">
+        <Button href={getMembershipUrl("guest")} className="mt-6">
+          Register as a Guest for This Meeting
+        </Button>
+        <Button
+          href={`/api/meetings/${meeting.id}/calendar`}
+          color="secondary"
+          className="mt-6"
+        >
+          <CalendarPlus aria-hidden="true" />
+          Add to Calendar
+        </Button>
+      </div>
     </article>
   );
 }

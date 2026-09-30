@@ -43,7 +43,7 @@ export const meetingDetailItems = [
 
       return `${formatDateTime(startsAt, { format: "time" })} – ${formatDateTime(
         endsAt,
-        { format: "time" },
+        { format: "time", includeTimeZone: true },
       )}`;
     },
   },

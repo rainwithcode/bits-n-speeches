@@ -41,7 +41,7 @@ export default async function UpcomingMeetings() {
               </div>
               <Badge variant="highlight">{nextMeeting.type}</Badge>
             </div>
-            <h3 className="font-heading font-bold text-primary-foreground text-sm md:text-2xl mb-6">
+            <h3 className="font-heading font-bold text-primary-foreground text-base md:text-2xl mb-6">
               {nextMeeting.title}
             </h3>
             <IconText icon={Calendar} variant="accent">
@@ -87,7 +87,7 @@ export default async function UpcomingMeetings() {
                 key={meeting.id}
               >
                 <div className="flex items-center">
-                  <h3 className="text-sm md:text-lg font-bold font-heading text-primary">
+                  <h3 className="text-base md:text-lg font-bold font-heading text-primary">
                     {meeting.title}
                   </h3>
                   <Badge>{meeting.type}</Badge>
@@ -95,7 +95,7 @@ export default async function UpcomingMeetings() {
 
                 <time
                   dateTime={starts_at.toISOString()}
-                  className="text-sm md:text-base"
+                  className="text-base md:text-base"
                 >
                   {formatDateTime(starts_at, { format: "date" })}
                 </time>

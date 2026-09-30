@@ -21,17 +21,17 @@ export default function Testimonials() {
               >
                 <Quote className="w-8 h-8 text-accent" />
 
-                <blockquote className="text-sm md:text-base text-primary-foreground">
+                <blockquote className="text-base text-primary-foreground">
                   <p>{member.testimonial}</p>
                 </blockquote>
 
                 <div className="mt-auto flex gap-4 items-center">
                   <MemberAvatar image={member.image} name={member.name} />
                   <div>
-                    <cite className="text-xs md:text-sm text-primary-foreground font-bold not-italic">
+                    <cite className="text-sm text-primary-foreground font-bold not-italic">
                       {member.name}
                     </cite>
-                    <div className="text-xs md:text-sm text-primary-foreground">
+                    <div className="text-sm text-primary-foreground">
                       {member.profession}
                     </div>
                   </div>

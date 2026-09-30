@@ -22,7 +22,7 @@ export default function IconCard({
       <h3 className="font-heading font-bold text-base md:text-xl text-primary">
         {label}
       </h3>
-      <p className="text-sm md:text-base">{description}</p>
+      <p className="text-base">{description}</p>
     </div>
   );
 }

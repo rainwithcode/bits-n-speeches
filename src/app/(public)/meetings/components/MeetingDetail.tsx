@@ -29,10 +29,10 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
                 aria-hidden="true"
               />
               <div>
-                <div className="font-bold text-primary text-sm md:text-base">
+                <div className="font-bold text-primary text-base md:text-base">
                   {meetingDetail.label}
                 </div>
-                <p className="text-sm md:text-base">
+                <p className="text-base md:text-base">
                   {meetingDetail.getValue(meeting)}
                 </p>
               </div>
@@ -43,7 +43,7 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
       <h3 className="mt-5 font-heading font-bold text-primary md:text-xl">
         About This Meeting
       </h3>
-      <p className="mt-2 pb-8 border-b border-border text-sm md:text-base">
+      <p className="mt-2 pb-8 border-b border-border text-base md:text-base">
         {meeting.description}
       </p>
       <div className="flex flex-col md:flex-row gap-3 mt-6">

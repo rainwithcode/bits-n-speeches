@@ -72,7 +72,7 @@ export default function Footer() {
                   <li key={link.href} className="mb-2">
                     <Link
                       href={link.href}
-                      className="text-base md:text-lg font-semi-bold text-primary-foreground/70 hover:text-hover transition-colors"
+                      className="text-base md:text-base font-semi-bold text-primary-foreground/70 hover:text-hover transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -89,7 +89,7 @@ export default function Footer() {
                   <li className="mb-2" key={link.section}>
                     <Link
                       href={getMembershipUrl(link.section)}
-                      className="text-base md:text-lg font-semi-bold text-primary-foreground/70 hover:text-hover transition-colors"
+                      className="text-base md:text-base font-semi-bold text-primary-foreground/70 hover:text-hover transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -102,7 +102,7 @@ export default function Footer() {
                 <h2 className="text-sm md:text-base font-heading font-bold text-accent mb-3">
                   Visit Us
                 </h2>
-                <li className="text-base md:text-lg mb-2" key="schedule">
+                <li className="text-base md:text-base mb-2" key="schedule">
                   <div className="flex gap-2">
                     <Clock className="w-5 text-accent" />
                     <span className="text-primary-foreground">
@@ -111,7 +111,7 @@ export default function Footer() {
                   </div>
                   {meetingInfo.schedule.day} at {meetingInfo.schedule.time}
                 </li>
-                <li className="text-base md:text-lg mb-2" key="in-person">
+                <li className="text-base md:text-base mb-2" key="in-person">
                   <div className="flex gap-2">
                     <MapPin className="w-5 text-accent" />
                     <span className="text-primary-foreground">
@@ -122,7 +122,7 @@ export default function Footer() {
                   {", "}
                   {meetingInfo.location.inPerson.room}
                 </li>
-                <li className="text-base md:text-lg mb-2" key="online">
+                <li className="text-base md:text-base mb-2" key="online">
                   <div className="flex gap-2">
                     <Video className="w-5 text-accent" />
                     <span className="text-primary-foreground">

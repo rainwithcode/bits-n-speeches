@@ -23,7 +23,7 @@ export default function GuestExpectations() {
                 <h3 className="font-bold text-base md:text-xl text-primary">
                   {experience.title}
                 </h3>
-                <p className="text-center text-sm md:text-base">
+                <p className="text-center text-base">
                   {experience.description}
                 </p>
               </li>

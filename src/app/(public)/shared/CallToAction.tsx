@@ -9,7 +9,7 @@ export default function CallToAction() {
         <h2 className="font-heading font-bold text-primary text-xl md:text-4xl">
           Ready to Find Your Voice?
         </h2>
-        <p className="text-sm md:text-lg text-center">
+        <p className="text-base md:text-lg text-center">
           Join as a guest for free. No experience, no pressure — just growth.
         </p>
         <div className="flex gap-4 md:gap-6">

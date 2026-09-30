@@ -27,7 +27,7 @@ export default function MembershipDues() {
                 <h3 className="font-bold text-primary text-base md:text-lg">
                   {due.title}
                 </h3>
-                <p className="text-sm md:text-base">{due.description}</p>
+                <p className="text-base">{due.description}</p>
               </div>
               <p className="font-bold text-primary text-lg md:text-xl">
                 ${due.amount.toFixed(2)}
@@ -39,7 +39,7 @@ export default function MembershipDues() {
               <h3 className="font-bold text-primary text-base md:text-lg">
                 First Payment Total
               </h3>
-              <p className="text-sm md:text-base">
+              <p className="text-base">
                 Total amount due when you first join the club.
               </p>
             </div>

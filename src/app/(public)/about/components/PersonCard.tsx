@@ -25,19 +25,19 @@ export default function PersonCard({
           alt={name}
           width={150}
           height={150}
-          className="mb-1 size-16 rounded-full object-cover md:mb-2 md:size-[150px]"
+          className="mb-1 size-20 rounded-full object-cover md:mb-2 md:size-[150px]"
         />
       ) : (
-        <AvatarFallback className="mb-1 size-16 text-base md:mb-2 md:size-[150px] md:text-2xl">
+        <AvatarFallback className="mb-1 size-20 text-base md:mb-2 md:size-[150px] md:text-2xl">
           {initials}
         </AvatarFallback>
       )}
 
-      <h3 className="text-sm font-heading font-bold text-primary text-base md:text-lg">
+      <h3 className="font-heading font-bold text-base md:text-lg text-primary">
         {name}
       </h3>
 
-      <p className="font-medium text-sm md:text-base">{role}</p>
+      <p className="font-medium text-base">{role}</p>
     </article>
   );
 }

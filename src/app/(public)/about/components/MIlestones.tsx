@@ -22,14 +22,14 @@ export default function Milestones() {
             >
               <time
                 dateTime={milestone.year}
-                className="w-fit px-3 py-1 rounded-full bg-secondary/10 font-bold text-secondary text-xs"
+                className="w-fit px-3 py-1 rounded-full bg-secondary/10 font-bold text-secondary text-sm"
               >
                 {milestone.year}
               </time>
               <h3 className="font-heading font-bold text-base md:text-xl text-primary">
                 {milestone.title}
               </h3>
-              <p className="text-sm md:text-base">{milestone.description}</p>
+              <p className="text-base">{milestone.description}</p>
             </li>
           ))}
         </ul>

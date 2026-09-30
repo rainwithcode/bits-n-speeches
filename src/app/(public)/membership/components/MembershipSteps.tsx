@@ -16,10 +16,10 @@ export default function MembershipSteps() {
           <li key={step.title} className="flex items-center gap-6">
             <Circle>{index + 1}</Circle>
             <div className="w-full p-6 border border-border rounded-md">
-              <h3 className="font-heading font-bold text-primary text-base md:text-lg">
+              <h3 className="font-heading font-bold text-primary text-base md:text-lg mb-3">
                 {step.title}
               </h3>
-              <p className="text-sm md:text-base">{step.description}</p>
+              <p className="text-base">{step.description}</p>
             </div>
           </li>
         ))}

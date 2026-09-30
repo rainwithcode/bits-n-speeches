@@ -11,10 +11,10 @@ export default function MeetingRoles() {
             key={item.role}
             className="space-y-3 p-4 border border-border rounded-md bg-primary/5"
           >
-            <h3 className="font-heading font-bold text-sm md:text-base text-primary">
+            <h3 className="font-heading font-bold text-md md:text-base text-primary">
               {item.role}
             </h3>
-            <p className="text-sm md:text-base">{item.description}</p>
+            <p className="text-base">{item.description}</p>
           </li>
         ))}
       </ul>

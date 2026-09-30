@@ -23,7 +23,7 @@ export default function CoreValues() {
               >
                 <Icon className="w-4 h-4 md:w-6 md:h-6" />
               </div>
-              <h3 className="text-primary text-sm md:text-base font-bold">
+              <h3 className="text-center text-primary text-base font-bold">
                 {value.title}
               </h3>
             </li>

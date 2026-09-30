@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { meetingInfo } from "@/data/meetings";
 import { siteConfig } from "@/data/site-config";
+import { emailTheme } from "@/lib/email/emailTheme";
 import { escapeHtml } from "@/lib/email/escapeHtml";
 import { sendEmail } from "@/lib/email/sendEmail";
 import {
@@ -122,11 +123,27 @@ export async function POST(request: Request) {
       )}
     </p>
 
-    <p>
-      <a href=${meetingInfo.meetingUrl}>
-        Join the meeting
-      </a>
-    </p>
+  <p style="margin: 24px 0;">
+    <a
+      href="${meetingInfo.meetingUrl}"
+      style="
+        display: inline-block;
+        padding: 12px 20px;
+        background-color: ${emailTheme.primary};
+        color: ${emailTheme.primaryForeground};
+        text-decoration: none;
+        font-weight: bold;
+      "
+    >
+      Join the meeting
+    </a>
+  </p>
+
+  <p style="margin: 0 0 24px;">
+    <a href="https://${siteConfig.domain}/api/meetings/${preferredMeeting.id}/calendar">
+      Add to calendar
+    </a>
+  </p>
 
     <p>
       No Toastmasters experience is required. Just come as you are,

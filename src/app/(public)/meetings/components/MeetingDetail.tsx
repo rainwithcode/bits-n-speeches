@@ -46,16 +46,12 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
       <p className="mt-2 pb-8 border-b border-border text-sm md:text-base">
         {meeting.description}
       </p>
-      <div className="flex flex-col md:flex-row md:gap-3">
-        <Button href={getMembershipUrl("guest")} className="mt-6">
+      <div className="flex flex-col md:flex-row gap-3 mt-6">
+        <Button href={getMembershipUrl("guest")}>
           Register as a Guest for This Meeting
         </Button>
-        <Button
-          href={`/api/meetings/${meeting.id}/calendar`}
-          color="secondary"
-          className="mt-6"
-        >
-          <CalendarPlus aria-hidden="true" />
+        <Button href={`/api/meetings/${meeting.id}/calendar`} color="secondary">
+          <CalendarPlus aria-hidden="true" className="w-4 h-4 md:w-5 md:h-5" />
           Add to Calendar
         </Button>
       </div>

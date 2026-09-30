@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server";
 
+import { meetingInfo } from "@/data/meetings";
 import { siteConfig } from "@/data/site-config";
 import { escapeHtml } from "@/lib/email/escapeHtml";
 import { sendEmail } from "@/lib/email/sendEmail";
-import { formatDateTime, getMeetingById } from "@/lib/meetings/meetings";
+import {
+  formatDateTime,
+  getMeetingById,
+  getMeetingEndsAt,
+} from "@/lib/meetings/meetings";
 import { subscribeToNewsletter } from "@/lib/newsletter/subscribe";
 import { guestRegistrationSchema } from "@/lib/validations/guest-registration";
 import validateFormData from "@/lib/validations/validate-form-data";
@@ -43,8 +48,10 @@ export async function POST(request: Request) {
   }
 
   const safeMeetingTitle = escapeHtml(preferredMeeting.title);
+  const startsAt = new Date(preferredMeeting.starts_at);
+  const endsAt = new Date(getMeetingEndsAt(startsAt, preferredMeeting.ends_at));
 
-  // Send guest registration email
+  // Notify club
   const { data, error } = await sendEmail({
     to: [siteConfig.contact.email.address],
     subject: `New Guest Registration — ${fullName}`,
@@ -64,7 +71,7 @@ export async function POST(request: Request) {
     <h3>Meeting</h3>
     <p>
       <strong>
-        ${formatDateTime(preferredMeeting.starts_at, { format: "date" })}
+        ${formatDateTime(startsAt, { format: "date" })}
       </strong><br />
       ${safeMeetingTitle}
     </p>
@@ -85,5 +92,54 @@ export async function POST(request: Request) {
       console.error("Newsletter subscription failed: ", error);
     }
   }
+
+  // Send confirmation to guest
+
+  try {
+    await sendEmail({
+      to: [email],
+      subject: `You're registered for ${preferredMeeting.title}`,
+      html: `
+    <h2>You're registered!</h2>
+
+    <p>Hi ${safeFullName},</p>
+
+    <p>
+      Thanks for registering to visit ${siteConfig.name}! We're excited
+      to welcome you to our meeting.
+    </p>
+
+    <h3>Your Meeting</h3>
+
+    <p>
+      <strong>${safeMeetingTitle}</strong><br />
+      ${formatDateTime(startsAt, { format: "date" })}<br />
+      ${formatDateTime(startsAt, { format: "time" })} – ${formatDateTime(
+        endsAt,
+        { format: "time", includeTimeZone: true },
+      )}
+    </p>
+
+    <p>
+      <a href=${meetingInfo.meetingUrl}>
+        Join the meeting
+      </a>
+    </p>
+
+    <p>
+      No Toastmasters experience is required. Just come as you are,
+      meet the club, and enjoy the meeting.
+    </p>
+
+    <p>
+      See you there!<br />
+      <strong>${siteConfig.name} Toastmasters</strong>
+    </p>
+  `,
+    });
+  } catch (error) {
+    console.error("Guest confirmation email failed: ", error);
+  }
+
   return NextResponse.json({ success: true, data });
 }

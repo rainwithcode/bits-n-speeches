@@ -70,10 +70,12 @@ export async function POST(request: Request) {
 
     <h3>Meeting</h3>
     <p>
-      <strong>
-        ${formatDateTime(startsAt, { format: "date" })}
-      </strong><br />
-      ${safeMeetingTitle}
+      <strong>${safeMeetingTitle}</strong><br />
+      ${formatDateTime(startsAt, { format: "date" })}<br />
+      ${formatDateTime(startsAt, { format: "time" })} – ${formatDateTime(
+        endsAt,
+        { format: "time", includeTimeZone: true },
+      )}
     </p>
 
     <h3>Message</h3>

@@ -13,7 +13,7 @@ type SendEmailOptions = {
 export async function sendEmail({ to, subject, html }: SendEmailOptions) {
   return resend.emails.send({
     from: `${siteConfig.name} Website <website@${siteConfig.domain}>`,
-    to: [siteConfig.contact.email.address],
+    to: to,
     subject: subject,
     html: html,
   });

@@ -152,7 +152,7 @@ export async function POST(request: Request) {
 
     <p>
       See you there!<br />
-      <strong>${siteConfig.name} Toastmasters</strong>
+      <strong>${siteConfig.name} ${siteConfig.organization.split(" ")[0]}</strong>
     </p>
   `,
     });

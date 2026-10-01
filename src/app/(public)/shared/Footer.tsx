@@ -140,7 +140,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:justify-between">
           <small className="text-base">
             © {siteConfig.copyrightDate} {siteConfig.name}{" "}
-            {siteConfig.organization} Club
+            {siteConfig.organization.split(" ")[0]} Club
           </small>
           <p>
             A chartered club of{" "}

@@ -34,6 +34,7 @@ export async function POST(request: Request) {
 
   const { data, error } = await sendEmail({
     to: [siteConfig.contact.email.address],
+    replyTo: [email],
     subject: `BNS Message — ${safeSubject}`,
     html: `
     <h2>New BNS Message</h2>

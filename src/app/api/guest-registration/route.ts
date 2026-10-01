@@ -55,6 +55,7 @@ export async function POST(request: Request) {
   // Notify club
   const { data, error } = await sendEmail({
     to: [siteConfig.contact.email.address],
+    replyTo: [email],
     subject: `New Guest Registration — ${fullName}`,
     html: `
     <h2>New Guest Registration</h2>
@@ -101,6 +102,7 @@ export async function POST(request: Request) {
   try {
     await sendEmail({
       to: [email],
+      replyTo: [siteConfig.contact.email.address],
       subject: `You're registered for ${preferredMeeting.title}`,
       html: `
     <h2>You're registered!</h2>

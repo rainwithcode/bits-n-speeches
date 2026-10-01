@@ -17,7 +17,7 @@ export const siteConfig = {
   contact: {
     email: {
       address: "bitsspeeches@gmail.com",
-      subject: "Question about Bits ’N Speeches",
+      subject: `Question about Bits ’N Speeches`,
       body: "Hi! I'd like to learn more about Bits ’N Speeches.",
       icon: Mail,
     },

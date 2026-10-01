@@ -1,6 +1,8 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Montserrat, Source_Sans_3 } from "next/font/google";
+
+import { siteConfig } from "@/data/site-config";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -14,7 +16,7 @@ const sourceSans3 = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "Bits ’N Speeches",
+  title: siteConfig.name,
   description:
     "A Toastmasters club dedicated to developing confident communicators and leaders.",
   icons: {

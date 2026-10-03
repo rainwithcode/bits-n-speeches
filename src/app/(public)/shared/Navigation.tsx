@@ -3,7 +3,7 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { navLinks } from "../data/nav-links";
 
@@ -15,6 +15,20 @@ export default function Navigation() {
   function toggleMenu() {
     setIsOpen((prev) => !prev);
   }
+
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   function navLinkClassName(isActive: boolean, variant: "desktop" | "mobile") {
     if (variant === "desktop") {

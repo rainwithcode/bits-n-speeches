@@ -70,7 +70,10 @@ export default async function UpcomingMeetings() {
                 View Meeting
                 <ArrowRight className="w-4 h-4" />
               </Button>
-              <Button href={getMembershipUrl("guest")} color="secondary">
+              <Button
+                href={`${getMembershipUrl("guest")}&meeting=${nextMeeting.id}`}
+                color="secondary"
+              >
                 Register
                 <UserPlus className="w-4 h-4" />
               </Button>
@@ -104,7 +107,10 @@ export default async function UpcomingMeetings() {
                     View Meeting
                     <ArrowRight className="w-4 h-4" />
                   </Button>
-                  <Button href={getMembershipUrl("guest")} color="secondary">
+                  <Button
+                    href={`${getMembershipUrl("guest")}&meeting=${meeting.id}`}
+                    color="secondary"
+                  >
                     Register
                     <UserPlus className="w-4 h-4" />
                   </Button>

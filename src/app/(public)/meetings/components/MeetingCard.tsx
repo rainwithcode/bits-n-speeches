@@ -32,7 +32,7 @@ export default function MeetingCard({ meeting }: MeetingCardProps) {
           View Meeting
           <ArrowRight className="w-4 h-4" />
         </Button>
-        <Button href={getMembershipUrl("guest")} color="secondary">
+        <Button href={`${getMembershipUrl("guest")}&meeting=${meeting.id}`} color="secondary">
           Register
           <UserPlus className="w-4 h-4" />
         </Button>

@@ -13,10 +13,12 @@ import SectionHeading from "../../shared/SectionHeading";
 import { guestRegistrationFields } from "../data/guest-registration-fields";
 
 type GuestRegistrationProps = {
+  meetingId: string | null;
   meetings: Meeting[];
 };
 
 export default function GuestRegistration({
+  meetingId,
   meetings,
 }: GuestRegistrationProps) {
   const buttonLabel = {
@@ -106,6 +108,7 @@ export default function GuestRegistration({
                     id={field.id}
                     name={field.name}
                     required={field.required}
+                    defaultValue={meetingId ?? undefined}
                     className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
                   >
                     {meetings.map((meeting) => (

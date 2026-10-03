@@ -30,6 +30,7 @@ export default function MembershipTabs({ meetings }: MembershipTabsProps) {
   const searchParams = useSearchParams();
 
   const querySection = searchParams.get("tab");
+  const meetingId = searchParams.get("meeting");
 
   const activeSection = isMembershipSection(querySection)
     ? querySection
@@ -53,7 +54,9 @@ export default function MembershipTabs({ meetings }: MembershipTabsProps) {
 
       {activeSection === "benefits" && <MembershipBenefits />}
       {activeSection === "join" && <MembershipSteps />}
-      {activeSection === "guest" && <GuestRegistration meetings={meetings} />}
+      {activeSection === "guest" && (
+        <GuestRegistration meetings={meetings} meetingId={meetingId} />
+      )}
       {activeSection === "dues" && <MembershipDues />}
     </>
   );

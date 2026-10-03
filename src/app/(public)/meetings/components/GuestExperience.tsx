@@ -3,7 +3,7 @@ import { guestExperience } from "../data/guest-experience";
 
 export default function GuestExpectations() {
   return (
-    <section className="bg-secondary/5">
+    <section className="bg-primary/5">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
         <SectionHeading className="mb-6">
           What to Expect as a Guest

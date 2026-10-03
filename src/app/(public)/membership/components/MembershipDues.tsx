@@ -1,7 +1,7 @@
 import TextLink from "@/components/ui/TexLink";
 
 import SectionHeading from "../../shared/SectionHeading";
-import { membershipDues } from "../data/membership-dues";
+import { membershipDues, membershipDuesContent } from "../data/membership-dues";
 
 export default function MembershipDues() {
   const firstPaymentTotal = membershipDues.reduce(
@@ -37,19 +37,18 @@ export default function MembershipDues() {
           <div className="pb-4 border-b border-border">
             <div className="rounded-md bg-primary/10 p-4">
               <p className="text-sm">
-                <strong>Joining mid-cycle?</strong> International dues are
-                prorated at <strong>$12 USD per month</strong> based on the
-                month you join between the April 1 and October 1 renewal dates.
+                <strong>{membershipDuesContent.proration.title}</strong>{" "}
+                {membershipDuesContent.proration.description}
               </p>
             </div>
           </div>
           <div className="flex justify-between pb-4 mb-4 border-b border-border">
             <div>
               <h3 className="font-bold text-primary text-base md:text-lg">
-                First Payment Total
+                {membershipDuesContent.firstPayment.title}
               </h3>
               <p className="text-base">
-                Total amount due when you first join the club.
+                {membershipDuesContent.firstPayment.description}
               </p>
             </div>
             <p className="font-bold text-primary text-lg md:text-xl">
@@ -58,9 +57,11 @@ export default function MembershipDues() {
           </div>
           <div className="pt-2">
             <p className="text-sm text-muted-foreground">
-              Ready to join? Visit a{" "}
-              <TextLink href="/meetings">meeting</TextLink> and speak with our
-              VP of Membership to get started.
+              {membershipDuesContent.callToAction.text}{" "}
+              <TextLink href={membershipDuesContent.callToAction.href}>
+                {membershipDuesContent.callToAction.linkText}
+              </TextLink>{" "}
+              {membershipDuesContent.callToAction.suffix}
             </p>
           </div>
         </div>

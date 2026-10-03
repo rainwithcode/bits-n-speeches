@@ -18,10 +18,10 @@ export default function MembershipDues() {
       <div className="mx-auto max-w-lg p-6 border border-border rounded-md">
         <SectionHeading className="mb-6">Membership Dues</SectionHeading>
         <div className="space-y-4">
-          {membershipDues.map((due) => (
+          {membershipDues.map((due, index) => (
             <div
               key={due.title}
-              className="flex justify-between pb-4 border-b border-border"
+              className={`flex justify-between ${index === 0 && "pb-4 border-b border-border"}`}
             >
               <div>
                 <h3 className="font-bold text-primary text-base md:text-lg">
@@ -34,6 +34,15 @@ export default function MembershipDues() {
               </p>
             </div>
           ))}
+          <div className="pb-4 border-b border-border">
+            <div className="rounded-md bg-primary/10 p-4">
+              <p className="text-sm">
+                <strong>Joining mid-cycle?</strong> International dues are
+                prorated at <strong>$12 USD per month</strong> based on the
+                month you join between the April 1 and October 1 renewal dates.
+              </p>
+            </div>
+          </div>
           <div className="flex justify-between pb-4 mb-4 border-b border-border">
             <div>
               <h3 className="font-bold text-primary text-base md:text-lg">

@@ -10,9 +10,12 @@ export async function getMeetingById(id: string) {
     .from("meetings")
     .select("*")
     .eq("id", id)
-    .single();
+    .maybeSingle();
 
-  if (error) throw error;
+  if (error) {
+    console.error("Failed to fetch meeting: ", error);
+  }
+
   return data;
 }
 

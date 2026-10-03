@@ -1,5 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { getMeetingById } from "@/lib/meetings/meetings";
 
@@ -15,6 +16,10 @@ export default async function MeetingDetailPage({
   const { id } = await params;
 
   const meeting = await getMeetingById(id);
+
+  if (!meeting) {
+    notFound();
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">

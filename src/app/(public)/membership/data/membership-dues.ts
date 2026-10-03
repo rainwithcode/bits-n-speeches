@@ -12,7 +12,8 @@ export const membershipDues: MembershipDue[] = [
   },
   {
     title: "Semi-Annual Dues",
-    description: "Billed every six months.",
+    description:
+      "Billed every six months,  $72 USD per six-month period, due on April 1 and October 1.",
     amount: 72,
   },
 ];

@@ -43,6 +43,7 @@ type NativeButtonProps = BaseProps & {
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
   disabled?: boolean;
+  ariaLabel: string;
 };
 
 type ButtonProps = LinkButtonProps | NativeButtonProps;
@@ -63,6 +64,7 @@ export default function Button({
         onClick={props.onClick}
         className={cn(classNameValue)}
         disabled={props.disabled}
+        aria-label={props.ariaLabel}
       >
         {children}
       </button>

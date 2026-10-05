@@ -16,11 +16,12 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="Toastmasters logo"
-            className="w-auto h-12"
+            className="w-auto h-8 md:h-12"
             width={148}
             height={124}
           />
-          {siteConfig.name}
+          <span className="hidden md:inline">{siteConfig.name}</span>
+          <span className="inline md:hidden">{siteConfig.shortName}</span>
         </Link>
         <Navigation />
       </div>

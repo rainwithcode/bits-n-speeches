@@ -1,9 +1,11 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
+import { LogIn, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+
+import Button from "@/components/ui/Button";
 
 import { navLinks } from "../data/nav-links";
 
@@ -49,12 +51,28 @@ export default function Navigation() {
         <ul className="flex gap-4 items-center">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <Link
-                href={link.href}
-                className={navLinkClassName(link.href === pathname, "desktop")}
-              >
-                {link.label}
-              </Link>
+              {link.href === "/login" ? (
+                <div className="pl-8 border-l-2 border-primary-foreground/15">
+                  <Button
+                    href={link.href}
+                    color="accent"
+                    className="md:text-sm"
+                  >
+                    <LogIn className="w-4 h-4"/>
+                    {link.label}
+                  </Button>
+                </div>
+              ) : (
+                <Link
+                  href={link.href}
+                  className={navLinkClassName(
+                    link.href === pathname,
+                    "desktop",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>

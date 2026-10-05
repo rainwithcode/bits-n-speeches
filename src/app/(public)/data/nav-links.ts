@@ -6,6 +6,7 @@ export const navLinks = [
   { href: "/meetings", label: "Meetings" },
   { href: "/membership", label: "Membership" },
   { href: "/contact", label: "Contact" },
+  { href: "/login", label: "Login" },
 ];
 
 export const membershipLinks = [

@@ -89,7 +89,7 @@ export default async function UpcomingMeetings() {
                 className="space-y-2 p-8 border border-border hover:shadow-md rounded-md bg-white"
                 key={meeting.id}
               >
-                <div className="flex items-center">
+                <div className="flex justify-between items-start gap-4">
                   <h3 className="text-base md:text-lg font-bold font-heading text-primary">
                     {meeting.title}
                   </h3>

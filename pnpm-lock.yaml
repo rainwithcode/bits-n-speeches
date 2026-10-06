@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@supabase/ssr':
-        specifier: github:supabase/ssr
-        version: https://codeload.github.com/supabase/ssr/tar.gz/5064794a5c96c6460c015bd1543dfbc922ada9e4(@supabase/supabase-js@2.117.2)
+        specifier: ^0.12.7
+        version: 0.12.7(@supabase/supabase-js@2.117.2)
       '@supabase/supabase-js':
         specifier: ^2.117.2
         version: 2.117.2
@@ -676,9 +676,8 @@ packages:
     resolution: {integrity: sha512-lYXSAIg3eAKA58riUED6Vb+TCzF8jtx18uOoiCaVJ7ZMre6FWBpwB1MPeW+B6vykJT/hPdiuqwcSB7ILMS21ew==}
     engines: {node: '>=22.0.0'}
 
-  '@supabase/ssr@https://codeload.github.com/supabase/ssr/tar.gz/5064794a5c96c6460c015bd1543dfbc922ada9e4':
-    resolution: {tarball: https://codeload.github.com/supabase/ssr/tar.gz/5064794a5c96c6460c015bd1543dfbc922ada9e4}
-    version: 0.12.7
+  '@supabase/ssr@0.12.7':
+    resolution: {integrity: sha512-wiBtEie1KkRJi9RrZWY3R2imRhX1JY7qMyUCH2z9AUk15gQebNEplM+urbCKamdxaTJLXUU6LlpkJsaxhojCEg==}
     peerDependencies:
       '@supabase/supabase-js': ^2.114.0
 
@@ -3083,7 +3082,7 @@ snapshots:
       '@supabase/phoenix': 0.4.5
       tslib: 2.8.1
 
-  '@supabase/ssr@https://codeload.github.com/supabase/ssr/tar.gz/5064794a5c96c6460c015bd1543dfbc922ada9e4(@supabase/supabase-js@2.117.2)':
+  '@supabase/ssr@0.12.7(@supabase/supabase-js@2.117.2)':
     dependencies:
       '@supabase/supabase-js': 2.117.2
       cookie: 1.1.1

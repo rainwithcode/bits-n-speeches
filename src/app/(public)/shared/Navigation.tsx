@@ -118,12 +118,15 @@ export default function Navigation() {
                 </Link>
               </li>
             ))}
-            <li key={logInLink.label} className="mt-6">
+            <li
+              key={logInLink.label}
+              className="mt-4 border-t border-primary-foreground/15"
+            >
               <Button
                 href={logInLink.href}
                 aria-current={logInLink.href === pathname ? "page" : undefined}
                 color="accent"
-                className="w-full text-sm flex justify-center p-4"
+                className="mt-6 w-[90%] mx-auto text-sm flex justify-center p-4"
               >
                 <LogIn className="w-5 h-5" aria-hidden={true} />
                 {logInLink.label}

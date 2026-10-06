@@ -83,7 +83,7 @@ export default function Navigation() {
           color="accent"
           className={`text-sm ${isOpen ? "hidden" : "flex"}`}
         >
-          <LogIn className="size-4" aria-hidden="true" />
+          <LogIn className="size-5" aria-hidden="true" />
           {logInLink.label}
         </Button>
         <button
@@ -93,9 +93,9 @@ export default function Navigation() {
           aria-expanded={isOpen}
         >
           {isOpen ? (
-            <X className="text-primary-foreground size-6" />
+            <X className="text-primary-foreground size-5" />
           ) : (
-            <Menu className="text-primary-foreground size-6" />
+            <Menu className="text-primary-foreground size-5" />
           )}
         </button>
       </div>

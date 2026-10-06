@@ -49,10 +49,7 @@ export default function ContactForm() {
 
   return (
     <section className="h-full">
-      <form
-        onSubmit={handleSubmit}
-        className="p-6 border border-border rounded-md"
-      >
+      <form onSubmit={handleSubmit} className="p-6 border border-border">
         <SectionHeading className="mb-6">Send a Message</SectionHeading>
         <div className="space-y-4">
           {contactFields.map((field) => (
@@ -79,7 +76,7 @@ export default function ContactForm() {
                     name={field.name}
                     placeholder={field.placeholder}
                     required={field.required}
-                    className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
+                    className="w-full px-3 py-2 border border-border focus:ring-2 focus:surface-dark"
                   />
                 </>
               ) : (
@@ -93,13 +90,18 @@ export default function ContactForm() {
                     name={field.name}
                     placeholder={field.placeholder}
                     required={field.required}
-                    className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
+                    className="w-full px-3 py-2 border border-border focus:ring-2 focus:surface-dark"
                   />
                 </>
               )}
             </div>
           ))}
-          <Button as="button" type="submit" disabled={isDisabled}>
+          <Button
+            as="button"
+            type="submit"
+            disabled={isDisabled}
+            className="inline w-full mt-2"
+          >
             {status === "success" && <CheckIcon />}
             {buttonLabel[status]}
           </Button>

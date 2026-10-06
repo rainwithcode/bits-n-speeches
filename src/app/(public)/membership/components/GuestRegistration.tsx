@@ -65,7 +65,7 @@ export default function GuestRegistration({
     >
       <form
         onSubmit={handleSubmit}
-        className="mx-auto max-w-lg p-6 border border-border rounded-md"
+        className="mx-auto max-w-lg p-6 border border-border"
       >
         <SectionHeading className="mb-6">Guest Registration</SectionHeading>
         <p className="mb-6">
@@ -96,7 +96,7 @@ export default function GuestRegistration({
                     name={field.name}
                     placeholder={field.placeholder}
                     required={field.required}
-                    className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
+                    className="w-full px-3 py-2 border border-border focus:ring-2 focus:surface-dark"
                   />
                 </>
               ) : field.type === "select" ? (
@@ -109,7 +109,7 @@ export default function GuestRegistration({
                     name={field.name}
                     required={field.required}
                     defaultValue={meetingId ?? undefined}
-                    className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
+                    className="w-full px-3 py-2 border border-border focus:ring-2 focus:surface-dark"
                   >
                     {meetings.map((meeting) => (
                       <option value={meeting.id} key={meeting.id}>
@@ -130,13 +130,18 @@ export default function GuestRegistration({
                     name={field.name}
                     placeholder={field.placeholder}
                     required={field.required}
-                    className="w-full px-3 py-2 rounded-md border border-border focus:ring-2 focus:surface-dark"
+                    className="w-full px-3 py-2  border border-border focus:ring-2 focus:surface-dark"
                   />
                 </>
               )}
             </div>
           ))}
-          <Button as="button" type="submit" disabled={isDisabled}>
+          <Button
+            as="button"
+            type="submit"
+            disabled={isDisabled}
+            className="inline w-full mt-2"
+          >
             {status === "success" && <CheckIcon />}
             {buttonLabel[status]}
           </Button>

@@ -54,6 +54,7 @@ export default function Navigation() {
               <Link
                 href={link.href}
                 className={navLinkClassName(link.href === pathname, "desktop")}
+                aria-current={link.href === pathname ? "page" : undefined}
               >
                 {link.label}
               </Link>
@@ -63,7 +64,12 @@ export default function Navigation() {
             key={logInLink.label}
             className="pl-8 border-l-2 border-primary-foreground/15"
           >
-            <Button href={logInLink.href} color="accent" className="md:text-sm">
+            <Button
+              href={logInLink.href}
+              aria-current={logInLink.href === pathname ? "page" : undefined}
+              color="accent"
+              className="md:text-sm"
+            >
               <LogIn className="size-4" aria-hidden="true" />
               {logInLink.label}
             </Button>
@@ -105,6 +111,7 @@ export default function Navigation() {
                 <Link
                   href={link.href}
                   className={navLinkClassName(link.href === pathname, "mobile")}
+                  aria-current={link.href === pathname ? "page" : undefined}
                   onClick={toggleMenu}
                 >
                   {link.label}
@@ -114,6 +121,7 @@ export default function Navigation() {
             <li key={logInLink.label} className="mt-6">
               <Button
                 href={logInLink.href}
+                aria-current={logInLink.href === pathname ? "page" : undefined}
                 color="accent"
                 className="w-full text-sm flex justify-center p-4"
               >

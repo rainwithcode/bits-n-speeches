@@ -58,7 +58,7 @@ export default function Navigation() {
                     color="accent"
                     className="md:text-sm"
                   >
-                    <LogIn className="w-4 h-4"/>
+                    <LogIn className="size-4" aria-hidden="true" />
                     {link.label}
                   </Button>
                 </div>
@@ -77,31 +77,62 @@ export default function Navigation() {
           ))}
         </ul>
       </nav>
-      <button className="flex lg:hidden cursor-pointer" onClick={toggleMenu}>
-        {isOpen ? (
-          <X className="text-primary-foreground" />
-        ) : (
-          <Menu className="text-primary-foreground" />
-        )}
-      </button>
+      <div className="flex lg:hidden items-center gap-4">
+        <Button
+          href={navLinks[navLinks.length - 1].href}
+          color="accent"
+          className="text-sm"
+        >
+          <LogIn className="w-4 h-4" />
+          {navLinks[navLinks.length - 1].label}
+        </Button>
+        <button
+          className="cursor-pointer"
+          onClick={toggleMenu}
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
+        >
+          {isOpen ? (
+            <X className="text-primary-foreground size-6" />
+          ) : (
+            <Menu className="text-primary-foreground size-6" />
+          )}
+        </button>
+      </div>
       {isOpen && (
         <nav
-          className="absolute top-full left-0 right-0 w-full flex flex-col lg:hidden gap-4 items-center py-8 bg-surface-dark"
+          className="absolute top-full left-0 right-0 w-full flex flex-col items-center lg:hidden gap-4 py-8 bg-surface-dark"
           aria-label="Primary"
         >
           {/* Mobile Navigation */}
-          <ul>
-            {navLinks.map((link) => (
-              <li key={link.href} className="py-4">
-                <Link
-                  href={link.href}
-                  className={navLinkClassName(link.href === pathname, "mobile")}
-                  onClick={toggleMenu}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+          <ul className="w-full max-w-300 text-center">
+            {navLinks.map((link) =>
+              link.href === "/login" ? (
+                <li key={link.href} className="w-full mt-4">
+                  <Button
+                    href={link.href}
+                    color="accent"
+                    className="w-full text-sm flex justify-center p-4"
+                  >
+                    <LogIn className="w-5 h-5" aria-hidden={true} />
+                    {link.label}
+                  </Button>
+                </li>
+              ) : (
+                <li key={link.href} className="py-4">
+                  <Link
+                    href={link.href}
+                    className={navLinkClassName(
+                      link.href === pathname,
+                      "mobile",
+                    )}
+                    onClick={toggleMenu}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ),
+            )}
           </ul>
         </nav>
       )}

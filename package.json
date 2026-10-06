@@ -16,6 +16,7 @@
     ]
   },
   "dependencies": {
+    "@supabase/ssr": "github:supabase/ssr",
     "@supabase/supabase-js": "^2.112.4",
     "@vercel/analytics": "^2.0.1",
     "class-variance-authority": "^0.7.1",

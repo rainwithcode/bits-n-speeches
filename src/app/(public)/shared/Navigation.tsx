@@ -101,7 +101,7 @@ export default function Navigation() {
         >
           <ul className="w-full max-w-300 text-center">
             {navLinks.map((link) => (
-              <li key={link.label} className="w-full mt-4">
+              <li key={link.label} className="w-full p-4">
                 <Link
                   href={link.href}
                   className={navLinkClassName(link.href === pathname, "mobile")}

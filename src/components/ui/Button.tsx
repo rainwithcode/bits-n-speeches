@@ -43,7 +43,7 @@ type NativeButtonProps = BaseProps & {
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
   disabled?: boolean;
-  ariaLabel: string;
+  ariaLabel?: string;
 };
 
 type ButtonProps = LinkButtonProps | NativeButtonProps;

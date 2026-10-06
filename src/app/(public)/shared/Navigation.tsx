@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 import Button from "@/components/ui/Button";
 
-import { navLinks } from "../data/nav-links";
+import { logInLink, navLinks } from "../data/nav-links";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -51,40 +51,34 @@ export default function Navigation() {
         <ul className="flex gap-4 items-center">
           {navLinks.map((link) => (
             <li key={link.href}>
-              {link.href === "/login" ? (
-                <div className="pl-8 border-l-2 border-primary-foreground/15">
-                  <Button
-                    href={link.href}
-                    color="accent"
-                    className="md:text-sm"
-                  >
-                    <LogIn className="size-4" aria-hidden="true" />
-                    {link.label}
-                  </Button>
-                </div>
-              ) : (
-                <Link
-                  href={link.href}
-                  className={navLinkClassName(
-                    link.href === pathname,
-                    "desktop",
-                  )}
-                >
-                  {link.label}
-                </Link>
-              )}
+              <Link
+                href={link.href}
+                className={navLinkClassName(link.href === pathname, "desktop")}
+              >
+                {link.label}
+              </Link>
             </li>
           ))}
+          <li
+            key={logInLink.label}
+            className="pl-8 border-l-2 border-primary-foreground/15"
+          >
+            <Button href={logInLink.href} color="accent" className="md:text-sm">
+              <LogIn className="size-4" aria-hidden="true" />
+              {logInLink.label}
+            </Button>
+          </li>
         </ul>
       </nav>
       <div className="flex lg:hidden items-center gap-4">
+        {/* Mobile Navigation */}
         <Button
-          href={navLinks[navLinks.length - 1].href}
+          href={logInLink.href}
           color="accent"
-          className="text-sm"
+          className={`text-sm ${isOpen ? "hidden" : "flex"}`}
         >
-          <LogIn className="w-4 h-4" />
-          {navLinks[navLinks.length - 1].label}
+          <LogIn className="size-4" aria-hidden="true" />
+          {logInLink.label}
         </Button>
         <button
           className="cursor-pointer"
@@ -99,40 +93,35 @@ export default function Navigation() {
           )}
         </button>
       </div>
+      {/* Expanded Mobile Navigation */}
       {isOpen && (
         <nav
           className="absolute top-full left-0 right-0 w-full flex flex-col items-center lg:hidden gap-4 py-8 bg-surface-dark"
           aria-label="Primary"
         >
-          {/* Mobile Navigation */}
           <ul className="w-full max-w-300 text-center">
-            {navLinks.map((link) =>
-              link.href === "/login" ? (
-                <li key={link.href} className="w-full mt-4">
-                  <Button
-                    href={link.href}
-                    color="accent"
-                    className="w-full text-sm flex justify-center p-4"
-                  >
-                    <LogIn className="w-5 h-5" aria-hidden={true} />
-                    {link.label}
-                  </Button>
-                </li>
-              ) : (
-                <li key={link.href} className="py-4">
-                  <Link
-                    href={link.href}
-                    className={navLinkClassName(
-                      link.href === pathname,
-                      "mobile",
-                    )}
-                    onClick={toggleMenu}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ),
-            )}
+            {navLinks.map((link) => (
+              <li key={link.label} className="w-full mt-4">
+                <Link
+                  href={link.href}
+                  className={navLinkClassName(link.href === pathname, "mobile")}
+                  onClick={toggleMenu}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li key={logInLink.label} className="mt-6">
+              <Button
+                href={logInLink.href}
+                color="accent"
+                className="w-full text-sm flex justify-center p-4"
+              >
+                <LogIn className="w-5 h-5" aria-hidden={true} />
+                {logInLink.label}
+              </Button>
+            </li>
+            ;
           </ul>
         </nav>
       )}

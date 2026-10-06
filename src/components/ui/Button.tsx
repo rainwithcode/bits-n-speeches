@@ -36,6 +36,7 @@ type BaseProps = VariantProps<typeof buttonVariants> & {
 type LinkButtonProps = BaseProps & {
   as?: "link";
   href: string;
+  ariaCurrent?: "page" | undefined;
 };
 
 type NativeButtonProps = BaseProps & {
@@ -71,7 +72,11 @@ export default function Button({
     );
   }
   return (
-    <Link href={props.href} className={classNameValue}>
+    <Link
+      href={props.href}
+      aria-current={props.ariaCurrent}
+      className={classNameValue}
+    >
       {children}
     </Link>
   );

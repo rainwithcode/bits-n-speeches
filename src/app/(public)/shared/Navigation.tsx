@@ -70,7 +70,7 @@ export default function Navigation() {
               color="accent"
               className="md:text-sm"
             >
-              <LogIn className="size-4" aria-hidden="true" />
+              <LogIn className="size-5" aria-hidden="true" />
               {logInLink.label}
             </Button>
           </li>
@@ -128,7 +128,7 @@ export default function Navigation() {
                 color="accent"
                 className="mt-6 w-[90%] mx-auto text-sm flex justify-center p-4"
               >
-                <LogIn className="w-5 h-5" aria-hidden={true} />
+                <LogIn className="size-5" aria-hidden={true} />
                 {logInLink.label}
               </Button>
             </li>

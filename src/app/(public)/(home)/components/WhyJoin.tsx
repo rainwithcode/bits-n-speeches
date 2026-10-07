@@ -21,7 +21,6 @@ export default function WhyJoin() {
         </p>
         <ul className="grid md:grid-cols-3 gap-4 md:gap-8 mt-8">
           {whyJoin.map((reason) => {
-            const Icon = icons[reason.icon];
             return (
               <li key={reason.label}>
                 <IconCard

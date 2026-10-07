@@ -7,13 +7,11 @@ export default function PersonCard({
   name,
   role,
   description,
-  className,
 }: {
   src?: string;
   name: string;
   role?: string;
   description?: string;
-  className?: string;
 }) {
   const initials = getInitials(name);
 
@@ -38,6 +36,7 @@ export default function PersonCard({
       </h3>
 
       <p className="font-medium text-base">{role}</p>
+      <p className="font-medium text-base">{description}</p>
     </article>
   );
 }

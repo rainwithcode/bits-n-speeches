@@ -50,7 +50,10 @@ export const membershipSteps: MembershipStep[] = [
     description: (
       <>
         Complete the{" "}
-        <TextLink href="https://content.toastmasters.org/image/upload/800-membership-application-ff.pdf" target="_blank">
+        <TextLink
+          href="https://content.toastmasters.org/image/upload/800-membership-application-ff.pdf"
+          target="_blank"
+        >
           official Toastmasters membership application
         </TextLink>{" "}
         and submit your completed form to our VP of Membership. They&apos;ll

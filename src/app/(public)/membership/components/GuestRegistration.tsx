@@ -50,7 +50,8 @@ export default function GuestRegistration({
       setTimeout(() => {
         setStatus("idle");
       }, 3000);
-    } catch (error) {
+    } catch (err) {
+      console.error("Contact form failed: ", err);
       setStatus("idle");
 
       setError("We couldn't send your message. Please try again.");

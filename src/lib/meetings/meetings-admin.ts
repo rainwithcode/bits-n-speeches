@@ -2,10 +2,8 @@ import { revalidatePath } from "next/cache";
 
 import type { MeetingUpdate } from "@/types/supabase";
 
-import { createServerClient } from "../supabase/server";
-
 export async function updateMeeting(meetingId: string, values: MeetingUpdate) {
-  const supabase = createServerClient();
+  const supabase = await createClient();
 
   const { data, error } = await supabase
     .from("meetings")

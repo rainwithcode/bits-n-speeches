@@ -1,10 +1,10 @@
 import { meetingInfo } from "@/data/meetings";
 import { Database } from "@/types/supabase";
 
-import { createServerClient } from "../supabase/server";
+import { createClient } from "../supabase/server";
 
 export async function getMeetingById(id: string) {
-  const supabase = createServerClient();
+  const supabase = await createClient();
 
   const { data, error } = await supabase
     .from("meetings")
@@ -20,7 +20,7 @@ export async function getMeetingById(id: string) {
 }
 
 export async function getUpcomingMeetings(limit = 3) {
-  const supabase = createServerClient();
+  const supabase = await createClient();
 
   const { data, error } = await supabase
     .from("meetings")

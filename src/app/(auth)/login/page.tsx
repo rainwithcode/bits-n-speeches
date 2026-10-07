@@ -1,6 +1,6 @@
 import { siteConfig } from "@/data/site-config";
 
-import LoginForm from "./components/Form";
+import LoginForm from "./components/LoginForm";
 
 export default function LoginPage() {
   return (

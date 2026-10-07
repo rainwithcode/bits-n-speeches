@@ -3,8 +3,8 @@ import { unstable_noStore as noStore } from "next/cache";
 
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
+import { formatDateTime } from "@/lib/meetings/format";
 import {
-  formatDateTime,
   getLocation,
   getMeetingEndsAt,
   getUpcomingMeetings,

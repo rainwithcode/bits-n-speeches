@@ -5,15 +5,11 @@ import { siteConfig } from "@/data/site-config";
 import { emailTheme } from "@/lib/email/emailTheme";
 import { escapeHtml } from "@/lib/email/escapeHtml";
 import { sendEmail } from "@/lib/email/sendEmail";
-import {
-  formatDateTime,
-  getMeetingById,
-  getMeetingEndsAt,
-} from "@/lib/meetings/meetings";
+import { formatDateTime } from "@/lib/meetings/format";
+import { getMeetingById, getMeetingEndsAt } from "@/lib/meetings/meetings";
 import { subscribeToNewsletter } from "@/lib/newsletter/subscribe";
 import { guestRegistrationSchema } from "@/lib/validations/guest-registration";
 import validateFormData from "@/lib/validations/validate-form-data";
-
 export async function POST(request: Request) {
   const formData = await request.formData();
 

@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 
+import { siteConfig } from "@/data/site-config";
+
 type MembershipDue = {
   title: string;
   description: ReactNode;
@@ -8,21 +10,21 @@ type MembershipDue = {
 
 export const membershipDues: MembershipDue[] = [
   {
-    title: "New Member Fee (one-time)",
-    description: "Paid once when you join.",
+    title: "Club Dues",
+    description: `Paid directly to ${siteConfig.name}.`,
     amount: 15,
   },
   {
-    title: "Semi-Annual Dues",
-    description: (
-      <>
-        Billed every six months, <strong>$72 USD</strong> per six-month period,
-        due on <strong>April 1</strong> and <strong>October 1</strong>.
-      </>
-    ),
+    title: `${siteConfig.organization} Dues`,
+    description: `Paid to ${siteConfig.organization}.`,
     amount: 72,
   },
 ];
+
+export const membershipDuesSchedule = {
+  frequency: "Every six months",
+  dueDates: ["April 1", "October 1"],
+};
 
 export const membershipDuesContent = {
   title: "Membership Dues",
@@ -32,15 +34,16 @@ export const membershipDuesContent = {
     description: (
       <>
         International dues are prorated at <strong>$12 USD per month</strong>{" "}
-        based on the month you join between the <strong>April 1</strong> and{" "}
-        <strong>October 1</strong> renewal dates.
+        based on the month you join between the{" "}
+        <strong>{membershipDuesSchedule.dueDates[0]}</strong> and{" "}
+        <strong>{membershipDuesSchedule.dueDates[1]}</strong> renewal dates.
       </>
     ),
   },
 
   firstPayment: {
-    title: "First Payment Total",
-    description: "Total amount due when you first join the club.",
+    title: "Payment Total",
+    description: "Total amount due when you join the club.",
   },
 
   callToAction: {

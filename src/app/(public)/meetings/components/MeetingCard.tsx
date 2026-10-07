@@ -3,7 +3,8 @@ import { ArrowRight, MapPin, UserPlus } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import IconText from "@/components/ui/IconText";
-import { formatMeetingDateTime, getLocation } from "@/lib/meetings/meetings";
+import { formatMeetingDateTime } from "@/lib/meetings/format";
+import { getLocation } from "@/lib/meetings/meetings";
 import { Meeting } from "@/types/supabase";
 
 import { getMembershipUrl } from "../../data/nav-links";
@@ -32,7 +33,10 @@ export default function MeetingCard({ meeting }: MeetingCardProps) {
           View Meeting
           <ArrowRight className="w-4 h-4" />
         </Button>
-        <Button href={`${getMembershipUrl("guest")}&meeting=${meeting.id}`} color="secondary">
+        <Button
+          href={`${getMembershipUrl("guest")}&meeting=${meeting.id}`}
+          color="secondary"
+        >
           Register
           <UserPlus className="w-4 h-4" />
         </Button>

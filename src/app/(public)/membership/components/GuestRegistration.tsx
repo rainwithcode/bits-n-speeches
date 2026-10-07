@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import Button from "@/components/ui/Button";
 import { submitForm } from "@/lib/forms/submitForm";
-import { formatMeetingDateTime } from "@/lib/meetings/meetings";
+import { formatMeetingDateTime } from "@/lib/meetings/format";
 import type { FormStatus } from "@/types/forms";
 import type { Meeting } from "@/types/supabase";
 

@@ -1,6 +1,6 @@
 import { siteConfig } from "@/data/site-config";
 
-import LogInForm from "./components/LogInForm";
+import LoginForm from "./components/LoginForm";
 
 export default function LogIn() {
   return (
@@ -13,7 +13,7 @@ export default function LogIn() {
           Sign in to access your {siteConfig.organization.split(" ")[0]} club
           dashboard.
         </p>
-        <LogInForm />
+        <LoginForm />
       </div>
     </section>
   );

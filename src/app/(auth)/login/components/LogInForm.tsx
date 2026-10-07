@@ -2,7 +2,7 @@ import Button from "@/components/ui/Button";
 
 import { loginFields } from "../data/login-fields";
 
-export default function LogInForm() {
+export default function LoginForm() {
   return (
     <form className="w-full max-w-lg space-y-4 p-6 border border-border rounded-md bg-primary-foreground">
       {loginFields.map((field) => (

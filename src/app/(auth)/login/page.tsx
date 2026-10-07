@@ -1,8 +1,8 @@
 import { siteConfig } from "@/data/site-config";
 
-import LoginForm from "./components/LogInForm";
+import LoginForm from "./components/Form";
 
-export default function LogIn() {
+export default function LoginPage() {
   return (
     <section className="bg-primary/5">
       <div className="flex flex-col gap-4 justify-center items-center max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">

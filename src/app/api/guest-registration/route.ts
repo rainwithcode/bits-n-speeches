@@ -52,7 +52,16 @@ export async function POST(request: Request) {
   const { data, error } = await sendEmail({
     to: [siteConfig.contact.email.address],
     replyTo: [email],
-    subject: `New Guest Registration — ${fullName}`,
+    subject: `[BNS] Guest Registration: ${preferredMeeting.title} @ ${formatDateTime(
+      startsAt,
+      { format: "date" },
+    )} | ${formatDateTime(startsAt, { format: "time" })}–${formatDateTime(
+      endsAt,
+      {
+        format: "time",
+        includeTimeZone: true,
+      },
+    )}`,
     html: `
     <h2>New Guest Registration</h2>
 
@@ -99,7 +108,16 @@ export async function POST(request: Request) {
     await sendEmail({
       to: [email],
       replyTo: [siteConfig.contact.email.address],
-      subject: `You're registered for ${preferredMeeting.title}`,
+      subject: `[BNS] You're registered: ${preferredMeeting.title} @ ${formatDateTime(
+        startsAt,
+        { format: "date" },
+      )} | ${formatDateTime(startsAt, { format: "time" })}–${formatDateTime(
+        endsAt,
+        {
+          format: "time",
+          includeTimeZone: true,
+        },
+      )}`,
       html: `
     <h2>You're registered!</h2>
 

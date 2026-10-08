@@ -4,7 +4,7 @@ import Leadership from "./components/Leadership";
 import Milestones from "./components/MIlestones";
 import StoryAndMission from "./components/StoryAndMission";
 
-export default function About() {
+export default function AboutPage() {
   return (
     <>
       <PageHero

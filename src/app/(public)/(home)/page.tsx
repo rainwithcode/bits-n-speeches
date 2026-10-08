@@ -4,7 +4,7 @@ import Testimonials from "./components/Testimonials";
 import UpcomingMeetings from "./components/UpcomingMeetings";
 import WhyJoin from "./components/WhyJoin";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Hero />

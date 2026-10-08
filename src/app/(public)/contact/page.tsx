@@ -4,7 +4,7 @@ import ContactInformation from "./components/ContactDetails";
 import ContactForm from "./components/ContactForm";
 import LocationDetails from "./components/MeetingDetails";
 
-export default function Contact() {
+export default function ContactPage() {
   return (
     <>
       <PageHero

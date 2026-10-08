@@ -1,3 +1,3 @@
-export default function Membership() {
+export default function MembershipPage() {
   return null;
 }

@@ -141,9 +141,9 @@ export default function GuestRegistration({
             as="button"
             type="submit"
             disabled={isDisabled}
-            className="inline w-full mt-2"
+            className="w-full mt-2 justify-center"
           >
-            {status === "success" && <CheckIcon />}
+            {status === "success" && <CheckIcon className="size-5" />}
             {buttonLabel[status]}
           </Button>
           {error && <p className="text-secondary font-medium">{error}</p>}

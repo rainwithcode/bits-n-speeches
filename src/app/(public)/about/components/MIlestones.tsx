@@ -14,7 +14,7 @@ export default function Milestones() {
           Explore the key events that have shaped {siteConfig.name} into the
           thriving community it is today.
         </p>
-        <ul className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-8">
+        <ul className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mt-8">
           {about.milestones.map((milestone) => (
             <li
               key={milestone.title}

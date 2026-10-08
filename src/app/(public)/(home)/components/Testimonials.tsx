@@ -12,7 +12,7 @@ export default function Testimonials() {
         <SectionHeading className="mb-6" variant="secondary">
           What Our Members Say
         </SectionHeading>
-        <ul className="grid md:grid-cols-3 gap-4 md:gap-8 mt-8">
+        <ul className="grid md:grid-cols-3 gap-4 lg:gap-8 mt-8">
           {members.slice(0, 3).map((member) => {
             return (
               <li

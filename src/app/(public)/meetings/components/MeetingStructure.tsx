@@ -15,7 +15,7 @@ export default function MeetingStructure() {
               className="flex flex-col items-center gap-3 mt-8"
             >
               <Circle>{index + 1}</Circle>
-              <h3 className="font-bold text-base md:text-xl text-primary">
+              <h3 className="font-bold text-base md:text-xl text-primary text-center">
                 {item.title}
               </h3>
               <p className="text-center text-sm md:text-base">

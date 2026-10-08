@@ -8,7 +8,7 @@ export default function Achievements() {
       <h2 id="achievements-heading" className="sr-only">
         Achievements
       </h2>
-      <dl className="grid grid-cols-3 gap-4 md:gap-8">
+      <dl className="grid grid-cols-3 gap-4 lg:gap-8">
         {achievements.map((achievement) => (
           <div key={achievement.label}>
             <dd className="text-primary text-xl md:text-4xl font-bold">

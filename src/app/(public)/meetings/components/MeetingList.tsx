@@ -15,7 +15,7 @@ export default async function MeetingList() {
       <ul className="grid gap-4 grid-cols-1 md:grid-cols-2">
         {meetings.map((meeting) => {
           return (
-            <li key={meeting.id}>
+            <li key={meeting.id} className="h-full">
               <MeetingCard meeting={meeting}></MeetingCard>
             </li>
           );

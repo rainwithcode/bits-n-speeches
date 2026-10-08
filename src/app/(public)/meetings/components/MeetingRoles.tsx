@@ -5,7 +5,7 @@ export default function MeetingRoles() {
   return (
     <section className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
       <SectionHeading className="mb-6">Common Meeting Roles</SectionHeading>
-      <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
         {meetingRoles.map((item) => (
           <li
             key={item.role}

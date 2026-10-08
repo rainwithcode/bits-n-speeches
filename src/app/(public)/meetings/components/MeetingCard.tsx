@@ -15,20 +15,20 @@ type MeetingCardProps = {
 
 export default function MeetingCard({ meeting }: MeetingCardProps) {
   return (
-    <article className="p-4 border border-border rounded-md">
+    <article className="flex flex-col h-full p-4 border border-border rounded-md">
       <div className="flex justify-between">
         <p>{formatMeetingDateTime(meeting.starts_at)}</p>
         <Badge {...(meeting.type === "hybrid" && { variant: "highlight" })}>
           {meeting.type}
         </Badge>
       </div>
-      <div className="space-y-2">
+      <div className="space-y-2 mb-2">
         <h3 className="font-heading font-bold text-primary text-base md:text-lg">
           {meeting.title}
         </h3>
         <IconText icon={MapPin}>{getLocation(meeting.type)}</IconText>
       </div>
-      <div className="flex gap-4 mt-4">
+      <div className="flex gap-4 mt-auto">
         <Button href={`/meetings/${meeting.id}`}>
           View Meeting
           <ArrowRight className="w-4 h-4" />

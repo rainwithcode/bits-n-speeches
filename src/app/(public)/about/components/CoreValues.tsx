@@ -9,7 +9,7 @@ export default function CoreValues() {
   return (
     <section>
       <SectionHeading className="sr-only">Core Values</SectionHeading>
-      <ul className="grid grid-cols-2 gap-6">
+      <ul className="grid grid-cols-2 gap-4 lg:gap-8">
         {about.values.map((value) => {
           const Icon = icons[value.icon];
           return (

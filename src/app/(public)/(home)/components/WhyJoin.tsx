@@ -19,7 +19,7 @@ export default function WhyJoin() {
           Whether you&apos;re a seasoned professional or a first-time speaker,
           our structured program helps you grow at your own pace.
         </p>
-        <ul className="grid md:grid-cols-3 gap-4 md:gap-8 mt-8">
+        <ul className="grid md:grid-cols-3 gap-4 lg:gap-8 mt-8">
           {whyJoin.map((reason) => {
             return (
               <li key={reason.label}>

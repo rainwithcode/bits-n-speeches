@@ -12,7 +12,7 @@ export default function CallToAction() {
         <p className="text-base md:text-lg text-center">
           Join as a guest for free. No experience, no pressure — just growth.
         </p>
-        <div className="flex gap-4 md:gap-6">
+        <div className="flex gap-4 lg:gap-8">
           <Button href={getMembershipUrl("guest")} size="big">
             Register as a Guest
           </Button>

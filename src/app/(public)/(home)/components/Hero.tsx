@@ -16,7 +16,7 @@ export default function Hero() {
             <div className="text-accent">{heroContent.heroTagline[1]}</div>
           </h1>
           <p className="text-base md:text-xl">{heroContent.heroDescription}</p>
-          <div className="flex gap-4 md:gap-6">
+          <div className="flex gap-4 lg:gap-8">
             <Button href={getMembershipUrl("guest")} color="accent" size="big">
               Attend a Free Meeting
             </Button>

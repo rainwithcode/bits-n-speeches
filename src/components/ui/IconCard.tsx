@@ -12,7 +12,7 @@ export default function IconCard({
   description,
 }: IconCardProps) {
   return (
-    <div className="space-y-2 md:space-y-4 bg-white p-8 rounded-md border border-border">
+    <div className="h-full space-y-2 md:space-y-4 bg-white p-8 rounded-md border border-border">
       <div
         className="w-fit px-4 py-4 rounded-md bg-primary/10"
         aria-hidden="true"

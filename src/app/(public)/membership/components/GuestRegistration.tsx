@@ -143,7 +143,9 @@ export default function GuestRegistration({
             disabled={isDisabled}
             className="w-full mt-2 justify-center"
           >
-            {status === "success" && <CheckIcon className="size-5" />}
+            {status === "success" && (
+              <CheckIcon aria-hidden="true" className="size-5" />
+            )}
             {buttonLabel[status]}
           </Button>
           {error && <p className="text-secondary font-medium">{error}</p>}

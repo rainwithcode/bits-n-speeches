@@ -17,7 +17,7 @@ export default function ContactForm() {
     success: "Sent",
   };
 
-  const [status, setStatus] = useState<FormStatus>("success");
+  const [status, setStatus] = useState<FormStatus>("idle");
   const [error, setError] = useState<string | null>(null);
 
   const isDisabled = status === "loading" || status === "success";

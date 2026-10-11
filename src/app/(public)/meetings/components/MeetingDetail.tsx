@@ -1,4 +1,4 @@
-import { CalendarPlus } from "lucide-react";
+import { CalendarPlus, ClipboardList } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
@@ -53,6 +53,10 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
         <Button href={`/api/meetings/${meeting.id}/calendar`} color="secondary">
           <CalendarPlus aria-hidden="true" className="w-4 h-4 md:w-5 md:h-5" />
           Add to Calendar
+        </Button>
+        <Button href={``} color="secondary">
+          <ClipboardList aria-hidden="true" className="w-4 h-4 md:w-5 md:h-5" />
+          View Agenda
         </Button>
       </div>
     </article>

@@ -6,6 +6,14 @@ type FormatDateTimeOptions = {
   includeTimeZone?: boolean;
 };
 
+export function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "2-digit",
+    day: "2-digit",
+    year: "numeric",
+  }).format(date);
+}
+
 export function formatDateTime(
   value: string | Date | null | undefined,
   {

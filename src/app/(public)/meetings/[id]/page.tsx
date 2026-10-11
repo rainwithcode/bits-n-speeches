@@ -2,7 +2,10 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { formatDate } from "@/lib/meetings/format";
 import { getMeetingById } from "@/lib/meetings/meetings";
+import { getMeetingRoles } from "@/lib/meetings/roles";
+
 
 import MeetingDetail from "../components/MeetingDetail";
 
@@ -20,6 +23,9 @@ export default async function MeetingDetailPage({
   if (!meeting) {
     notFound();
   }
+  const meetingRoles = await getMeetingRoles(
+    formatDate(new Date(meeting.starts_at)),
+  );
 
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
@@ -30,7 +36,7 @@ export default async function MeetingDetailPage({
         <ArrowLeft className="w-5 h-5" />
         Back to Meetings
       </Link>
-      <MeetingDetail meeting={meeting} />
+      <MeetingDetail meeting={meeting} meetingRoles={meetingRoles} />
     </div>
   );
 }

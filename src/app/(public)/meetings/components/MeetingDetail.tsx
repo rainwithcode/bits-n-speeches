@@ -3,16 +3,23 @@ import { CalendarPlus, ClipboardList } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { meetingDetailItems } from "@/data/meetings";
+import type { MeetingRole } from "@/lib/meetings/roles";
 import type { Meeting } from "@/types/supabase";
 
 import { getMembershipUrl } from "../../data/nav-links";
 import SectionHeading from "../../shared/SectionHeading";
 
+import MeetingAgenda from "./MeetingAgenda";
+
 type MeetingDetailProps = {
   meeting: Meeting;
+  meetingRoles: MeetingRole[];
 };
 
-export default function MeetingDetail({ meeting }: MeetingDetailProps) {
+export default function MeetingDetail({
+  meeting,
+  meetingRoles,
+}: MeetingDetailProps) {
   return (
     <article className="p-8 border border-border rounded-md">
       <SectionHeading className="mb-3">{meeting.title}</SectionHeading>
@@ -59,6 +66,7 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
           View Agenda
         </Button>
       </div>
+      <MeetingAgenda meetingRoles={meetingRoles} />
     </article>
   );
 }

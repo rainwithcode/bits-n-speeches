@@ -58,11 +58,11 @@ export default function MeetingDetail({
           Register as a Guest for This Meeting
         </Button>
         <Button href={`/api/meetings/${meeting.id}/calendar`} color="secondary">
-          <CalendarPlus aria-hidden="true" className="w-4 h-4 md:w-5 md:h-5" />
+          <CalendarPlus aria-hidden="true" className="size-4 md:size-5" />
           Add to Calendar
         </Button>
         <Button href={``} color="secondary">
-          <ClipboardList aria-hidden="true" className="w-4 h-4 md:w-5 md:h-5" />
+          <ClipboardList aria-hidden="true" className="size-4 md:size-5" />
           View Agenda
         </Button>
       </div>

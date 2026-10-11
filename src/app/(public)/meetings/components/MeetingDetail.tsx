@@ -63,7 +63,7 @@ export default function MeetingDetail({
         </Button>
         <Button href={``} color="secondary">
           <ClipboardList aria-hidden="true" className="size-4 md:size-5" />
-          View Agenda
+          View Full Agenda
         </Button>
       </div>
       <MeetingAgenda meetingRoles={meetingRoles} />

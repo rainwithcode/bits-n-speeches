@@ -20,6 +20,10 @@ export default function MeetingDetail({
   meeting,
   meetingRoles,
 }: MeetingDetailProps) {
+  const hasAssignedRoles = meetingRoles.some(({ memberName }) =>
+    Boolean(memberName?.trim()),
+  );
+
   return (
     <article className="p-8 border border-border rounded-md">
       <SectionHeading className="mb-3">{meeting.title}</SectionHeading>
@@ -66,7 +70,7 @@ export default function MeetingDetail({
           View Full Agenda
         </Button>
       </div>
-      <MeetingAgenda meetingRoles={meetingRoles} />
+      {hasAssignedRoles && <MeetingAgenda meetingRoles={meetingRoles} />}
     </article>
   );
 }

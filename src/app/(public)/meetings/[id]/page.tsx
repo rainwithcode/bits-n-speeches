@@ -6,7 +6,6 @@ import { formatDate } from "@/lib/meetings/format";
 import { getMeetingById } from "@/lib/meetings/meetings";
 import { getMeetingRoles } from "@/lib/meetings/roles";
 
-
 import MeetingDetail from "../components/MeetingDetail";
 
 type MeetingDetailPageProps = {
@@ -24,7 +23,7 @@ export default async function MeetingDetailPage({
     notFound();
   }
   const meetingRoles = await getMeetingRoles(
-    formatDate(new Date(meeting.starts_at)),
+    formatDate({ date: new Date(meeting.starts_at) }),
   );
 
   return (

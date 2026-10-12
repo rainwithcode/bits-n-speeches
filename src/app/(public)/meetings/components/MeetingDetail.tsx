@@ -65,7 +65,11 @@ export default function MeetingDetail({
           <CalendarPlus aria-hidden="true" className="size-4 md:size-5" />
           Add to Calendar
         </Button>
-        <Button href={``} color="secondary">
+        <Button
+          href={`/api/meetings/${meeting.id}/agenda`}
+          target="_blank"
+          color="secondary"
+        >
           <ClipboardList aria-hidden="true" className="size-4 md:size-5" />
           View Full Agenda
         </Button>

@@ -157,8 +157,8 @@ INSERT INTO "auth"."identities" ("provider_id", "user_id", "identity_data", "pro
 
 
 
--- Representative meetings use offsets from the seed date so they remain upcoming
--- whenever the local database is recreated.
+-- Representative meetings use offsets from calculated Thursdays so they remain upcoming
+-- whenever the local database is recreated. 
 INSERT INTO public.meetings (
   id,
   title,

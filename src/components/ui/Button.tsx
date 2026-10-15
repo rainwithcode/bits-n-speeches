@@ -37,6 +37,7 @@ type LinkButtonProps = BaseProps & {
   as?: "link";
   href: string;
   ariaCurrent?: "page" | undefined;
+  target?: string;
 };
 
 type NativeButtonProps = BaseProps & {
@@ -74,6 +75,7 @@ export default function Button({
   return (
     <Link
       href={props.href}
+      target={props.target}
       aria-current={props.ariaCurrent}
       className={classNameValue}
     >

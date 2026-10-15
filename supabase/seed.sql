@@ -157,8 +157,8 @@ INSERT INTO "auth"."identities" ("provider_id", "user_id", "identity_data", "pro
 
 
 
--- Representative meetings use offsets from the seed date so they remain upcoming
--- whenever the local database is recreated.
+-- Representative meetings use offsets from calculated Thursdays so they remain upcoming
+-- whenever the local database is recreated. 
 INSERT INTO public.meetings (
   id,
   title,
@@ -174,12 +174,20 @@ SELECT
   title,
   description,
   type::public.meeting_type,
+ (
   (
-    (CURRENT_DATE + start_offset)::timestamp + time '19:00'
-  ) AT TIME ZONE 'America/Los_Angeles',
+    CURRENT_DATE
+    + ((4 - EXTRACT(DOW FROM CURRENT_DATE)::int + 7) % 7)
+    + start_offset
+  )::timestamp + time '19:00'
+) AT TIME ZONE 'America/Los_Angeles',
+(
   (
-    (CURRENT_DATE + start_offset)::timestamp + time '20:30'
-  ) AT TIME ZONE 'America/Los_Angeles',
+    CURRENT_DATE
+    + ((4 - EXTRACT(DOW FROM CURRENT_DATE)::int + 7) % 7)
+    + start_offset
+  )::timestamp + time '20:30'
+) AT TIME ZONE 'America/Los_Angeles',
   meeting_url,
   true
 FROM (

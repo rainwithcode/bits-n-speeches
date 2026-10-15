@@ -1,3 +1,4 @@
+type DateFormat = "short" | "long";
 type DateTimeFormat = "date" | "time" | "datetime";
 
 type FormatDateTimeOptions = {
@@ -5,6 +6,35 @@ type FormatDateTimeOptions = {
   timeZone?: string;
   includeTimeZone?: boolean;
 };
+
+type FormatDateProps = {
+  date: Date;
+  format?: "short" | "long";
+};
+
+export function formatDate({
+  date,
+  format = "short",
+}: FormatDateProps): string {
+  const options: Intl.DateTimeFormatOptions =
+    format === "long"
+      ? {
+          weekday: "long",
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        }
+      : {
+          month: "numeric",
+          day: "numeric",
+          year: "numeric",
+        };
+
+  return new Intl.DateTimeFormat("en-US", {
+    ...options,
+    timeZone: "America/Los_Angeles",
+  }).format(date);
+}
 
 export function formatDateTime(
   value: string | Date | null | undefined,

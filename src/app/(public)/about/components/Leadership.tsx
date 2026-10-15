@@ -1,4 +1,4 @@
-import { memberWithRoles } from "../../data/members-with-roles";
+import { memberWithRoles } from "../../../../data/members-with-roles";
 import SectionHeading from "../../shared/SectionHeading";
 
 import PersonCard from "./PersonCard";

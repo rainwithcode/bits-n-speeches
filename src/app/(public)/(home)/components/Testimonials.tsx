@@ -2,7 +2,7 @@ import { Quote } from "lucide-react";
 
 import MemberAvatar from "@/components/ui/MemberAvatar";
 
-import { members } from "../../data/members";
+import { members } from "../../../../data/members";
 import SectionHeading from "../../shared/SectionHeading";
 
 export default function Testimonials() {

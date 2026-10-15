@@ -1,18 +1,29 @@
-import { CalendarPlus } from "lucide-react";
+import { CalendarPlus, ClipboardList } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { meetingDetailItems } from "@/data/meetings";
+import type { MeetingRole } from "@/lib/meetings/roles";
 import type { Meeting } from "@/types/supabase";
 
 import { getMembershipUrl } from "../../data/nav-links";
 import SectionHeading from "../../shared/SectionHeading";
 
+import MeetingAgenda from "./MeetingAgenda";
+
 type MeetingDetailProps = {
   meeting: Meeting;
+  meetingRoles: MeetingRole[];
 };
 
-export default function MeetingDetail({ meeting }: MeetingDetailProps) {
+export default function MeetingDetail({
+  meeting,
+  meetingRoles,
+}: MeetingDetailProps) {
+  const hasAssignedRoles = meetingRoles.some(({ memberName }) =>
+    Boolean(memberName?.trim()),
+  );
+
   return (
     <article className="p-8 border border-border rounded-md">
       <SectionHeading className="mb-3">{meeting.title}</SectionHeading>
@@ -51,10 +62,19 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
           Register as a Guest for This Meeting
         </Button>
         <Button href={`/api/meetings/${meeting.id}/calendar`} color="secondary">
-          <CalendarPlus aria-hidden="true" className="w-4 h-4 md:w-5 md:h-5" />
+          <CalendarPlus aria-hidden="true" className="size-4 md:size-5" />
           Add to Calendar
         </Button>
+        <Button
+          href={`/api/meetings/${meeting.id}/agenda`}
+          target="_blank"
+          color="secondary"
+        >
+          <ClipboardList aria-hidden="true" className="size-4 md:size-5" />
+          View Full Agenda
+        </Button>
       </div>
+      {hasAssignedRoles && <MeetingAgenda meetingRoles={meetingRoles} />}
     </article>
   );
 }

@@ -1,8 +1,17 @@
-import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import {
+  Document,
+  Font,
+  Page,
+  StyleSheet,
+  Text,
+  View,
+} from "@react-pdf/renderer";
 
 import { agenda, meetingInfo } from "@/data/meetings";
 import { siteConfig } from "@/data/site-config";
 import type { MeetingRole } from "@/lib/meetings/roles";
+
+Font.registerHyphenationCallback((word) => [word]);
 
 type MeetingAgendaPDFProps = {
   title: string;

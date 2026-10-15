@@ -39,14 +39,4 @@ export const about = {
         "Celebrating 29 years of growth, learning, and diversity. Received recognition as a top-performing club within Toastmasters International, highlighting our commitment to excellence.",
     },
   ],
-
-  officers: [
-    { name: "Susan Sontra", title: "President" },
-    { name: "Rain Kalugdan", title: "Vice President of Education" },
-    { name: "Jaime Vargas", title: "Vice President of Public Relations" },
-    { name: "Douglas Bloom, DTM", title: "Vice President of Membership" },
-    { name: "Mark Graham", title: "Treasurer" },
-    { name: "Cheryl Isaac", title: "Secretary" },
-    { name: "Neelam Wadhwani", title: "Sergeant-at-Arms" },
-  ],
 };

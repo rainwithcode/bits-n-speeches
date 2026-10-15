@@ -8,6 +8,7 @@ import {
 } from "@react-pdf/renderer";
 
 import { agenda, meetingInfo } from "@/data/meetings";
+import { memberWithRoles } from "@/data/members-with-roles";
 import { siteConfig } from "@/data/site-config";
 import type { MeetingRole } from "@/lib/meetings/roles";
 
@@ -121,7 +122,14 @@ export default function MeetingAgendaPDF({
   function getPresenter(role: string): string {
     const mappedRole = roleAliases[role] ?? role;
 
-    return roleMap.get(mappedRole.toLowerCase().trim()) ?? "—";
+    const officer = memberWithRoles.find(
+      (officer) =>
+        officer.officerRole.toLowerCase() === mappedRole.toLowerCase(),
+    );
+
+    return officer
+      ? officer.name
+      : (roleMap.get(mappedRole.toLowerCase().trim()) ?? "—");
   }
 
   return (

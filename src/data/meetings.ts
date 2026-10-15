@@ -56,7 +56,7 @@ export const agenda = [
   // Opening
   {
     time: "7:00 PM – 7:01 PM",
-    role: "Sergeant at Arms",
+    role: "Sergeant-at-Arms",
     activity: "Call meeting to order",
     duration: "1 min",
   },

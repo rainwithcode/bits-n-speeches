@@ -31,7 +31,7 @@ export async function GET(
 
   const pdf = await renderToBuffer(
     <MeetingAgendaPDF
-      title={meeting.name}
+      title={meeting.title}
       date={formatDate({ date: startsAt, format: "long" })}
       time={`${formatDateTime(startsAt, { format: "time" })} – ${formatDateTime(
         endsAt,

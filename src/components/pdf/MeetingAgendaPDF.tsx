@@ -69,16 +69,16 @@ const styles = StyleSheet.create({
     borderBottomColor: "#E2E5E9",
   },
   time: {
-    width: "25%",
+    width: "23%",
   },
   role: {
-    width: "20%",
+    width: "18.5%",
   },
   presenter: {
-    width: "20%",
+    width: "18.5%",
   },
   activity: {
-    width: "25%",
+    width: "30%",
   },
   duration: {
     width: "10%",

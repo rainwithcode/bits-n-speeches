@@ -2,8 +2,6 @@ import { Resend } from "resend";
 
 import { siteConfig } from "@/data/site-config";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 type SendEmailOptions = {
   to: string[];
   replyTo: string[];
@@ -17,6 +15,7 @@ export async function sendEmail({
   subject,
   html,
 }: SendEmailOptions) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   return resend.emails.send({
     from: `${siteConfig.name} Website <website@${siteConfig.domain}>`,
     to,

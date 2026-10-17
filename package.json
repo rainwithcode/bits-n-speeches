@@ -2,6 +2,7 @@
   "name": "bits-n-speeches",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.18.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -44,7 +45,6 @@
     "eslint-plugin-unused-imports": "^4.4.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.4.1",
-    "packageManager": "pnpm@10.18.0",
     "supabase": "^2.120.0",
     "tailwindcss": "^4",
     "typescript": "^5",

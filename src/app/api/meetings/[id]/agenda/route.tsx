@@ -23,7 +23,7 @@ export async function GET(
   }
 
   const startsAt = new Date(meeting.starts_at);
-  const endsAt = new Date(getMeetingEndsAt(meeting.starts_at, meeting.ends_at));
+  const endsAt = getMeetingEndsAt(startsAt, meeting.ends_at);
 
   const meetingRoles = await getMeetingRoles(
     formatDate({ date: startsAt, format: "short" }),

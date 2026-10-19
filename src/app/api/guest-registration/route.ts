@@ -10,6 +10,7 @@ import { getMeetingById, getMeetingEndsAt } from "@/lib/meetings/meetings";
 import { subscribeToNewsletter } from "@/lib/newsletter/subscribe";
 import { guestRegistrationSchema } from "@/lib/validations/guest-registration";
 import validateFormData from "@/lib/validations/validate-form-data";
+
 export async function POST(request: Request) {
   const formData = await request.formData();
 

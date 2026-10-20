@@ -14,6 +14,6 @@ export function createContactRateLimiter() {
   return new Ratelimit({
     redis: initializeRedis(),
     limiter: Ratelimit.slidingWindow(5, "15 m"),
-    prefix: "ratelimit:contact-registration",
+    prefix: "ratelimit:contact",
   });
 }

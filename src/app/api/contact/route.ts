@@ -4,10 +4,32 @@ import { siteConfig } from "@/data/site-config";
 import { escapeHtml } from "@/lib/email/escapeHtml";
 import { sendEmail } from "@/lib/email/sendEmail";
 import { subscribeToNewsletter } from "@/lib/newsletter/subscribe";
+import { createContactRateLimiter } from "@/lib/redis/rate-limit";
 import { contactSchema } from "@/lib/validations/contact";
 import validateFormData from "@/lib/validations/validate-form-data";
 
 export async function POST(request: Request) {
+  const rateLimiter = createContactRateLimiter();
+  const identifier =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const result = await rateLimiter.limit(identifier);
+
+  if (!result.success) {
+    const reset = result.reset;
+    const now = Date.now();
+    const retryAfter = Math.max(0, Math.ceil((reset - now) / 1000));
+    const retryAfterMinutes = Math.ceil(retryAfter / 60);
+
+    return NextResponse.json(
+      {
+        error: `Too many requests. Please try again in ${retryAfterMinutes} minute${retryAfterMinutes === 1 ? "" : "s"}.`,
+      },
+      {
+        status: 429,
+      },
+    );
+  }
+
   const formData = await request.formData();
 
   const rawData = {

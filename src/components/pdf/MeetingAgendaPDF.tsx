@@ -95,10 +95,7 @@ const styles = StyleSheet.create({
     textAlign: "right",
   },
   footer: {
-    marginTop: 24,
-    paddingTop: 12,
-    borderTopWidth: 0.5,
-    borderTopColor: "#E2E5E9",
+    marginTop: 28,
     fontSize: 8,
     color: "#596579",
     textAlign: "center",

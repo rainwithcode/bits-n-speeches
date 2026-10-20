@@ -5,7 +5,9 @@ export async function submitForm(api: string, formData: FormData) {
   });
 
   if (!response.ok) {
-    throw new Error("Form submission failed");
+    const data = await response.json().catch(() => null);
+
+    throw new Error(data?.error || "Form submission failed");
   }
 
   return response;

@@ -54,7 +54,11 @@ export default function GuestRegistration({
       console.error("Contact form failed: ", err);
       setStatus("idle");
 
-      setError("We couldn't send your message. Please try again.");
+      setError(
+        err instanceof Error
+          ? err.message
+          : "We couldn't send your message. Please try again.",
+      );
     }
   }
 

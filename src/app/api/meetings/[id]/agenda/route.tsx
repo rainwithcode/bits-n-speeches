@@ -2,6 +2,7 @@ import { renderToBuffer } from "@react-pdf/renderer";
 import { notFound } from "next/navigation";
 
 import MeetingAgendaPDF from "@/components/pdf/MeetingAgendaPDF";
+import { siteConfig } from "@/data/site-config";
 import { formatDate, formatDateTime } from "@/lib/meetings/format";
 import {
   getLocation,
@@ -25,9 +26,14 @@ export async function GET(
   const startsAt = new Date(meeting.starts_at);
   const endsAt = getMeetingEndsAt(startsAt, meeting.ends_at);
 
-  const meetingRoles = await getMeetingRoles(
-    formatDate({ date: startsAt, format: "short" }),
-  );
+  const formattedDate = formatDate({
+    date: startsAt,
+    format: "short",
+  });
+
+  const meetingRoles = await getMeetingRoles(formattedDate);
+
+  const filename = `${siteConfig.name.replace("’", "")} - ${siteConfig.organization.split(" ")[0]} Meeting Agenda (${formattedDate}).pdf`;
 
   const pdf = await renderToBuffer(
     <MeetingAgendaPDF
@@ -48,7 +54,7 @@ export async function GET(
   return new Response(new Uint8Array(pdf), {
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": 'inline; filename="meeting-agenda.pdf"',
+      "Content-Disposition": `inline; filename="${filename}"`,
       "Cache-Control": "private, no-store",
     },
   });

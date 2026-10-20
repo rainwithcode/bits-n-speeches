@@ -53,241 +53,180 @@ export const meetingDetailItems = [
 ];
 
 export const agenda = [
-  // Opening
+  // Opening (7:00–7:15 PM)
   {
-    time: "7:00 PM – 7:01 PM",
+    time: "7:00–7:15 PM",
     role: "Sergeant-at-Arms",
     activity: "Call meeting to order",
     duration: "1 min",
   },
   {
-    time: "7:01 PM – 7:02 PM",
+    time: "",
     role: "Opening Thought",
     activity: "Open with thought of the day",
     duration: "1 min",
   },
   {
-    time: "7:02 PM – 7:05 PM",
+    time: "",
     role: "President",
     activity: "Welcome and introduce guests",
     duration: "3 min",
   },
   {
-    time: "7:05 PM – 7:08 PM",
+    time: "",
     role: "Toastmaster",
-    activity: "Introduce meeting theme, club updates, and participants",
+    activity:
+      "Introduce meeting theme, club updates, role players, and participants",
     duration: "3 min",
   },
   {
-    time: "7:08 PM – 7:09 PM",
+    time: "",
     role: "Humorous",
     activity: "Share a joke or humorous story",
     duration: "1 min",
   },
   {
-    time: "7:09 PM – 7:10 PM",
+    time: "",
     role: "Educational Minute",
     activity: "Share a brief educational insight or speaking tip",
     duration: "1 min",
   },
   {
-    time: "7:10 PM – 7:13 PM",
+    time: "",
     role: "Toastmaster",
     activity: "Call on role players to briefly explain their responsibilities",
     duration: "3 min",
   },
 
-  // Prepared Speeches
+  // Prepared Speeches (7:15–7:40 PM)
   {
-    time: "7:13 PM – 7:13:30 PM",
-    role: "Timer",
-    activity: "Explain timing constraints for Speaker #1",
-    duration: "30 sec",
-  },
-  {
-    time: "7:13:30 PM – 7:14 PM",
-    role: "Evaluator #1",
-    activity: "Explain evaluation objectives for Speaker #1",
-    duration: "30 sec",
-  },
-  {
-    time: "7:14 PM – 7:14:30 PM",
+    time: "7:15–7:40 PM",
     role: "Toastmaster",
     activity: "Introduce Speaker #1",
-    duration: "30 sec",
+    duration: "",
   },
   {
-    time: "7:14:30 PM – 7:21:30 PM",
+    time: "",
     role: "Speaker #1",
     activity: "Deliver a prepared speech",
     duration: "5–7 min",
   },
   {
-    time: "7:21:30 PM – 7:22 PM",
-    role: "Timer",
-    activity: "Explain timing constraints for Speaker #2",
-    duration: "30 sec",
-  },
-  {
-    time: "7:22 PM – 7:22:30 PM",
-    role: "Evaluator #2",
-    activity: "Explain evaluation objectives for Speaker #2",
-    duration: "30 sec",
-  },
-  {
-    time: "7:22:30 PM – 7:23 PM",
+    time: "",
     role: "Toastmaster",
     activity: "Introduce Speaker #2",
-    duration: "30 sec",
+    duration: "",
   },
   {
-    time: "7:23 PM – 7:30 PM",
+    time: "",
     role: "Speaker #2",
     activity: "Deliver a prepared speech",
     duration: "5–7 min",
   },
   {
-    time: "7:30 PM – 7:31 PM",
-    role: "Timer",
-    activity: "Report prepared speech times",
-    duration: "1 min",
-  },
-  {
-    time: "7:31 PM – 7:32 PM",
-    role: "Awards Master",
-    activity: "Conduct voting for Best Speaker",
+    time: "7:40 PM",
+    role: "Toastmaster",
+    activity: "Call on Timer and direct members to send votes to Awards Master",
     duration: "1 min",
   },
 
-  // Table Topics
+  // Table Topics (7:40–8:00 PM)
   {
-    time: "7:32 PM – 7:33 PM",
+    time: "7:40–7:55 PM",
     role: "Table Topics Master",
-    activity: "Introduce the Table Topics session",
+    activity:
+      "Introduce the Table Topics session and call on Grammarian and Timer",
     duration: "1 min",
   },
   {
-    time: "7:33 PM – 7:33:30 PM",
-    role: "Timer",
-    activity: "Explain Table Topics timing requirements",
-    duration: "30 sec",
-  },
-  {
-    time: "7:33:30 PM – 7:34 PM",
-    role: "Grammarian",
-    activity: "Introduce the Word of the Day",
-    duration: "30 sec",
-  },
-  {
-    time: "7:34 PM – 7:58 PM",
+    time: "7:55 PM",
     role: "Table Topics Master",
-    activity: "Conduct impromptu speaking session",
-    duration: "24 min",
+    activity:
+      "Call on Timer and Grammarian, and direct members to send votes to Awards Master",
+    duration: "",
   },
   {
-    time: "7:58 PM – 7:59 PM",
-    role: "Timer",
-    activity: "Report Table Topics speaking times",
-    duration: "1 min",
-  },
-  {
-    time: "7:59 PM – 8:00 PM",
-    role: "Awards Master",
-    activity: "Conduct voting for Best Table Topics Speaker",
+    time: "8:00 PM",
+    role: "Toastmaster",
+    activity: "Give control to General Evaluator",
     duration: "1 min",
   },
 
-  // Evaluations
+  // Evaluations (8:00–8:15 PM)
   {
-    time: "8:00 PM – 8:01 PM",
+    time: "8:00–8:15 PM",
     role: "General Evaluator",
-    activity: "Introduce evaluation segment",
+    activity: "Introduce the evaluation segment",
     duration: "1 min",
   },
   {
-    time: "8:01 PM – 8:04 PM",
+    time: "",
     role: "Evaluator #1",
     activity: "Evaluate speech #1",
     duration: "2–3 min",
   },
   {
-    time: "8:04 PM – 8:07 PM",
+    time: "",
     role: "Evaluator #2",
     activity: "Evaluate speech #2",
     duration: "2–3 min",
   },
   {
-    time: "8:07 PM – 8:08 PM",
-    role: "Timer",
-    activity: "Report speech evaluation times",
-    duration: "1 min",
-  },
-  {
-    time: "8:08 PM – 8:09 PM",
-    role: "Awards Master",
-    activity: "Conduct voting for Best Evaluator",
-    duration: "1 min",
-  },
-  {
-    time: "8:09 PM – 8:10 PM",
+    time: "",
     role: "General Evaluator",
-    activity: "Provide feedback on speech evaluations",
+    activity: "Call on Timer and direct members to send votes to Awards Master",
     duration: "1 min",
   },
   {
-    time: "8:10 PM – 8:11:30 PM",
+    time: "",
+    role: "General Evaluator",
+    activity:
+      "Evaluate the entire meeting, including organization, transitions, speech evaluations, role performance, and opportunities for improvement",
+    duration: "3–5 min",
+  },
+  {
+    time: "",
     role: "Grammarian",
     activity: "Report effective language use and usage of the Word of the Day",
-    duration: "1 min 30 sec",
+    duration: "1–2 min",
   },
   {
-    time: "8:11:30 PM – 8:12:30 PM",
+    time: "",
     role: "Ah Counter",
     activity: "Report filler words and unnecessary sounds used by speakers",
-    duration: "1 min",
+    duration: "1–2 min",
   },
   {
-    time: "8:12:30 PM – 8:17:30 PM",
+    time: "",
     role: "Listener",
-    activity: "Quiz members on details shared during the meeting",
-    duration: "5 min",
+    activity:
+      "Quiz members on details shared during the meeting, adjusting to available time",
+    duration: "2–5 min (flexible)",
   },
   {
-    time: "8:17:30 PM – 8:20 PM",
-    role: "General Evaluator",
+    time: "8:15 PM",
+    role: "Awards Master",
     activity:
-      "Evaluate meeting organization, role performance, and opportunities for improvement",
-    duration: "2 min 30 sec",
+      "Announce Best Table Topics, Best Evaluator, and Best Speaker; return control to Toastmaster",
+    duration: "30 sec",
   },
 
-  // Awards and Closing
+  // Closing
   {
-    time: "8:20 PM – 8:20:30 PM",
-    role: "Awards Master",
-    activity: "Announce Best Table Topics, Best Evaluator, and Best Speaker",
-    duration: "30 sec",
-  },
-  {
-    time: "8:20:30 PM – 8:21 PM",
+    time: "",
     role: "Toastmaster",
     activity: "Close meeting program and return control to President",
-    duration: "30 sec",
+    duration: "1–2 min",
   },
   {
-    time: "8:21 PM – 8:26 PM",
+    time: "",
     role: "President",
     activity:
-      "Share announcements, invite guest feedback, and deliver closing remarks",
+      "Share announcements, including upcoming roles and meeting schedules; invite guest feedback and deliver closing remarks",
     duration: "5 min",
   },
   {
-    time: "8:26 PM – 8:29 PM",
-    role: "Vice President of Education",
-    activity: "Review upcoming meeting schedule and confirm role assignments",
-    duration: "3 min",
-  },
-  {
-    time: "8:29 PM – 8:30 PM",
+    time: "8:30 PM",
     role: "President",
     activity: "Thank attendees and adjourn the meeting",
     duration: "1 min",

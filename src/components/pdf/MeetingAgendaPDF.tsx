@@ -64,9 +64,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "#772432",
-    paddingVertical: 8,
+    paddingVertical: 9,
     paddingHorizontal: 10,
-    marginTop: 6,
+    marginTop: 12,
+  },
+  tableHeader: {
+    flexDirection: "row",
+    backgroundColor: "#F8FAFC",
+    paddingVertical: 7,
+    paddingHorizontal: 8,
+    fontFamily: "Helvetica-Bold",
   },
   sectionTitle: {
     fontSize: 9,
@@ -81,14 +88,6 @@ const styles = StyleSheet.create({
   activityTime: {
     fontWeight: "bold",
     color: "#475569",
-  },
-
-  tableHeader: {
-    flexDirection: "row",
-    backgroundColor: "#F1F5F9",
-    paddingVertical: 9,
-    paddingHorizontal: 8,
-    fontFamily: "Helvetica-Bold",
   },
   row: {
     flexDirection: "row",

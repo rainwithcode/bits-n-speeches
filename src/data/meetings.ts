@@ -52,93 +52,118 @@ export const meetingDetailItems = [
   },
 ];
 
+type AgendaItem = {
+  type: "section" | "activity";
+  title: string;
+  time?: string;
+  activity?: string;
+  duration?: string;
+};
+
 export const agenda = [
-  // Opening (7:00–7:15 PM)
+  // Opening
   {
+    type: "section",
+    title: "Opening",
     time: "7:00–7:15 PM",
+  },
+  {
+    type: "activity",
     role: "Sergeant-at-Arms",
     activity: "Call meeting to order",
     duration: "1 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "Opening Thought",
     activity: "Open with thought of the day",
     duration: "1 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "President",
     activity: "Welcome and introduce guests",
     duration: "3 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "Toastmaster",
     activity:
       "Introduce meeting theme, club updates, role players, and participants",
     duration: "3 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "Humorous",
     activity: "Share a joke or humorous story",
     duration: "1 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "Educational Minute",
     activity: "Share a brief educational insight or speaking tip",
     duration: "1 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "Toastmaster",
     activity: "Call on role players to briefly explain their responsibilities",
     duration: "3 min",
   },
 
-  // Prepared Speeches (7:15–7:40 PM)
+  // Prepared Speeches
   {
+    type: "section",
+    title: "Prepared Speeches",
     time: "7:15–7:40 PM",
+  },
+  {
+    type: "activity",
     role: "Toastmaster",
     activity: "Introduce Speaker #1",
     duration: "",
   },
   {
-    time: "",
+    type: "activity",
     role: "Speaker #1",
     activity: "Deliver a prepared speech",
     duration: "5–7 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "Toastmaster",
     activity: "Introduce Speaker #2",
     duration: "",
   },
   {
-    time: "",
+    type: "activity",
     role: "Speaker #2",
     activity: "Deliver a prepared speech",
     duration: "5–7 min",
   },
   {
+    type: "activity",
     time: "7:40 PM",
     role: "Toastmaster",
     activity: "Call on Timer and direct members to send votes to Awards Master",
     duration: "1 min",
   },
 
-  // Table Topics (7:40–8:00 PM)
+  // Table Topics
   {
-    time: "7:40–7:55 PM",
+    type: "section",
+    title: "Table Topics",
+    time: "7:40–8:00 PM",
+  },
+  {
+    type: "activity",
     role: "Table Topics Master",
     activity:
       "Introduce the Table Topics session and call on Grammarian and Timer",
     duration: "1 min",
   },
   {
+    type: "activity",
     time: "7:55 PM",
     role: "Table Topics Master",
     activity:
@@ -146,64 +171,71 @@ export const agenda = [
     duration: "",
   },
   {
+    type: "activity",
     time: "8:00 PM",
     role: "Toastmaster",
     activity: "Give control to General Evaluator",
     duration: "1 min",
   },
 
-  // Evaluations (8:00–8:15 PM)
+  // Evaluations
   {
+    type: "section",
+    title: "Evaluations",
     time: "8:00–8:15 PM",
+  },
+  {
+    type: "activity",
     role: "General Evaluator",
     activity: "Introduce the evaluation segment",
     duration: "1 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "Evaluator #1",
     activity: "Evaluate speech #1",
     duration: "2–3 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "Evaluator #2",
     activity: "Evaluate speech #2",
     duration: "2–3 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "General Evaluator",
     activity: "Call on Timer and direct members to send votes to Awards Master",
     duration: "1 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "General Evaluator",
     activity:
       "Evaluate the entire meeting, including organization, transitions, speech evaluations, role performance, and opportunities for improvement",
     duration: "3–5 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "Grammarian",
     activity: "Report effective language use and usage of the Word of the Day",
     duration: "1–2 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "Ah Counter",
     activity: "Report filler words and unnecessary sounds used by speakers",
     duration: "1–2 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "Listener",
     activity:
       "Quiz members on details shared during the meeting, adjusting to available time",
     duration: "2–5 min (flexible)",
   },
   {
+    type: "activity",
     time: "8:15 PM",
     role: "Awards Master",
     activity:
@@ -213,19 +245,25 @@ export const agenda = [
 
   // Closing
   {
-    time: "",
+    type: "section",
+    title: "Closing",
+    time: "8:15–8:30 PM",
+  },
+  {
+    type: "activity",
     role: "Toastmaster",
     activity: "Close meeting program and return control to President",
     duration: "1–2 min",
   },
   {
-    time: "",
+    type: "activity",
     role: "President",
     activity:
       "Share announcements, including upcoming roles and meeting schedules; invite guest feedback and deliver closing remarks",
     duration: "5 min",
   },
   {
+    type: "activity",
     time: "8:30 PM",
     role: "President",
     activity: "Thank attendees and adjourn the meeting",

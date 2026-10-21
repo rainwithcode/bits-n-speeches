@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   clubName: {
     fontSize: 23,
     fontFamily: "Helvetica-Bold",
+    color: "#004165",
     marginBottom: 5,
   },
   subtitle: {
@@ -74,6 +75,11 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
     paddingHorizontal: 8,
     fontFamily: "Helvetica-Bold",
+  },
+  tableTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#004165",
   },
   sectionTitle: {
     fontSize: 9,
@@ -167,7 +173,7 @@ export default function MeetingAgendaPDF({
           <Text style={styles.detail}>{location}</Text>
         </View>
 
-        <Text style={styles.sectionTitle}>Program Schedule</Text>
+        <Text style={styles.tableTitle}>Program Schedule</Text>
 
         {agenda.map((item, index) => {
           if (item.type === "section") {

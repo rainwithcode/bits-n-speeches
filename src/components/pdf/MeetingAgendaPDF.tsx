@@ -59,14 +59,33 @@ const styles = StyleSheet.create({
     color: "#596579",
     marginBottom: 4,
   },
-  sectionTitle: {
-    fontSize: 13,
-    fontFamily: "Helvetica-Bold",
-    marginBottom: 12,
+  sectionRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#772432",
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    marginTop: 6,
   },
+  sectionTitle: {
+    fontSize: 9,
+    fontWeight: "bold",
+    color: "#ffff",
+  },
+  sectionTime: {
+    fontSize: 9,
+    fontWeight: "bold",
+    color: "#ffff",
+  },
+  activityTime: {
+    fontWeight: "bold",
+    color: "#475569",
+  },
+
   tableHeader: {
     flexDirection: "row",
-    backgroundColor: "#F1F3F6",
+    backgroundColor: "#F1F5F9",
     paddingVertical: 9,
     paddingHorizontal: 8,
     fontFamily: "Helvetica-Bold",
@@ -151,23 +170,40 @@ export default function MeetingAgendaPDF({
 
         <Text style={styles.sectionTitle}>Program Schedule</Text>
 
-        <View style={styles.tableHeader}>
-          <Text style={styles.time}>Time</Text>
-          <Text style={styles.role}>Role</Text>
-          <Text style={styles.presenter}>Presenter</Text>
-          <Text style={styles.activity}>Activity</Text>
-          <Text style={styles.duration}>Duration</Text>
-        </View>
-
-        {agenda.map((item, index) => (
-          <View key={`${item.role}-${index}`} style={styles.row} wrap={false}>
-            <Text style={styles.time}>{item.time}</Text>
-            <Text style={styles.role}>{item.role}</Text>
-            <Text style={styles.presenter}>{getPresenter(item.role)}</Text>
-            <Text style={styles.activity}>{item.activity}</Text>
-            <Text style={styles.duration}>{item.duration || "—"}</Text>
-          </View>
-        ))}
+        {agenda.map((item, index) => {
+          if (item.type === "section") {
+            return (
+              <View key={`section-${index}`} wrap={false}>
+                <View style={styles.sectionRow}>
+                  <Text style={styles.sectionTitle}>{item.title}</Text>
+                  <Text style={styles.sectionTime}>{item.time}</Text>
+                </View>
+                <View style={styles.tableHeader}>
+                  <Text style={styles.role}>Role</Text>
+                  <Text style={styles.presenter}>Presenter</Text>
+                  <Text style={styles.activity}>Activity</Text>
+                  <Text style={styles.duration}>Duration</Text>
+                </View>
+              </View>
+            );
+          }
+          return (
+            <View key={`${item.role}-${index}`} style={styles.row} wrap={false}>
+              <Text style={styles.role}>{item.role}</Text>
+              <Text style={styles.presenter}>
+                {getPresenter(item.role ?? "")}
+              </Text>
+              <Text style={styles.activity}>
+                {" "}
+                {item.time ? (
+                  <Text style={styles.activityTime}>{item.time} · </Text>
+                ) : null}
+                {item.activity}
+              </Text>
+              <Text style={styles.duration}>{item.duration || "—"}</Text>
+            </View>
+          );
+        })}
 
         <Text style={styles.footer}>
           {siteConfig.name} · {meetingInfo.schedule.day} at{" "}

@@ -173,7 +173,7 @@ export default function MeetingAgendaPDF({
           <Text style={styles.detail}>{location}</Text>
         </View>
 
-        <Text style={styles.tableTitle}>Program Schedule</Text>
+        <Text style={styles.tableTitle}>Meeting Schedule</Text>
 
         {agenda.map((item, index) => {
           if (item.type === "section") {

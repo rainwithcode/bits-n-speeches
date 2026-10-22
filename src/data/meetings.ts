@@ -52,15 +52,21 @@ export const meetingDetailItems = [
   },
 ];
 
-type AgendaItem = {
-  type: "section" | "activity";
-  title: string;
-  time?: string;
-  activity?: string;
-  duration?: string;
-};
+export type AgendaItem =
+  | {
+      type: "section";
+      title: string;
+      time?: string;
+    }
+  | {
+      type: "activity";
+      role: string;
+      time?: string;
+      activity: string;
+      duration: string;
+    };
 
-export const agenda = [
+export const agenda: AgendaItem[] = [
   // Opening
   {
     type: "section",

@@ -170,6 +170,13 @@ export const agenda: AgendaItem[] = [
   },
   {
     type: "activity",
+    role: "Table Topics Master",
+    activity:
+      "Facilitate impromptu speaking by introducing prompts and inviting participants to respond",
+    duration: "15 mins",
+  },
+  {
+    type: "activity",
     time: "7:55 PM",
     role: "Table Topics Master",
     activity:

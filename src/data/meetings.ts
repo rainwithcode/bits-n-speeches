@@ -272,8 +272,14 @@ export const agenda: AgendaItem[] = [
     type: "activity",
     role: "President",
     activity:
-      "Share announcements, including upcoming roles and meeting schedules; invite guest feedback and deliver closing remarks",
-    duration: "5 min",
+      "Share announcements; invite guest feedback and deliver closing remarks",
+    duration: "3 min",
+  },
+  {
+    type: "activity",
+    role: "Vice President of Education",
+    activity: "Present upcoming roles and meeting schedule",
+    duration: "3 min",
   },
   {
     type: "activity",

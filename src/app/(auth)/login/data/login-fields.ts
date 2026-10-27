@@ -2,9 +2,9 @@ import type { FormField } from "@/types/forms";
 
 export const loginFields: FormField[] = [
   {
-    name: "username",
-    id: "username",
-    label: "Username",
+    name: "email",
+    id: "email",
+    label: "Email",
     type: "text",
     required: true,
   },

@@ -5,7 +5,10 @@ import { redirect } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/server";
 
-export async function login(formData: FormData) {
+import type { LoginState } from "./components/LoginForm";
+
+
+export async function login(previousState: LoginState, formData: FormData) {
   const supabase = await createClient();
 
   // type-casting here for convenience
@@ -18,7 +21,12 @@ export async function login(formData: FormData) {
   const { error } = await supabase.auth.signInWithPassword(data);
 
   if (error) {
-    redirect("/error");
+    console.error("Supabase login error:", {
+      message: error.message,
+      status: error.status,
+      code: error.code,
+    });
+    return { error: `Unable to log in: ${error.message}` };
   }
 
   revalidatePath("/", "layout");

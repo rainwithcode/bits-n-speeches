@@ -1,13 +1,23 @@
+"use client";
+
+import { useActionState } from "react";
+
 import Button from "@/components/ui/Button";
 
 import { login } from "../actions";
 import { loginFields } from "../data/login-fields";
 
+export type LoginState = {
+  error: string | null;
+};
 
 export default function LoginForm() {
+  const initialState: LoginState = { error: null };
+  const [state, formAction, isPending] = useActionState(login, initialState);
+
   return (
     <form
-      action={login}
+      action={formAction}
       className="w-full max-w-lg space-y-4 p-6 border border-border rounded-md bg-primary-foreground"
     >
       {loginFields.map((field) => (
@@ -25,9 +35,15 @@ export default function LoginForm() {
           />
         </div>
       ))}
-      <Button as="button" type="submit" className="inline w-full mt-4">
-        Log In
+      <Button
+        as="button"
+        type="submit"
+        className="inline w-full mt-4"
+        disabled={isPending}
+      >
+        {isPending ? "Logging In..." : "Log In"}
       </Button>
+      {state.error && <p className="text-secondary">{state.error}</p>}
     </form>
   );
 }

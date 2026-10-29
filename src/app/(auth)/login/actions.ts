@@ -7,7 +7,6 @@ import { createClient } from "@/lib/supabase/server";
 
 import type { LoginState } from "./components/LoginForm";
 
-
 export async function login(previousState: LoginState, formData: FormData) {
   const supabase = await createClient();
 
@@ -30,7 +29,7 @@ export async function login(previousState: LoginState, formData: FormData) {
   }
 
   revalidatePath("/", "layout");
-  redirect("/account");
+  redirect("/portal");
 }
 
 export async function signup(formData: FormData) {
@@ -50,5 +49,5 @@ export async function signup(formData: FormData) {
   }
 
   revalidatePath("/", "layout");
-  redirect("/account");
+  redirect("/portal");
 }

@@ -19,7 +19,7 @@ export default function SidebarNavigation() {
             <li key={link.label}>
               <Link
                 href={link.href}
-                className={`flex items-center gap-3 p-2 text-xl ${isActive ? "bg-accent text-primary" : "hover:bg-primary/40"}`}
+                className={`flex items-center gap-3 py-2 px-4 text-xl ${isActive ? "bg-accent text-primary" : "hover:bg-primary/40"}`}
               >
                 <Icon className="size-5" />
                 <span

@@ -7,7 +7,7 @@ import SidebarNavigation from "./SidebarNavigation";
 
 export default function Sidebar() {
   return (
-    <aside className="flex flex-col min-h-screen w-[264px] p-4 bg-surface-dark text-primary-foreground">
+    <aside className="flex flex-col min-h-screen w-[280px] p-4 bg-surface-dark text-primary-foreground">
       <Link
         href="/portal"
         className="flex items-center gap-2 mb-8 font-heading font-bold text-xl"

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { siteConfig } from "@/data/site-config";
 
-import SidebarNavigation from "./SidebarNavigation";
+import SidebarNavigation from "./PrimaryNavigation";
 
 export default function Sidebar() {
   return (

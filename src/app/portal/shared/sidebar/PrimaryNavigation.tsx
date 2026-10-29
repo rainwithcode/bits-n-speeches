@@ -2,9 +2,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { navLinks } from "../data/nav-links";
+import { navLinks } from "../../data/nav-links";
 
-export default function SidebarNavigation() {
+export default function PrimaryNavigation() {
   const activeLink = usePathname();
 
   console.log(activeLink);

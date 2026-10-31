@@ -11,7 +11,7 @@ export default function PrimaryNavigation() {
 
   return (
     <nav>
-      <ul className="space-y-2">
+      <ul className="space-y-2 p-4">
         {navLinks.map((link) => {
           const Icon = link.icon;
           const isActive = activeLink === link.href;

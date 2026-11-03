@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { siteConfig } from "@/data/site-config";
 
+import AccountNavigation from "./AccountNavigation";
 import PrimaryNavigation from "./PrimaryNavigation";
 
 export default function Sidebar() {
@@ -23,6 +24,7 @@ export default function Sidebar() {
       </Link>
       <div className="h-full flex flex-col justify-between">
         <PrimaryNavigation />
+        <AccountNavigation />
       </div>
     </aside>
   );

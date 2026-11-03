@@ -4,7 +4,7 @@ import { useActionState } from "react";
 
 import Button from "@/components/ui/Button";
 
-import { login } from "../actions";
+import { login } from "../../actions";
 import { loginFields } from "../data/login-fields";
 
 export type LoginState = {

@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { NextResponse } from "next/server";
 
 import { createClient } from "@/lib/supabase/server";
 
@@ -52,14 +53,20 @@ export async function signup(formData: FormData) {
   redirect("/portal");
 }
 
-// where to place
 export async function signOut() {
   const supabase = await createClient();
 
   const { error } = await supabase.auth.signOut({ scope: "local" });
 
   if (error) {
-    throw new Error("Unable to sign out. Please try again later.");
+    return NextResponse.json(
+      {
+        error: "Unable to sign out. Please try again later.",
+      },
+      {
+        status: error.status,
+      },
+    );
   }
 
   redirect("/");

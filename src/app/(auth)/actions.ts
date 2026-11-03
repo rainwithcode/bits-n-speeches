@@ -2,7 +2,6 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { NextResponse } from "next/server";
 
 import { createClient } from "@/lib/supabase/server";
 
@@ -27,7 +26,7 @@ export async function login(previousState: LoginState, formData: FormData) {
       code: error.code,
     });
     return { error: `Unable to log in: ${error.message}` };
-  }
+  } 
 
   revalidatePath("/", "layout");
   redirect("/portal");
@@ -56,18 +55,20 @@ export async function signup(formData: FormData) {
 export async function signOut() {
   const supabase = await createClient();
 
-  const { error } = await supabase.auth.signOut({ scope: "local" });
+  try {
+    const { error } = await supabase.auth.signOut({ scope: "local" });
 
-  if (error) {
-    return NextResponse.json(
-      {
+    if (error) {
+      console.error("Sign-out failed: ", error);
+      return {
         error: "Unable to sign out. Please try again later.",
-      },
-      {
-        status: error.status,
-      },
-    );
+      };
+    }
+  } catch (error) {
+    console.error("Unexpected sign-out error: ", error);
+    return {
+      error: "Unable to sign out. Please try again later.",
+    };
   }
-
   redirect("/");
 }

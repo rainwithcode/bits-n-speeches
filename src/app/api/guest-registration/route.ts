@@ -14,8 +14,15 @@ import validateFormData from "@/lib/validations/validate-form-data";
 
 export async function POST(request: Request) {
   const rateLimiter = createGuestRateLimiter();
-  const identifier =
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const identifier = getClientIp(request);
+
+  if (!identifier) {
+    return NextResponse.json(
+      { error: "Registration is temporarily unavailable." },
+      { status: 503 },
+    );
+  }
+
   const result = await rateLimiter.limit(identifier);
 
   if (!result.success) {

@@ -24,6 +24,7 @@ export async function POST(request: Request) {
     );
   }
 
+  // Block registration if rate limit is exceeded or rate limiter encounters an error
   try {
     const result = await rateLimiter.limit(identifier);
 

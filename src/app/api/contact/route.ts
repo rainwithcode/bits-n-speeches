@@ -12,7 +12,7 @@ export async function POST(request: Request) {
   const rateLimiter = createContactRateLimiter();
   const identifier = await getClientIp(request);
 
-  // Block submissions if user with IP exceeds their rate limit 
+  // Block submissions if user with IP exceeds their rate limit
   if (identifier) {
     try {
       const result = await rateLimiter.limit(identifier);

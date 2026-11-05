@@ -8,6 +8,7 @@ import { sendEmail } from "@/lib/email/sendEmail";
 import { formatDateTime } from "@/lib/meetings/format";
 import { getMeetingById, getMeetingEndsAt } from "@/lib/meetings/meetings";
 import { subscribeToNewsletter } from "@/lib/newsletter/subscribe";
+import { checkRedisConnection } from "@/lib/redis/check-redis-connection";
 import { createGuestRateLimiter } from "@/lib/redis/rate-limit";
 import { guestRegistrationSchema } from "@/lib/validations/guest-registration";
 import validateFormData from "@/lib/validations/validate-form-data";
@@ -19,6 +20,17 @@ export async function POST(request: Request) {
   if (!identifier) {
     return NextResponse.json(
       { error: "Registration is temporarily unavailable." },
+      { status: 503 },
+    );
+  }
+
+  const isRedisAvailable = await checkRedisConnection();
+
+  if (!isRedisAvailable) {
+    return NextResponse.json(
+      {
+        error: "Registration is temporarily unavailable.",
+      },
       { status: 503 },
     );
   }

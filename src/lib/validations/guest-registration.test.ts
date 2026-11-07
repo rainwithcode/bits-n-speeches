@@ -11,6 +11,12 @@ const guest = {
   newsletterOptIn: "true",
 };
 
+function createGuest(input: object) {
+  const newGuest = { ...guest, ...input };
+
+  return newGuest;
+}
+
 describe("guest registration validation", () => {
   const result = guestRegistrationSchema.safeParse(guest);
 

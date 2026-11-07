@@ -15,6 +15,7 @@ export const guestRegistrationSchema = z.object({
     .string()
     .trim()
     .max(30, "Phone number must not exceed 30 characters")
+    .regex(/^\+?[0-9\s().-]+$/, "Please enter a valid phone number")
     .optional(),
   meeting: z.uuid("Please select a meeting"),
   message: z

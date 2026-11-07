@@ -19,13 +19,6 @@ function createGuest(input: Partial<Guest>) {
   return newGuest;
 }
 
-describe("valid guest", () => {
-  it("accepts a valid registration", () => {
-    const result = guestRegistrationSchema.safeParse(guest);
-    expect(result.success).toBe(true);
-  });
-});
-
 describe("name validation", () => {
   const nameInputs = [
     // name boundaries

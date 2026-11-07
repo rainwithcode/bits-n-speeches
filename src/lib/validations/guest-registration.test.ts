@@ -19,7 +19,7 @@ function createGuest(input: Partial<Guest>) {
   return newGuest;
 }
 
-describe("guest registration validation", () => {
+describe("valid guest", () => {
   it("accepts a valid registration", () => {
     const result = guestRegistrationSchema.safeParse(guest);
     expect(result.success).toBe(true);

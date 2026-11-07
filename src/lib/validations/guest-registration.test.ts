@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import type { Guest } from "@/types/guest";
+
 import { guestRegistrationSchema } from "./guest-registration";
 
 const guest = {
@@ -11,7 +13,7 @@ const guest = {
   newsletterOptIn: "true",
 };
 
-function createGuest(input: object) {
+function createGuest(input: Partial<Guest>) {
   const newGuest = { ...guest, ...input };
 
   return newGuest;

@@ -3,10 +3,10 @@ import { z } from "zod";
 export const guestRegistrationSchema = z.object({
   fullName: z
     .string()
-    .regex(/^[\p{L}\p{M}\s.'’,()\-]+$/u)
     .trim()
     .min(1, "Full name is required")
-    .max(100, "Full name must not exceed 100 characters"),
+    .max(100, "Full name must not exceed 100 characters")
+    .regex(/^[\p{L}\p{M}\s.'’,()\-]+$/u),
   email: z
     .email("Please enter a valid email address")
     .min(3, "Email must be at least 3 characters")

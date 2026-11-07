@@ -176,3 +176,78 @@ describe("email validation", () => {
     expect(result.success).toBe(expected);
   });
 });
+
+describe("phone number validation", () => {
+  const phoneInputs = [
+    // phone number boundaries
+    {
+      phone: "1".repeat(30),
+      expected: true,
+      description: "accepts a phone number with 30 characters",
+    },
+    {
+      phone: "1".repeat(31),
+      expected: false,
+      description: "rejects a phone number with 31 characters",
+    },
+    {
+      phone: "   ",
+      expected: false,
+      description: "rejects a whitespace-only phone number",
+    },
+    // accepted phone numbers
+    {
+      phone: "09171234567",
+      expected: true,
+      description: "accepts a local phone number",
+    },
+    {
+      phone: "+639171234567",
+      expected: true,
+      description: "accepts an international phone number",
+    },
+    {
+      phone: "+1 555 555 1234",
+      expected: true,
+      description: "accepts a phone number with spaces",
+    },
+    {
+      phone: "(555) 555-1234",
+      expected: true,
+      description: "accepts parentheses and hyphens",
+    },
+    {
+      phone: "555.555.1234",
+      expected: true,
+      description: "accepts periods as separators",
+    },
+    // invalid phone numbers
+    {
+      phone: undefined,
+      expected: true,
+      description: "accepts an omitted phone number",
+    },
+    {
+      phone: "abc123456",
+      expected: false,
+      description: "rejects alphabetic characters",
+    },
+    {
+      phone: "555@5551234",
+      expected: false,
+      description: "rejects unsupported special characters",
+    },
+    {
+      phone: "+63+9171234567",
+      expected: false,
+      description: "rejects multiple plus signs",
+    },
+  ];
+
+  it.each(phoneInputs)("$description", ({ phone, expected }) => {
+    const newGuest = createGuest({ phone });
+    const result = guestRegistrationSchema.safeParse(newGuest);
+
+    expect(result.success).toBe(expected);
+  });
+});

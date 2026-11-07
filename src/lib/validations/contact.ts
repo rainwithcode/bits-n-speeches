@@ -3,6 +3,7 @@ import z from "zod";
 export const contactSchema = z.object({
   fullName: z
     .string()
+    .regex(/^[\p{L}\p{M}\s.'’,()\-]+$/u)
     .trim()
     .min(1, "Full name is required")
     .max(100, "Full name must not exceed 100 characters"),

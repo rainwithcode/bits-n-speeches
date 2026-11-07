@@ -4,7 +4,7 @@ import type { Guest } from "@/types/guest";
 
 import { guestRegistrationSchema } from "./guest-registration";
 
-const guest = {
+const guest: Guest = {
   fullName: "Jane Doe",
   email: "janedoe@email.com",
   phone: "+1 555 555 1234",

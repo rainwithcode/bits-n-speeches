@@ -28,12 +28,6 @@ export const members: Member[] = [
       'Bits ’N Speeches provides a supportive environment where members can develop confidence, refine their ideas, and strengthen their "speaking muscle."',
   },
   {
-    name: "Rosemary Okeke",
-    image: "rosemary-okeke.jpg",
-    testimonial:
-      "Joining Bits ’N Speeches has been an amazing experience! I am gaining confidence speaking in front of others, met amazing people, and growing both personally and professionally. I love being part of such a supportive and inspiring community.",
-  },
-  {
     name: "Edward Johnson",
     image: "edward-johnson.jpg",
     testimonial:
@@ -70,10 +64,6 @@ export const members: Member[] = [
   {
     name: "Samantha Lam",
     image: "samantha-lam.jpg",
-  },
-  {
-    name: "Rebecca Kendrick",
-    image: "rebecca-kendrick.jpg",
   },
   {
     name: "Cheryl Isaac",

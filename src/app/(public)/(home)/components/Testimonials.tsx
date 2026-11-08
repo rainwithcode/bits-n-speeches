@@ -6,6 +6,10 @@ import { members } from "../../../../data/members";
 import SectionHeading from "../../shared/SectionHeading";
 
 export default function Testimonials() {
+  const membersWithTestimonials = members
+    .filter((member) => member.testimonial != null)
+    .slice(0, 3);
+
   return (
     <section className="bg-primary">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
@@ -13,7 +17,7 @@ export default function Testimonials() {
           What Our Members Say
         </SectionHeading>
         <ul className="grid md:grid-cols-3 gap-4 lg:gap-8 mt-8">
-          {members.slice(0, 3).map((member) => {
+          {membersWithTestimonials.map((member) => {
             return (
               <li
                 key={member.name}

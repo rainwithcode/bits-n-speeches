@@ -7,7 +7,7 @@ import SectionHeading from "../../shared/SectionHeading";
 
 export default function Testimonials() {
   const membersWithTestimonials = members
-    .filter((member) => member.testimonial != null)
+    .filter((member) => member.testimonial != null && member.profession != null)
     .slice(0, 3);
 
   return (

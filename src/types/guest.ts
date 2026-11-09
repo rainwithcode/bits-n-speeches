@@ -1,10 +1,8 @@
-import type { UUID } from "crypto";
-
 export type Guest = {
   fullName: string;
   email: string;
   phone: string;
-  meeting: UUID;
+  meeting: string;
   message: string;
   newsletterOptIn?: "true";
 };

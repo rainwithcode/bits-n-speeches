@@ -14,23 +14,43 @@ import validateFormData from "@/lib/validations/validate-form-data";
 
 export async function POST(request: Request) {
   const rateLimiter = createGuestRateLimiter();
-  const identifier =
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-  const result = await rateLimiter.limit(identifier);
+  const identifier = getClientIp(request);
 
-  if (!result.success) {
-    const reset = result.reset;
-    const now = Date.now();
-    const retryAfter = Math.max(0, Math.ceil((reset - now) / 1000));
-    const retryAfterMinutes = Math.ceil(retryAfter / 60);
+  // Block registration when IP is unavailable
+  if (!identifier) {
+    return NextResponse.json(
+      { error: "Registration is temporarily unavailable." },
+      { status: 503 },
+    );
+  }
+
+  // Block registration if rate limit is exceeded or rate limiter encounters an error
+  try {
+    const result = await rateLimiter.limit(identifier);
+
+    if (!result.success) {
+      const reset = result.reset;
+      const now = Date.now();
+      const retryAfter = Math.max(0, Math.ceil((reset - now) / 1000));
+      const retryAfterMinutes = Math.ceil(retryAfter / 60);
+
+      return NextResponse.json(
+        {
+          error: `Too many requests. Please try again in ${retryAfterMinutes} minute${retryAfterMinutes === 1 ? "" : "s"}.`,
+        },
+        {
+          status: 429,
+        },
+      );
+    }
+  } catch (error) {
+    console.error("Contact rate limiter failed: ", error);
 
     return NextResponse.json(
       {
-        error: `Too many requests. Please try again in ${retryAfterMinutes} minute${retryAfterMinutes === 1 ? "" : "s"}.`,
+        error: "Registration is temporarily unavailable.",
       },
-      {
-        status: 429,
-      },
+      { status: 503 },
     );
   }
 

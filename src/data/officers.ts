@@ -13,7 +13,7 @@ export const officers: Officer[] = [
     role: "Vice President of Education",
   },
   {
-    name: "Douglas Bloom",
+    name: "Gary Pettigrew",
     role: "Vice President of Membership",
   },
   {
@@ -29,7 +29,7 @@ export const officers: Officer[] = [
     role: "Treasurer",
   },
   {
-    name: "Neelam Wadhwani",
+    name: "Kristen Bahler",
     role: "Sergeant-at-Arms",
   },
   {

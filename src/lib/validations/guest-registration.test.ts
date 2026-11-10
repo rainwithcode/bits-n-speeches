@@ -251,3 +251,32 @@ describe("phone number validation", () => {
     expect(result.success).toBe(expected);
   });
 });
+
+describe("meeting validation", () => {
+  const meetingInputs = [
+    { meeting: "", expected: false, description: "rejects an empty selection" },
+    {
+      meeting: "58a4c055-4039-479f-98cc-bfcb266e1408",
+      expected: true,
+      description: "accepts a uuid",
+    },
+    {
+      meeting: "58a4c055-4039",
+      expected: false,
+      description: "rejects an invalid uuid",
+    },
+    {
+      meeting: "123",
+      expected: false,
+      description: "rejects a non-uuid value",
+    },
+  ];
+
+  it.each(meetingInputs)("$description", ({ meeting, expected }) => {
+    const newGuest = createGuest({
+      meeting: meeting,
+    });
+    const result = guestRegistrationSchema.safeParse(newGuest);
+    expect(result.success).toBe(expected);
+  });
+});

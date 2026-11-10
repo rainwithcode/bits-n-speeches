@@ -4,5 +4,5 @@ export type Guest = {
   phone?: string;
   meeting: string;
   message?: string | undefined;
-  newsletterOptIn?: "true";
+  newsletterOptIn?: string | boolean | undefined;
 };

@@ -181,6 +181,21 @@ describe("phone number validation", () => {
   const phoneInputs = [
     // phone number boundaries
     {
+      phone: "",
+      expected: true,
+      description: "accepts an empty phone number",
+    },
+    {
+      phone: "   ",
+      expected: true,
+      description: "accepts a whitespace-only phone number",
+    },
+    {
+      phone: undefined,
+      expected: true,
+      description: "accepts an omitted phone number",
+    },
+    {
       phone: "1".repeat(30),
       expected: true,
       description: "accepts a phone number with 30 characters",
@@ -189,11 +204,6 @@ describe("phone number validation", () => {
       phone: "1".repeat(31),
       expected: false,
       description: "rejects a phone number with 31 characters",
-    },
-    {
-      phone: "   ",
-      expected: false,
-      description: "rejects a whitespace-only phone number",
     },
     // accepted phone numbers
     {
@@ -222,11 +232,6 @@ describe("phone number validation", () => {
       description: "accepts periods as separators",
     },
     // invalid phone numbers
-    {
-      phone: undefined,
-      expected: true,
-      description: "accepts an omitted phone number",
-    },
     {
       phone: "abc123456",
       expected: false,

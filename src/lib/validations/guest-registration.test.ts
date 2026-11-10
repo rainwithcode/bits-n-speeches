@@ -259,12 +259,14 @@ describe("phone number validation", () => {
 
 describe("meeting validation", () => {
   const meetingInputs = [
-    { meeting: "", expected: false, description: "rejects an empty selection" },
+    // valid values
     {
       meeting: "58a4c055-4039-479f-98cc-bfcb266e1408",
       expected: true,
       description: "accepts a uuid",
     },
+    // invalid values
+    { meeting: "", expected: false, description: "rejects an empty selection" },
     {
       meeting: "58a4c055-4039",
       expected: false,

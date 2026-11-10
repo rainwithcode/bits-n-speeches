@@ -338,3 +338,56 @@ describe("message validation", () => {
     expect(result.success).toBe(expected);
   });
 });
+
+describe("newsletter opt in validation", () => {
+  const newsletterOptInInputs = [
+    // valid values
+    {
+      newsletterOptIn: undefined,
+      expected: true,
+      description: "accepts an empty value",
+    },
+    {
+      newsletterOptIn: "true",
+      expected: true,
+      description: "accepts the string true",
+    },
+    // invalid values
+    {
+      newsletterOptIn: "TRUE",
+      expected: false,
+      description: "rejects the string TRUE",
+    },
+    {
+      newsletterOptIn: "false",
+      expected: false,
+      description: "rejects the string false",
+    },
+    {
+      newsletterOptIn: "yes",
+      expected: false,
+      description: "rejects an unexpected string value",
+    },
+    {
+      newsletterOptIn: true,
+      expected: false,
+      description: "rejects a boolean true",
+    },
+    {
+      newsletterOptIn: false,
+      expected: false,
+      description: "rejects a boolean false",
+    },
+  ];
+
+  it.each(newsletterOptInInputs)(
+    "$description",
+    ({ newsletterOptIn, expected }) => {
+      const newGuest = createGuest({
+        newsletterOptIn: newsletterOptIn,
+      });
+      const result = guestRegistrationSchema.safeParse(newGuest);
+      expect(result.success).toBe(expected);
+    },
+  );
+});

@@ -3,6 +3,6 @@ export type Guest = {
   email: string;
   phone?: string;
   meeting: string;
-  message?: string;
+  message?: string | undefined;
   newsletterOptIn?: "true";
 };

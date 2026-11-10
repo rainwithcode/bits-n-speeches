@@ -280,3 +280,56 @@ describe("meeting validation", () => {
     expect(result.success).toBe(expected);
   });
 });
+
+describe("message validation", () => {
+  const messageInputs = [
+    {
+      message: "",
+      expected: true,
+      description: "accepts an empty message",
+    },
+    {
+      message: " ",
+      expected: true,
+      description: "accepts a whitespace-only message",
+    },
+    {
+      message: " hello ",
+      expected: true,
+      description: "accepts a message with surrounding whitespace",
+    },
+    {
+      message: undefined,
+      expected: true,
+      description: "accepts an omitted message",
+    },
+    {
+      message: "Hello",
+      expected: true,
+      description: "accepts a valid message",
+    },
+    {
+      message: "12345",
+      expected: true,
+      description: "accepts a message with numbers",
+    },
+    {
+      message: "A".repeat(2000),
+      expected: true,
+      description: "accepts a message with 2000 characters",
+    },
+    {
+      message: "A".repeat(2001),
+      expected: false,
+      description: "accepts a message with 2001 characters",
+    },
+  ];
+
+  it.each(messageInputs)("$description", ({ message, expected }) => {
+    const newGuest = createGuest({
+      message: message,
+    });
+    const result = guestRegistrationSchema.safeParse(newGuest);
+    expect(result.success).toBe(expected);
+  });
+});

@@ -10,7 +10,8 @@
     "lint": "eslint",
     "typecheck": "pnpm exec tsc --noEmit",
     "prepare": "husky",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

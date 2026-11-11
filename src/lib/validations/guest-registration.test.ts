@@ -392,7 +392,9 @@ describe("newsletter opt in validation", () => {
       expect(result.success).toBe(expected);
     },
   );
+});
 
+describe("newsletter opt in input transformation", () => {
   const newsletterInputTransformations = [
     // valid values
     {

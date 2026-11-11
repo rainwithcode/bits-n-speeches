@@ -6,3 +6,8 @@ export type Guest = {
   message?: string | undefined;
   newsletterOptIn?: string | boolean | undefined;
 };
+
+export type Inquiry = Omit<Guest, "phone" | "meeting"> &
+  Required<Pick<Guest, "message">> & {
+    subject: string;
+  };

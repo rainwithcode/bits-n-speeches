@@ -24,5 +24,7 @@ jobs:
         run: pnpm lint
       - name: Check types
         run: pnpm exec tsc --noEmit
-      - name: Run build
+      - name: Run tests
+        run: pnpm test
+      - name: Build application
         run: pnpm build

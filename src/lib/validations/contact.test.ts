@@ -231,4 +231,10 @@ describe("subject validation", () => {
     const result = contactSchema.safeParse(newInquiry);
     expect(result.success).toBe(expected);
   });
+
+  it("trims whitespace in subject", () => {
+    const newInquiry = createInquiry({ subject: " hello " });
+    const result = contactSchema.safeParse(newInquiry);
+    expect(result?.data?.subject).toBe("hello");
+  });
 });

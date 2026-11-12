@@ -314,3 +314,82 @@ describe("message validation", () => {
     expect(result?.data?.message).toBe("hello");
   });
 });
+
+describe("newsletter opt in validation", () => {
+  const newsletterOptInInputs = [
+    // valid values
+    {
+      newsletterOptIn: undefined,
+      expected: true,
+      description: "accepts an empty value",
+    },
+    {
+      newsletterOptIn: "true",
+      expected: true,
+      description: "accepts the string true",
+    },
+    // invalid values
+    {
+      newsletterOptIn: "TRUE",
+      expected: false,
+      description: "rejects the string TRUE",
+    },
+    {
+      newsletterOptIn: "false",
+      expected: false,
+      description: "rejects the string false",
+    },
+    {
+      newsletterOptIn: "yes",
+      expected: false,
+      description: "rejects an unexpected string value",
+    },
+    {
+      newsletterOptIn: true,
+      expected: false,
+      description: "rejects a boolean true",
+    },
+    {
+      newsletterOptIn: false,
+      expected: false,
+      description: "rejects a boolean false",
+    },
+  ];
+
+  it.each(newsletterOptInInputs)(
+    "$description",
+    ({ newsletterOptIn, expected }) => {
+      const newInquiry = createInquiry({
+        newsletterOptIn,
+      });
+      const result = contactSchema.safeParse(newInquiry);
+      expect(result.success).toBe(expected);
+    },
+  );
+});
+
+describe("newsletter opt in input transformation", () => {
+  const newsletterInputTransformations = [
+    // valid values
+    {
+      newsletterOptIn: "true",
+      expected: true,
+      description: "converts the string true to a boolean true",
+    },
+    {
+      newsletterOptIn: undefined,
+      expected: false,
+      description: "converts omitted value to a boolean false",
+    },
+  ];
+
+  it.each(newsletterInputTransformations)(
+    "$description",
+    ({ newsletterOptIn, expected }) => {
+      const newInquiry = createInquiry({ newsletterOptIn });
+      const result = contactSchema.safeParse(newInquiry);
+
+      expect(result.data?.newsletterOptIn).toBe(expected);
+    },
+  );
+});

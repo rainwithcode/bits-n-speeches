@@ -95,3 +95,82 @@ describe("name validation", () => {
     expect(result.success).toBe(expected);
   });
 });
+
+describe("email validation", () => {
+  const emailInputs = [
+    // email boundaries
+    { email: "", expected: false, description: "rejects an empty email" },
+    {
+      email: " ",
+      expected: false,
+      description: "rejects a whitespace-only email",
+    },
+    {
+      email: "a@b",
+      expected: false,
+      description: "rejects an email with less than 3 characters",
+    },
+    {
+      email: `${"a".repeat(242)}@example.com`,
+      expected: true,
+      description: "accepts an email with 154 characters",
+    },
+    {
+      email: `${"a".repeat(243)}@example.com`,
+      expected: false,
+      description: "rejects an email with more than 154 characters",
+    },
+    // accepted emails
+    {
+      email: "jane@example.com",
+      expected: true,
+      description: "accepts a standard email",
+    },
+    {
+      email: "jane+test@example.com",
+      expected: true,
+      description: "accepts an email with a plus sign",
+    },
+    {
+      email: "jane@sub.example.com",
+      expected: true,
+      description: "accepts an email with a subdomain",
+    },
+    {
+      email: "jane@sub.example.com",
+      expected: true,
+      description: "accepts an email with a subdomain",
+    },
+    // invalid emails
+    {
+      email: "janedoe",
+      expected: false,
+      description: "rejects an email with a missing @ and domain",
+    },
+    {
+      email: "janedoe@",
+      expected: false,
+      description: "rejects an email with a missing domain",
+    },
+    {
+      email: "@example.com",
+      expected: false,
+      description: "rejects an email with a missing local part",
+    },
+    {
+      email: "jane@example",
+      expected: false,
+      description: "rejects an email with a missing top-level domain",
+    },
+    {
+      email: "jane doe@example.com",
+      expected: false,
+      description: "rejects an email with a whitespace",
+    },
+  ];
+  it.each(emailInputs)("$description", ({ email, expected }) => {
+    const newInquiry = createInquiry({ email: email });
+    const result = contactSchema.safeParse(newInquiry);
+    expect(result.success).toBe(expected);
+  });
+});

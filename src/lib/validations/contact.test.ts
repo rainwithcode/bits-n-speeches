@@ -94,6 +94,12 @@ describe("name validation", () => {
     const result = contactSchema.safeParse(newInquiry);
     expect(result.success).toBe(expected);
   });
+
+  it("trims whitespace in name", () => {
+    const newInquiry = createInquiry({ fullName: " Jane Doe " });
+    const result = contactSchema.safeParse(newInquiry);
+    expect(result?.data?.fullName).toBe("Jane Doe");
+  });
 });
 
 describe("email validation", () => {

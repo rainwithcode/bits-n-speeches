@@ -96,6 +96,12 @@ describe("name validation", () => {
     const result = guestRegistrationSchema.safeParse(newGuest);
     expect(result.success).toBe(expected);
   });
+
+  it("trims whitespace in name", () => {
+    const newGuest = createGuest({ fullName: " Jane Doe " });
+    const result = guestRegistrationSchema.safeParse(newGuest);
+    expect(result?.data?.fullName).toBe("Jane Doe");
+  });
 });
 
 describe("email validation", () => {
@@ -338,6 +344,12 @@ describe("message validation", () => {
     });
     const result = guestRegistrationSchema.safeParse(newGuest);
     expect(result.success).toBe(expected);
+  });
+
+  it("trims whitespace in message", () => {
+    const newGuest = createGuest({ message: " hello " });
+    const result = guestRegistrationSchema.safeParse(newGuest);
+    expect(result?.data?.message).toBe("hello");
   });
 });
 

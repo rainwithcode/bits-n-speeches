@@ -174,3 +174,61 @@ describe("email validation", () => {
     expect(result.success).toBe(expected);
   });
 });
+
+describe("subject validation", () => {
+  const subjectInputs = [
+    // subject boundaries
+    { subject: "", expected: false, description: "rejects an empty subject" },
+    {
+      subject: " ",
+      expected: false,
+      description: "rejects a whitespace-only subject",
+    },
+    {
+      subject: " hello ",
+      expected: true,
+      description: "accepts a subject with surrounding whitespace",
+    },
+    {
+      subject: "A",
+      expected: true,
+      description: "accepts a subject with 1 character",
+    },
+    {
+      subject: "A".repeat(150),
+      expected: true,
+      description: "accepts a subject with 150 characters",
+    },
+    {
+      subject: "A".repeat(151),
+      expected: false,
+      description: "rejects a subject with 151 characters",
+    },
+    // subject characters
+    {
+      subject: "How can I join?",
+      expected: true,
+      description: "accepts a subject with punctuation",
+    },
+    {
+      subject: "Hello, world!",
+      expected: true,
+      description: "accepts a subject with spaces and punctuation",
+    },
+    {
+      subject: "こんにちは",
+      expected: true,
+      description: "accepts a subject with non-English characters",
+    },
+    {
+      subject: "12345",
+      expected: true,
+      description: "accepts a subject with numbers",
+    },
+  ];
+  it.each(subjectInputs)("$description", ({ subject, expected }) => {
+    const newInquiry = createInquiry({ subject });
+    const result = contactSchema.safeParse(newInquiry);
+    expect(result.success).toBe(expected);
+  });
+});

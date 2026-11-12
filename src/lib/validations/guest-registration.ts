@@ -5,16 +5,21 @@ export const guestRegistrationSchema = z.object({
     .string()
     .trim()
     .min(1, "Full name is required")
-    .max(100, "Full name must not exceed 100 characters"),
+    .max(100, "Full name must not exceed 100 characters")
+    .regex(/^[\p{L}\p{M}\s.'’,()\-]+$/u, "Please enter a valid name"),
   email: z
     .email("Please enter a valid email address")
     .min(3, "Email must be at least 3 characters")
     .max(254, "Email must not exceed 254 characters"),
-  phone: z
-    .string()
-    .trim()
-    .max(30, "Phone number must not exceed 30 characters")
-    .optional(),
+  phone: z.preprocess(
+    (value) => (typeof value === "string" ? value.trim() : value),
+    z
+      .string()
+      .max(30, "Phone number must not exceed 30 characters")
+      .regex(/^\+?[0-9\s().-]+$/, "Please enter a valid phone number")
+      .or(z.literal(""))
+      .optional(),
+  ),
   meeting: z.uuid("Please select a meeting"),
   message: z
     .string()

@@ -10,7 +10,8 @@
     "lint": "eslint",
     "typecheck": "pnpm exec tsc --noEmit",
     "prepare": "husky",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -41,6 +42,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "^4.1.12",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
     "eslint-plugin-import": "^2.32.0",
@@ -50,6 +52,6 @@
     "supabase": "^2.122.1",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vitest": "^4.1.11"
+    "vitest": "4.1.12"
   }
 }

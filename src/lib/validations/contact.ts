@@ -5,7 +5,8 @@ export const contactSchema = z.object({
     .string()
     .trim()
     .min(1, "Full name is required")
-    .max(100, "Full name must not exceed 100 characters"),
+    .max(100, "Full name must not exceed 100 characters")
+    .regex(/^[\p{L}\p{M}\s.'’,()\-]+$/u, "Please enter a valid name"),
   email: z
     .email("Please enter a valid email address")
     .min(3, "Email must be at least 3 characters")

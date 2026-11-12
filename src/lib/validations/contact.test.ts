@@ -1,0 +1,401 @@
+import { describe, expect, it } from "vitest";
+
+import type { Inquiry } from "@/types/guest";
+
+import { contactSchema } from "./contact";
+
+const inquiry: Inquiry = {
+  fullName: "Jane Doe",
+  email: "janedoe@email.com",
+  subject: "Need info",
+  message: "Hello",
+  newsletterOptIn: "true",
+};
+
+function createInquiry(input: Partial<Inquiry>) {
+  const newInquiry = { ...inquiry, ...input };
+
+  return newInquiry;
+}
+describe("name validation", () => {
+  const nameInputs = [
+    // name boundaries
+    { name: "", expected: false, description: "rejects an empty name" },
+    {
+      name: " ",
+      expected: false,
+      description: "rejects a whitespace-only name",
+    },
+    {
+      name: "A",
+      expected: true,
+      description: "accepts a name with 1 character",
+    },
+    {
+      name: "A".repeat(100),
+      expected: true,
+      description: "accepts a name with 100 characters",
+    },
+    {
+      name: "A".repeat(101),
+      expected: false,
+      description: "rejects a name with 101 characters",
+    },
+    // name characters
+    {
+      name: "Jane Doe",
+      expected: true,
+      description: "accepts a name with basic Latin letters and spaces",
+    },
+    {
+      name: "Mary-Jane",
+      expected: true,
+      description: "accepts a name with a hyphen",
+    },
+    {
+      name: "O'Connor",
+      expected: true,
+      description: "accepts a name with a straight apostrophe",
+    },
+    {
+      name: "D’Arcy",
+      expected: true,
+      description: "accepts a name with a curly apostrophe",
+    },
+    {
+      name: "José María",
+      expected: true,
+      description: "accepts a name with accented letters",
+    },
+    {
+      name: "José María",
+      expected: true,
+      description: "accepts a name with periods and initials",
+    },
+    {
+      name: "李小龍",
+      expected: true,
+      description: "accepts a name with non-Latin characters",
+    },
+    {
+      name: "Jane123",
+      expected: false,
+      description: "rejects a name with numbers",
+    },
+    {
+      name: "Jane@Doe",
+      expected: false,
+      description: "rejects unsupported special characters",
+    },
+  ];
+
+  it.each(nameInputs)("$description", ({ name, expected }) => {
+    const newInquiry = createInquiry({ fullName: name });
+    const result = contactSchema.safeParse(newInquiry);
+    expect(result.success).toBe(expected);
+  });
+
+  it("trims whitespace in name", () => {
+    const newInquiry = createInquiry({ fullName: " Jane Doe " });
+    const result = contactSchema.safeParse(newInquiry);
+    expect(result?.data?.fullName).toBe("Jane Doe");
+  });
+});
+
+describe("email validation", () => {
+  const emailInputs = [
+    // email boundaries
+    { email: "", expected: false, description: "rejects an empty email" },
+    {
+      email: " ",
+      expected: false,
+      description: "rejects a whitespace-only email",
+    },
+    {
+      email: "a@b",
+      expected: false,
+      description: "rejects an email with less than 3 characters",
+    },
+    {
+      email: `${"a".repeat(242)}@example.com`,
+      expected: true,
+      description: "accepts an email with 154 characters",
+    },
+    {
+      email: `${"a".repeat(243)}@example.com`,
+      expected: false,
+      description: "rejects an email with more than 154 characters",
+    },
+    // accepted emails
+    {
+      email: "jane@example.com",
+      expected: true,
+      description: "accepts a standard email",
+    },
+    {
+      email: "jane+test@example.com",
+      expected: true,
+      description: "accepts an email with a plus sign",
+    },
+    {
+      email: "jane@sub.example.com",
+      expected: true,
+      description: "accepts an email with a subdomain",
+    },
+    {
+      email: "jane@sub.example.com",
+      expected: true,
+      description: "accepts an email with a subdomain",
+    },
+    // invalid emails
+    {
+      email: "janedoe",
+      expected: false,
+      description: "rejects an email with a missing @ and domain",
+    },
+    {
+      email: "janedoe@",
+      expected: false,
+      description: "rejects an email with a missing domain",
+    },
+    {
+      email: "@example.com",
+      expected: false,
+      description: "rejects an email with a missing local part",
+    },
+    {
+      email: "jane@example",
+      expected: false,
+      description: "rejects an email with a missing top-level domain",
+    },
+    {
+      email: "jane doe@example.com",
+      expected: false,
+      description: "rejects an email with a whitespace",
+    },
+  ];
+  it.each(emailInputs)("$description", ({ email, expected }) => {
+    const newInquiry = createInquiry({ email });
+    const result = contactSchema.safeParse(newInquiry);
+    expect(result.success).toBe(expected);
+  });
+});
+
+describe("subject validation", () => {
+  const subjectInputs = [
+    // subject boundaries
+    { subject: "", expected: false, description: "rejects an empty subject" },
+    {
+      subject: " ",
+      expected: false,
+      description: "rejects a whitespace-only subject",
+    },
+    {
+      subject: " hello ",
+      expected: true,
+      description: "accepts a subject with surrounding whitespace",
+    },
+    {
+      subject: "A",
+      expected: true,
+      description: "accepts a subject with 1 character",
+    },
+    {
+      subject: "A".repeat(150),
+      expected: true,
+      description: "accepts a subject with 150 characters",
+    },
+    {
+      subject: "A".repeat(151),
+      expected: false,
+      description: "rejects a subject with 151 characters",
+    },
+    // subject characters
+    {
+      subject: "How can I join?",
+      expected: true,
+      description: "accepts a subject with punctuation",
+    },
+    {
+      subject: "Hello, world!",
+      expected: true,
+      description: "accepts a subject with spaces and punctuation",
+    },
+    {
+      subject: "こんにちは",
+      expected: true,
+      description: "accepts a subject with non-English characters",
+    },
+    {
+      subject: "12345",
+      expected: true,
+      description: "accepts a subject with numbers",
+    },
+  ];
+  it.each(subjectInputs)("$description", ({ subject, expected }) => {
+    const newInquiry = createInquiry({ subject });
+    const result = contactSchema.safeParse(newInquiry);
+    expect(result.success).toBe(expected);
+  });
+
+  it("trims whitespace in subject", () => {
+    const newInquiry = createInquiry({ subject: " hello " });
+    const result = contactSchema.safeParse(newInquiry);
+    expect(result?.data?.subject).toBe("hello");
+  });
+});
+
+describe("message validation", () => {
+  const messageInputs = [
+    // message boundaries
+    {
+      message: "",
+      expected: false,
+      description: "rejects an empty message",
+    },
+    {
+      message: " ",
+      expected: false,
+      description: "rejects a whitespace-only message",
+    },
+    {
+      message: undefined,
+      expected: false,
+      description: "rejects an omitted message",
+    },
+    {
+      message: " hello ",
+      expected: true,
+      description: "accepts a message with surrounding whitespace",
+    },
+    // message characters
+    {
+      message: "Hello",
+      expected: true,
+      description: "accepts a valid message",
+    },
+    {
+      message: "How can I join?",
+      expected: true,
+      description: "accepts a message with punctuation",
+    },
+    {
+      message: "Hello, world!",
+      expected: true,
+      description: "accepts a message with spaces and punctuation",
+    },
+    {
+      message: "こんにちは",
+      expected: true,
+      description: "accepts a message with non-English characters",
+    },
+    {
+      message: "12345",
+      expected: true,
+      description: "accepts a message with numbers",
+    },
+    {
+      message: "A".repeat(2000),
+      expected: true,
+      description: "accepts a message with 2000 characters",
+    },
+    {
+      message: "A".repeat(2001),
+      expected: false,
+      description: "accepts a message with 2001 characters",
+    },
+  ];
+
+  it.each(messageInputs)("$description", ({ message, expected }) => {
+    const newInquiry = createInquiry({
+      message,
+    });
+    const result = contactSchema.safeParse(newInquiry);
+    expect(result.success).toBe(expected);
+  });
+
+  it("trims whitespace in message", () => {
+    const newInquiry = createInquiry({ message: " hello " });
+    const result = contactSchema.safeParse(newInquiry);
+    expect(result?.data?.message).toBe("hello");
+  });
+});
+
+describe("newsletter opt in validation", () => {
+  const newsletterOptInInputs = [
+    // valid values
+    {
+      newsletterOptIn: undefined,
+      expected: true,
+      description: "accepts an empty value",
+    },
+    {
+      newsletterOptIn: "true",
+      expected: true,
+      description: "accepts the string true",
+    },
+    // invalid values
+    {
+      newsletterOptIn: "TRUE",
+      expected: false,
+      description: "rejects the string TRUE",
+    },
+    {
+      newsletterOptIn: "false",
+      expected: false,
+      description: "rejects the string false",
+    },
+    {
+      newsletterOptIn: "yes",
+      expected: false,
+      description: "rejects an unexpected string value",
+    },
+    {
+      newsletterOptIn: true,
+      expected: false,
+      description: "rejects a boolean true",
+    },
+    {
+      newsletterOptIn: false,
+      expected: false,
+      description: "rejects a boolean false",
+    },
+  ];
+
+  it.each(newsletterOptInInputs)(
+    "$description",
+    ({ newsletterOptIn, expected }) => {
+      const newInquiry = createInquiry({
+        newsletterOptIn,
+      });
+      const result = contactSchema.safeParse(newInquiry);
+      expect(result.success).toBe(expected);
+    },
+  );
+});
+
+describe("newsletter opt in input transformation", () => {
+  const newsletterInputTransformations = [
+    // valid values
+    {
+      newsletterOptIn: "true",
+      expected: true,
+      description: "converts the string true to a boolean true",
+    },
+    {
+      newsletterOptIn: undefined,
+      expected: false,
+      description: "converts omitted value to a boolean false",
+    },
+  ];
+
+  it.each(newsletterInputTransformations)(
+    "$description",
+    ({ newsletterOptIn, expected }) => {
+      const newInquiry = createInquiry({ newsletterOptIn });
+      const result = contactSchema.safeParse(newInquiry);
+
+      expect(result.data?.newsletterOptIn).toBe(expected);
+    },
+  );
+});

@@ -169,7 +169,7 @@ describe("email validation", () => {
     },
   ];
   it.each(emailInputs)("$description", ({ email, expected }) => {
-    const newInquiry = createInquiry({ email: email });
+    const newInquiry = createInquiry({ email });
     const result = contactSchema.safeParse(newInquiry);
     expect(result.success).toBe(expected);
   });

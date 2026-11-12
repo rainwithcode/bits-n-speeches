@@ -171,7 +171,7 @@ describe("email validation", () => {
     },
   ];
   it.each(emailInputs)("$description", ({ email, expected }) => {
-    const newGuest = createGuest({ email: email });
+    const newGuest = createGuest({ email });
     const result = guestRegistrationSchema.safeParse(newGuest);
     expect(result.success).toBe(expected);
   });
@@ -281,7 +281,7 @@ describe("meeting validation", () => {
 
   it.each(meetingInputs)("$description", ({ meeting, expected }) => {
     const newGuest = createGuest({
-      meeting: meeting,
+      meeting,
     });
     const result = guestRegistrationSchema.safeParse(newGuest);
     expect(result.success).toBe(expected);
@@ -334,7 +334,7 @@ describe("message validation", () => {
 
   it.each(messageInputs)("$description", ({ message, expected }) => {
     const newGuest = createGuest({
-      message: message,
+      message,
     });
     const result = guestRegistrationSchema.safeParse(newGuest);
     expect(result.success).toBe(expected);
@@ -386,7 +386,7 @@ describe("newsletter opt in validation", () => {
     "$description",
     ({ newsletterOptIn, expected }) => {
       const newGuest = createGuest({
-        newsletterOptIn: newsletterOptIn,
+        newsletterOptIn,
       });
       const result = guestRegistrationSchema.safeParse(newGuest);
       expect(result.success).toBe(expected);
@@ -412,7 +412,7 @@ describe("newsletter opt in input transformation", () => {
   it.each(newsletterInputTransformations)(
     "$description",
     ({ newsletterOptIn, expected }) => {
-      const newGuest = createGuest({ newsletterOptIn: newsletterOptIn });
+      const newGuest = createGuest({ newsletterOptIn });
       const result = guestRegistrationSchema.safeParse(newGuest);
 
       expect(result.data?.newsletterOptIn).toBe(expected);

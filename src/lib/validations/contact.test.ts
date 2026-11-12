@@ -238,3 +238,79 @@ describe("subject validation", () => {
     expect(result?.data?.subject).toBe("hello");
   });
 });
+
+describe("message validation", () => {
+  const messageInputs = [
+    // message boundaries
+    {
+      message: "",
+      expected: false,
+      description: "rejects an empty message",
+    },
+    {
+      message: " ",
+      expected: false,
+      description: "rejects a whitespace-only message",
+    },
+    {
+      message: undefined,
+      expected: false,
+      description: "rejects an omitted message",
+    },
+    {
+      message: " hello ",
+      expected: true,
+      description: "accepts a message with surrounding whitespace",
+    },
+    // message characters
+    {
+      message: "Hello",
+      expected: true,
+      description: "accepts a valid message",
+    },
+    {
+      message: "How can I join?",
+      expected: true,
+      description: "accepts a message with punctuation",
+    },
+    {
+      message: "Hello, world!",
+      expected: true,
+      description: "accepts a message with spaces and punctuation",
+    },
+    {
+      message: "こんにちは",
+      expected: true,
+      description: "accepts a message with non-English characters",
+    },
+    {
+      message: "12345",
+      expected: true,
+      description: "accepts a message with numbers",
+    },
+    {
+      message: "A".repeat(2000),
+      expected: true,
+      description: "accepts a message with 2000 characters",
+    },
+    {
+      message: "A".repeat(2001),
+      expected: false,
+      description: "accepts a message with 2001 characters",
+    },
+  ];
+
+  it.each(messageInputs)("$description", ({ message, expected }) => {
+    const newInquiry = createInquiry({
+      message,
+    });
+    const result = contactSchema.safeParse(newInquiry);
+    expect(result.success).toBe(expected);
+  });
+
+  it("trims whitespace in message", () => {
+    const newInquiry = createInquiry({ message: " hello " });
+    const result = contactSchema.safeParse(newInquiry);
+    expect(result?.data?.message).toBe("hello");
+  });
+});

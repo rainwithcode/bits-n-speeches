@@ -1,16 +1,11 @@
 type DateFormat = "short" | "long";
 type DateTimeFormat = "date" | "time" | "datetime";
 
-type FormatDateTimeOptions = {
+export type FormatDateTimeOptions = {
   format?: DateTimeFormat;
   dateFormat?: DateFormat;
   timeZone?: string;
   includeTimeZone?: boolean;
-};
-
-export type FormatDateProps = {
-  date: Date;
-  format?: DateFormat;
 };
 
 const DEFAULT_TIME_ZONE = "America/Los_Angeles";

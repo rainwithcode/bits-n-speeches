@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import MeetingAgendaPDF from "@/components/pdf/MeetingAgendaPDF";
 import { siteConfig } from "@/data/site-config";
-import { formatDate, formatDateTime } from "@/lib/meetings/format";
+import { formatDateTime } from "@/lib/meetings/format";
 import {
   getLocation,
   getMeetingById,
@@ -26,9 +26,9 @@ export async function GET(
   const startsAt = new Date(meeting.starts_at);
   const endsAt = getMeetingEndsAt(startsAt, meeting.ends_at);
 
-  const formattedDate = formatDate({
-    date: startsAt,
-    format: "short",
+  const formattedDate = formatDateTime(startsAt, {
+    format: "date",
+    dateFormat: "short",
   });
 
   const meetingRoles = await getMeetingRoles(formattedDate);
@@ -38,7 +38,7 @@ export async function GET(
   const pdf = await renderToBuffer(
     <MeetingAgendaPDF
       title={meeting.title}
-      date={formatDate({ date: startsAt, format: "long" })}
+      date={formatDateTime(startsAt, { format: "date" })}
       time={`${formatDateTime(startsAt, { format: "time" })} – ${formatDateTime(
         endsAt,
         {

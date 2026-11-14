@@ -1,6 +1,6 @@
 type DateFormat = "short" | "long";
 
-type FormatDateOptions = {
+export type FormatDateOptions = {
   format?: DateFormat;
   timeZone?: string;
 };
@@ -33,7 +33,7 @@ export function formatDate(
   }).format(date);
 }
 
-type FormatTimeOptions = {
+export type FormatTimeOptions = {
   timeZone?: string;
   includeTimeZone?: boolean;
 };

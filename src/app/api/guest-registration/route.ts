@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/site-config";
 import { emailTheme } from "@/lib/email/emailTheme";
 import { escapeHtml } from "@/lib/email/escapeHtml";
 import { sendEmail } from "@/lib/email/sendEmail";
-import { formatDateTime } from "@/lib/meetings/format";
+import { formatDate, formatTime } from "@/lib/meetings/format";
 import { getMeetingById, getMeetingEndsAt } from "@/lib/meetings/meetings";
 import { subscribeToNewsletter } from "@/lib/newsletter/subscribe";
 import { createGuestRateLimiter } from "@/lib/redis/rate-limit";
@@ -95,16 +95,11 @@ export async function POST(request: Request) {
   const { data, error } = await sendEmail({
     to: [siteConfig.contact.email.address],
     replyTo: [email],
-    subject: `[BNS] Guest Registration: ${preferredMeeting.title} @ ${formatDateTime(
+    subject: `[BNS] Guest Registration: ${preferredMeeting.title} @ ${formatDate(
       startsAt,
-      { format: "date" },
-    )} | ${formatDateTime(startsAt, { format: "time" })}–${formatDateTime(
-      endsAt,
-      {
-        format: "time",
-        includeTimeZone: true,
-      },
-    )}`,
+    )} | ${formatTime(startsAt)}–${formatTime(endsAt, {
+      includeTimeZone: true,
+    })}`,
     html: `
     <h2>New Guest Registration</h2>
 
@@ -121,11 +116,8 @@ export async function POST(request: Request) {
     <h3>Meeting</h3>
     <p>
       <strong>${safeMeetingTitle}</strong><br />
-      ${formatDateTime(startsAt, { format: "date" })}<br />
-      ${formatDateTime(startsAt, { format: "time" })} – ${formatDateTime(
-        endsAt,
-        { format: "time", includeTimeZone: true },
-      )}
+      ${formatDate(startsAt)}<br />
+      ${formatTime(startsAt)} – ${formatTime(endsAt, { includeTimeZone: true })}
     </p>
 
     <h3>Message</h3>
@@ -151,16 +143,11 @@ export async function POST(request: Request) {
     await sendEmail({
       to: [email],
       replyTo: [siteConfig.contact.email.address],
-      subject: `[BNS] You're registered: ${preferredMeeting.title} @ ${formatDateTime(
+      subject: `[BNS] You're registered: ${preferredMeeting.title} @ ${formatDate(
         startsAt,
-        { format: "date" },
-      )} | ${formatDateTime(startsAt, { format: "time" })}–${formatDateTime(
-        endsAt,
-        {
-          format: "time",
-          includeTimeZone: true,
-        },
-      )}`,
+      )} | ${formatTime(startsAt)}–${formatTime(endsAt, {
+        includeTimeZone: true,
+      })}`,
       html: `
     <h2>You're registered!</h2>
 
@@ -175,11 +162,10 @@ export async function POST(request: Request) {
 
     <p>
       <strong>${safeMeetingTitle}</strong><br />
-      ${formatDateTime(startsAt, { format: "date" })}<br />
-      ${formatDateTime(startsAt, { format: "time" })} – ${formatDateTime(
-        endsAt,
-        { format: "time", includeTimeZone: true },
-      )}
+      ${formatDate(startsAt)}<br />
+      ${formatTime(startsAt)} – ${formatTime(endsAt, {
+        includeTimeZone: true,
+      })}
     </p>
 
   <p style="margin: 24px 0;">

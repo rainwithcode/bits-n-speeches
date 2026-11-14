@@ -1,71 +1,61 @@
 type DateFormat = "short" | "long";
-type DateTimeFormat = "date" | "time" | "datetime";
 
-export type FormatDateTimeOptions = {
-  format?: DateTimeFormat;
-  dateFormat?: DateFormat;
+type FormatDateOptions = {
+  format?: DateFormat;
+  timeZone?: string;
+};
+
+export function formatDate(
+  value: string | Date,
+  { format = "long", timeZone = "America/Los_Angeles" }: FormatDateOptions = {},
+): string {
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) return "Invalid date";
+
+  const options: Intl.DateTimeFormatOptions =
+    format === "short"
+      ? {
+          month: "numeric",
+          day: "numeric",
+          year: "numeric",
+        }
+      : {
+          weekday: "long",
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        };
+
+  return new Intl.DateTimeFormat("en-US", {
+    ...options,
+    timeZone,
+  }).format(date);
+}
+
+type FormatTimeOptions = {
   timeZone?: string;
   includeTimeZone?: boolean;
 };
 
-const DEFAULT_TIME_ZONE = "America/Los_Angeles";
-const LOCALE = "en-US";
-
-export function formatDateTime(
-  value: string | Date | null | undefined,
+export function formatTime(
+  value: string | Date,
   {
-    format = "datetime",
-    dateFormat = "long",
-    timeZone = DEFAULT_TIME_ZONE,
+    timeZone = "America/Los_Angeles",
     includeTimeZone = false,
-  }: FormatDateTimeOptions = {},
-) {
-  if (!value) return "TBD";
+  }: FormatTimeOptions = {},
+): string {
+  const date = new Date(value);
 
-  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) return "Invalid date";
 
-  if (Number.isNaN(date.getTime())) {
-    return "Invalid date";
-  }
-
-  const baseOptions: Intl.DateTimeFormatOptions = {
+  return new Intl.DateTimeFormat("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
     timeZone,
     ...(includeTimeZone && { timeZoneName: "short" }),
-  };
-
-  const options: Intl.DateTimeFormatOptions = {
-    ...baseOptions,
-    ...(format === "time"
-      ? {
-          hour: "numeric",
-          minute: "2-digit",
-          hour12: true,
-        }
-      : format === "date"
-        ? dateFormat === "short"
-          ? {
-              month: "numeric",
-              day: "numeric",
-              year: "numeric",
-            }
-          : {
-              weekday: "long",
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            }
-        : {
-            weekday: "long",
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-            hour: "numeric",
-            minute: "2-digit",
-            hour12: true,
-          }),
-  };
-
-  return new Intl.DateTimeFormat(LOCALE, options).format(date);
+  }).format(date);
 }
 
 export function formatMeetingDateTime(

@@ -2,7 +2,7 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { formatDateTime } from "@/lib/meetings/format";
+import { formatDate } from "@/lib/meetings/format";
 import { getMeetingById } from "@/lib/meetings/meetings";
 import { getMeetingRoles } from "@/lib/meetings/roles";
 
@@ -23,9 +23,8 @@ export default async function MeetingDetailPage({
     notFound();
   }
   const meetingRoles = await getMeetingRoles(
-    formatDateTime(new Date(meeting.starts_at), {
-      format: "date",
-      dateFormat: "short",
+    formatDate(new Date(meeting.starts_at), {
+      format: "short",
     }),
   );
 

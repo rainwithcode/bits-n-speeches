@@ -1,6 +1,6 @@
 import { Calendar, Clock, MapPin } from "lucide-react";
 
-import { formatDateTime } from "@/lib/meetings/format";
+import { formatDate, formatTime } from "@/lib/meetings/format";
 import { getLocation, getMeetingEndsAt } from "@/lib/meetings/meetings";
 import type { Meeting } from "@/types/supabase";
 
@@ -29,8 +29,7 @@ export const meetingDetailItems = [
   {
     label: "Date",
     icon: Calendar,
-    getValue: (meeting: Meeting) =>
-      formatDateTime(new Date(meeting.starts_at), { format: "date" }),
+    getValue: (meeting: Meeting) => formatDate(new Date(meeting.starts_at)),
   },
   {
     label: "Time",
@@ -39,10 +38,9 @@ export const meetingDetailItems = [
       const startsAt = new Date(meeting.starts_at);
       const endsAt = new Date(getMeetingEndsAt(startsAt, meeting.ends_at));
 
-      return `${formatDateTime(startsAt, { format: "time" })} – ${formatDateTime(
-        endsAt,
-        { format: "time", includeTimeZone: true },
-      )}`;
+      return `${formatTime(startsAt)} – ${formatTime(endsAt, {
+        includeTimeZone: true,
+      })}`;
     },
   },
   {

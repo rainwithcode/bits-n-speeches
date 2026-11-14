@@ -41,6 +41,12 @@ describe("format date", () => {
       expected: "Thursday, December 31, 2026",
       description: "returns dates at the end of the year",
     },
+    {
+      date: new Date("2026-12-32T10:00:00-08:00"),
+      dateTimeOptions: { format: "date", dateFormat: "long" },
+      expected: "Invalid date",
+      description: "returns invalid date when day is invalid",
+    },
   ];
 
   it.each(inputs)("$description", ({ expected, date, dateTimeOptions }) => {

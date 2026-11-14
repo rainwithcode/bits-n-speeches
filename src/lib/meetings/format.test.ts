@@ -81,6 +81,12 @@ describe("format time", () => {
       expected: "10:00 AM",
       description: "ignores seconds when formatting time",
     },
+    {
+      date: new Date("2026-11-12T25:00:59-08:00"),
+      dateTimeOptions: { format: "time" },
+      expected: "Invalid date",
+      description: "returns invalid date when time is invalid",
+    },
   ];
 
   it.each(inputs)("$description", ({ expected, date, dateTimeOptions }) => {

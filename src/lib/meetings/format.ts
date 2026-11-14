@@ -7,7 +7,7 @@ type FormatDateTimeOptions = {
   includeTimeZone?: boolean;
 };
 
-type FormatDateProps = {
+export type FormatDateProps = {
   date: Date;
   format?: "short" | "long";
 };

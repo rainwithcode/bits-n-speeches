@@ -1,90 +1,60 @@
 type DateFormat = "short" | "long";
-type DateTimeFormat = "date" | "time" | "datetime";
 
-type FormatDateTimeOptions = {
-  format?: DateTimeFormat;
+export type FormatDateOptions = {
+  format?: DateFormat;
   timeZone?: string;
-  includeTimeZone?: boolean;
 };
 
-type FormatDateProps = {
-  date: Date;
-  format?: "short" | "long";
-};
+export function formatDate(
+  value: string | Date,
+  { format = "long", timeZone = "America/Los_Angeles" }: FormatDateOptions = {},
+): string {
+  const date = new Date(value);
 
-export function formatDate({
-  date,
-  format = "short",
-}: FormatDateProps): string {
+  if (Number.isNaN(date.getTime())) return "Invalid date";
+
   const options: Intl.DateTimeFormatOptions =
-    format === "long"
+    format === "short"
       ? {
-          weekday: "long",
-          month: "long",
+          month: "numeric",
           day: "numeric",
           year: "numeric",
         }
       : {
-          month: "numeric",
+          weekday: "long",
+          month: "long",
           day: "numeric",
           year: "numeric",
         };
 
   return new Intl.DateTimeFormat("en-US", {
     ...options,
-    timeZone: "America/Los_Angeles",
+    timeZone,
   }).format(date);
 }
 
-export function formatDateTime(
-  value: string | Date | null | undefined,
+export type FormatTimeOptions = {
+  timeZone?: string;
+  includeTimeZone?: boolean;
+};
+
+export function formatTime(
+  value: string | Date,
   {
-    format = "datetime",
     timeZone = "America/Los_Angeles",
     includeTimeZone = false,
-  }: FormatDateTimeOptions = {},
-) {
-  if (!value) return "TBD";
-
+  }: FormatTimeOptions = {},
+): string {
   const date = new Date(value);
 
-  if (Number.isNaN(date.getTime())) {
-    return "Invalid date";
-  }
-
-  const baseOptions: Intl.DateTimeFormatOptions = {
-    timeZone,
-    ...(includeTimeZone && { timeZoneName: "short" }),
-  };
-
-  if (format === "date") {
-    return new Intl.DateTimeFormat("en-US", {
-      ...baseOptions,
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }).format(date);
-  }
-
-  if (format === "time") {
-    return new Intl.DateTimeFormat("en-US", {
-      ...baseOptions,
-      hour: "numeric",
-      minute: "2-digit",
-      hour12: true,
-    }).format(date);
-  }
+  if (Number.isNaN(date.getTime())) return "Invalid date";
 
   return new Intl.DateTimeFormat("en-US", {
-    ...baseOptions,
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
     hour: "numeric",
     minute: "2-digit",
     hour12: true,
+    timeZone,
+    ...(includeTimeZone && { timeZoneName: "short" }),
   }).format(date);
 }
 

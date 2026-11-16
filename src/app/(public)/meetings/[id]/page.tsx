@@ -23,7 +23,9 @@ export default async function MeetingDetailPage({
     notFound();
   }
   const meetingRoles = await getMeetingRoles(
-    formatDate({ date: new Date(meeting.starts_at) }),
+    formatDate(new Date(meeting.starts_at), {
+      format: "short",
+    }),
   );
 
   return (

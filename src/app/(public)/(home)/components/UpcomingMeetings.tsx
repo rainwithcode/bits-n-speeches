@@ -3,7 +3,7 @@ import { unstable_noStore as noStore } from "next/cache";
 
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import { formatDateTime } from "@/lib/meetings/format";
+import { formatDate, formatTime } from "@/lib/meetings/format";
 import {
   getLocation,
   getMeetingEndsAt,
@@ -46,17 +46,16 @@ export default async function UpcomingMeetings() {
             </h3>
             <IconText icon={Calendar} variant="accent">
               <time dateTime={nextMeetingStartsAt.toISOString()}>
-                {formatDateTime(nextMeetingStartsAt, { format: "date" })}
+                {formatDate(nextMeetingStartsAt)}
               </time>
             </IconText>
             <IconText icon={Clock} variant="accent">
               <time dateTime={nextMeetingStartsAt.toISOString()}>
-                {formatDateTime(nextMeetingStartsAt, { format: "time" })}
+                {formatTime(nextMeetingStartsAt)}
               </time>{" "}
               –{" "}
               <time dateTime={nextMeetingEndsAt.toISOString()}>
-                {formatDateTime(nextMeetingEndsAt, {
-                  format: "time",
+                {formatTime(nextMeetingEndsAt, {
                   includeTimeZone: true,
                 })}
               </time>
@@ -100,7 +99,7 @@ export default async function UpcomingMeetings() {
                   dateTime={starts_at.toISOString()}
                   className="text-base md:text-base"
                 >
-                  {formatDateTime(starts_at, { format: "date" })}
+                  {formatDate(starts_at)}
                 </time>
                 <div className="flex gap-4 mt-4">
                   <Button href={`/meetings/${meeting.id}`}>

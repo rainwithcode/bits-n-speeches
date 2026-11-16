@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   formatDate,
   FormatDateOptions,
+  formatMeetingDateTime,
   formatTime,
   FormatTimeOptions,
 } from "./format";
@@ -103,5 +104,39 @@ describe("format time", () => {
   it.each(inputs)("$description", ({ expected, date, formatTimeOptions }) => {
     const result = formatTime(date, formatTimeOptions);
     expect(result).toBe(expected);
+  });
+});
+
+describe("format date time", () => {
+  const inputs = [
+    {
+      date: new Date("2026-11-12T10:00:00-08:00"),
+      expected: "Nov 12 • 10:00 AM PST",
+      description: "returns a formatted date time",
+    },
+    {
+      date: new Date("2026-11-12T10:00:10-08:00"),
+      expected: "Nov 12 • 10:00 AM PST",
+      description: "ignores seconds",
+    },
+    {
+      date: new Date("2026-12-31T24:00:00-08:00"),
+      expected: "Jan 1 • 12:00 AM PST",
+      description: "returns dates at the beginning of the year",
+    },
+    {
+      date: new Date("2026-12-31T23:59:00-08:00"),
+      expected: "Dec 31 • 11:59 PM PST",
+      description: "returns dates at the end of the year",
+    },
+    {
+      date: new Date("2026-12-32T10:00:00-08:00"),
+      expected: "Invalid date",
+      description: "returns invalid date when day is invalid",
+    },
+  ];
+
+  it.each(inputs)("$description", ({ date, expected }) => {
+    expect(formatMeetingDateTime(date)).toEqual(expected);
   });
 });

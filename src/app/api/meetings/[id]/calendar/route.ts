@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { siteConfig } from "@/data/site-config";
-import createCalendarEvent from "@/lib/calendar/createCalendarEvent";
+import createCalendarEvent from "@/lib/calendar/create-calendar-event";
 import { getMeetingById } from "@/lib/meetings/meetings";
 
 type RouteProps = {

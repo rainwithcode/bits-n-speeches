@@ -33,7 +33,7 @@ const expectedCalendarEvent = (
     dtstart: string;
     dtend: string;
     summary: string;
-    description: string;
+    description: string | null;
   }> = {},
 ) => {
   const event = {
@@ -72,7 +72,7 @@ const expectedCalendarEvent = (
 
 describe("create calendar event", () => {
   beforeEach(() => {
-    vi.useFakeTimers();
+    vi.useFakeTimers({ toFake: ["Date"] });
     vi.setSystemTime(new Date("2026-11-16T04:00:00Z"));
   });
 
@@ -87,9 +87,9 @@ describe("create calendar event", () => {
       description: "returns a calendar event",
     },
     {
-      meeting: createMeeting({ description: "" }),
-      expected: expectedCalendarEvent({ description: "" }),
-      description: "handles a meeting with an empty description",
+      meeting: createMeeting({ description: null }),
+      expected: expectedCalendarEvent({ description: null }),
+      description: "handles a meeting without a description",
     },
   ];
 

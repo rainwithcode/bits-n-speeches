@@ -4,8 +4,8 @@ import { Meeting } from "@/types/supabase";
 
 import { getMeetingEndsAt } from "../meetings/meetings";
 
-import { escapeIcsText } from "./escapeIcsText";
-import { formatIcsDate } from "./formatIscDate";
+import { escapeIcsText } from "./escape-ics-text";
+import { formatIcsDate } from "./format-isc-date";
 
 export default function createCalendarEvent(meeting: Meeting) {
   const startsAt = new Date(meeting.starts_at);

@@ -20,20 +20,46 @@ const meeting: Meeting = {
   updated_at: "2026-11-16T10:00:00-08:00",
 };
 
-const calendarEvent = [
-  "BEGIN:VCALENDAR",
-  "VERSION:2.0",
-  `PRODID:-//${siteConfig.name}//Meeting Calendar//EN`,
-  "BEGIN:VEVENT",
-  `UID:meeting-123@${siteConfig.domain}`,
-  "DTSTAMP:20261116T040000Z",
-  "DTSTART:20261116T180000Z",
-  "DTEND:20261116T200000Z",
-  `SUMMARY:${siteConfig.name} (${meeting.title})`,
-  `DESCRIPTION:Weekly Toastmasters meeting.\\nJoin on Zoom: ${meetingInfo.meetingUrl}`,
-  "END:VEVENT",
-  "END:VCALENDAR",
-].join("\r\n");
+function createMeeting(input: Partial<Meeting>) {
+  const newMeeting = { ...meeting, ...input };
+
+  return newMeeting;
+}
+
+const expectedCalendarEvent = (
+  overrides: Partial<{
+    uid: string;
+    dtstamp: string;
+    dtstart: string;
+    dtend: string;
+    summary: string;
+    description: string;
+  }> = {},
+) => {
+  const event = {
+    uid: `meeting-123@${siteConfig.domain}`,
+    dtstamp: "20261116T040000Z",
+    dtstart: "20261116T180000Z",
+    dtend: "20261116T200000Z",
+    summary: `${siteConfig.name} (${meeting.title})`,
+    description: `Weekly Toastmasters meeting.\\nJoin on Zoom: ${meetingInfo.meetingUrl}`,
+  };
+
+  return [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    `PRODID:-//${siteConfig.name}//Meeting Calendar//EN`,
+    "BEGIN:VEVENT",
+    `UID:${event.uid}`,
+    `DTSTAMP:${event.dtstamp}`,
+    `DTSTART:${event.dtstart}`,
+    `DTEND:${event.dtend}`,
+    `SUMMARY:${event.summary}`,
+    `DESCRIPTION:${event.description}`,
+    "END:VEVENT",
+    "END:VCALENDAR",
+  ].join("\r\n");
+};
 
 describe("create calendar event", () => {
   beforeEach(() => {
@@ -48,7 +74,7 @@ describe("create calendar event", () => {
   const meetingInputs = [
     {
       meeting: meeting,
-      expected: calendarEvent,
+      expected: expectedCalendarEvent(),
       description: "returns a calendar event",
     },
   ];

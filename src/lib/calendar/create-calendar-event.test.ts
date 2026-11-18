@@ -42,8 +42,17 @@ const expectedCalendarEvent = (
     dtstart: "20261116T180000Z",
     dtend: "20261116T200000Z",
     summary: `${siteConfig.name} (${meeting.title})`,
-    description: `Weekly Toastmasters meeting.\\nJoin on Zoom: ${meetingInfo.meetingUrl}`,
+    description: meeting.description,
+    ...overrides,
   };
+
+  const description = [
+    event.description,
+    "",
+    `Join on Zoom: ${meetingInfo.meetingUrl}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
 
   return [
     "BEGIN:VCALENDAR",
@@ -55,7 +64,7 @@ const expectedCalendarEvent = (
     `DTSTART:${event.dtstart}`,
     `DTEND:${event.dtend}`,
     `SUMMARY:${event.summary}`,
-    `DESCRIPTION:${event.description}`,
+    `DESCRIPTION:${description.replace(/\n/g, "\\n")}`,
     "END:VEVENT",
     "END:VCALENDAR",
   ].join("\r\n");
@@ -76,6 +85,11 @@ describe("create calendar event", () => {
       meeting: meeting,
       expected: expectedCalendarEvent(),
       description: "returns a calendar event",
+    },
+    {
+      meeting: createMeeting({ description: "" }),
+      expected: expectedCalendarEvent({ description: "" }),
+      description: "handles a meeting with an empty description",
     },
   ];
 

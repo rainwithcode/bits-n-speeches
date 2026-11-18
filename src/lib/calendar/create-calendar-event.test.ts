@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { meetingInfo } from "@/data/meetings";
 import { siteConfig } from "@/data/site-config";
@@ -20,30 +20,35 @@ const meeting: Meeting = {
   updated_at: "2026-11-16T10:00:00-08:00",
 };
 
-const expectedCalendarEvent = [
+const calendarEvent = [
   "BEGIN:VCALENDAR",
   "VERSION:2.0",
   `PRODID:-//${siteConfig.name}//Meeting Calendar//EN`,
   "BEGIN:VEVENT",
   `UID:meeting-123@${siteConfig.domain}`,
-  `DTSTAMP:${new Date()
-    .toISOString()
-    .replace(/[-:]/g, "")
-    .replace(/\.\d{3}Z$/, "Z")}`,
+  "DTSTAMP:20261116T040000Z",
   "DTSTART:20261116T180000Z",
   "DTEND:20261116T200000Z",
-  `SUMMARY:${`${siteConfig.name} (${meeting.title})`}`,
+  `SUMMARY:${siteConfig.name} (${meeting.title})`,
   `DESCRIPTION:Weekly Toastmasters meeting.\\nJoin on Zoom: ${meetingInfo.meetingUrl}`,
   "END:VEVENT",
   "END:VCALENDAR",
 ].join("\r\n");
 
-
 describe("create calendar event", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-11-16T04:00:00Z"));
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   const meetingInputs = [
     {
       meeting: meeting,
-      expected: expectedCalendarEvent,
+      expected: calendarEvent,
       description: "returns a calendar event",
     },
   ];

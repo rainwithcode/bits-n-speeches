@@ -15,9 +15,30 @@ describe("escape ics text", () => {
       description: "replaces \\ with \\\\",
     },
     {
-      input: "Meeting\\Notes",
-      expected: "Meeting\\\\Notes",
-      description: "replaces \\ with \\\\",
+      input:
+        "I have a big exam tomorrow; I am studying late tonight to prepare.",
+      expected:
+        "I have a big exam tomorrow\\; I am studying late tonight to prepare.",
+      description: "replaces ; with \\;",
+    },
+    {
+      input: "Hello, World",
+      expected: "Hello\\, World",
+      description: "replaces , with \\,",
+    },
+    {
+      input: `Weekly Toastmasters meeting.
+Agenda:
+- Prepared speeches
+- Evaluations`,
+      expected:
+        "Weekly Toastmasters meeting.\\nAgenda:\\n- Prepared speeches\\n- Evaluations",
+      description: "replaces new lines with \\n,",
+    },
+    {
+      input: "Meeting\\\\Notes",
+      expected: "Meeting\\\\\\\\Notes",
+      description: "escapes multiple occurrences of the same character",
     },
   ];
 

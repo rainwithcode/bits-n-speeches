@@ -11,6 +11,7 @@ import { subscribeToNewsletter } from "@/lib/newsletter/subscribe";
 import { createGuestRateLimiter } from "@/lib/redis/rate-limit";
 import { guestRegistrationSchema } from "@/lib/validations/guest-registration";
 import validateFormData from "@/lib/validations/validate-form-data";
+import { getClientIp } from "@/utils/get-client-ip";
 
 export async function POST(request: Request) {
   const rateLimiter = createGuestRateLimiter();

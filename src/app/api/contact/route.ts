@@ -7,6 +7,7 @@ import { subscribeToNewsletter } from "@/lib/newsletter/subscribe";
 import { createContactRateLimiter } from "@/lib/redis/rate-limit";
 import { contactSchema } from "@/lib/validations/contact";
 import validateFormData from "@/lib/validations/validate-form-data";
+import { getClientIp } from "@/utils/get-client-ip";
 
 export async function POST(request: Request) {
   const rateLimiter = createContactRateLimiter();

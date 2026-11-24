@@ -1,5 +1,6 @@
 import { meetingInfo } from "@/data/meetings";
 import { Database } from "@/types/supabase";
+import { getStartOfDayInLA } from "@/utils/date";
 
 import { createClient } from "../supabase/server";
 
@@ -22,11 +23,13 @@ export async function getMeetingById(id: string) {
 export async function getUpcomingMeetings(limit = 3) {
   const supabase = await createClient();
 
+  const startOfDayLA = getStartOfDayInLA();
+
   const { data, error } = await supabase
     .from("meetings")
     .select("*")
     .eq("is_published", true)
-    .gte("starts_at", new Date().toISOString())
+    .gte("starts_at", startOfDayLA)
     .order("starts_at", { ascending: true })
     .limit(limit);
 

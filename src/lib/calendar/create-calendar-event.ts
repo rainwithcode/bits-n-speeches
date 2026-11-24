@@ -2,7 +2,7 @@ import { meetingInfo } from "@/data/meetings";
 import { siteConfig } from "@/data/site-config";
 import { Meeting } from "@/types/supabase";
 
-import { getMeetingEndsAt } from "../meetings/meetings";
+import { getMeetingEndsAt } from "../meetings/helpers";
 
 import { escapeIcsText } from "./escape-ics-text";
 import { formatIcsDate } from "./format-isc-date";

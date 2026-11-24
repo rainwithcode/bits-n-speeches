@@ -1,7 +1,7 @@
 import { Calendar, Clock, MapPin } from "lucide-react";
 
 import { formatDate, formatTime } from "@/lib/meetings/format";
-import { getLocation, getMeetingEndsAt } from "@/lib/meetings/meetings";
+import { getLocation, getMeetingEndsAt } from "@/lib/meetings/helpers";
 import type { Meeting } from "@/types/supabase";
 
 export const meetingInfo = {

@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import { getUpcomingMeetings } from "@/lib/meetings/meetings";
+import { getUpcomingMeetings } from "@/lib/meetings/queries";
 
 import PageHero from "../shared/PageHero";
 

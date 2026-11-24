@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import { siteConfig } from "@/data/site-config";
 import createCalendarEvent from "@/lib/calendar/create-calendar-event";
-import { getMeetingById } from "@/lib/meetings/meetings";
+import { getMeetingById } from "@/lib/meetings/queries";
 
 type RouteProps = {
   params: Promise<{ id: string }>;

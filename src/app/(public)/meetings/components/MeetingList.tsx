@@ -1,6 +1,6 @@
 import { unstable_noStore as noStore } from "next/cache";
 
-import { getUpcomingMeetings } from "@/lib/meetings/meetings";
+import { getUpcomingMeetings } from "@/lib/meetings/queries";
 
 import SectionHeading from "../../shared/SectionHeading";
 

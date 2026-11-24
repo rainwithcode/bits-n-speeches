@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { formatDate } from "@/lib/meetings/format";
-import { getMeetingById } from "@/lib/meetings/meetings";
+import { getMeetingById } from "@/lib/meetings/queries";
 import { getMeetingRoles } from "@/lib/meetings/roles";
 
 import MeetingDetail from "../components/MeetingDetail";

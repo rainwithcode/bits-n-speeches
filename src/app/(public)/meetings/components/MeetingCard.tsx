@@ -4,7 +4,7 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import IconText from "@/components/ui/IconText";
 import { formatMeetingDateTime } from "@/lib/meetings/format";
-import { getLocation } from "@/lib/meetings/meetings";
+import { getLocation } from "@/lib/meetings/helpers";
 import { Meeting } from "@/types/supabase";
 
 import { getMembershipUrl } from "../../data/nav-links";

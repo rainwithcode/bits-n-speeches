@@ -4,11 +4,8 @@ import { unstable_noStore as noStore } from "next/cache";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { formatDate, formatTime } from "@/lib/meetings/format";
-import {
-  getLocation,
-  getMeetingEndsAt,
-  getUpcomingMeetings,
-} from "@/lib/meetings/meetings";
+import { getLocation, getMeetingEndsAt } from "@/lib/meetings/helpers";
+import { getUpcomingMeetings } from "@/lib/meetings/queries";
 
 import IconText from "../../../../components/ui/IconText";
 import { getMembershipUrl } from "../../data/nav-links";

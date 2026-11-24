@@ -4,11 +4,8 @@ import { notFound } from "next/navigation";
 import MeetingAgendaPDF from "@/components/pdf/MeetingAgendaPDF";
 import { siteConfig } from "@/data/site-config";
 import { formatDate, formatTime } from "@/lib/meetings/format";
-import {
-  getLocation,
-  getMeetingById,
-  getMeetingEndsAt,
-} from "@/lib/meetings/meetings";
+import { getLocation, getMeetingEndsAt } from "@/lib/meetings/helpers";
+import { getMeetingById } from "@/lib/meetings/queries";
 import { getMeetingRoles } from "@/lib/meetings/roles";
 
 export async function GET(
